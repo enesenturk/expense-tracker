@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:app="clr-namespace:ExpenseTracker.MobileApp"
     xmlns:buttonbehaviour="clr-namespace:ExpenseTracker.MobileApp.Behaviors"
+    
     x:Class="ExpenseTracker.MobileApp.App">
 
     <Application.Resources>

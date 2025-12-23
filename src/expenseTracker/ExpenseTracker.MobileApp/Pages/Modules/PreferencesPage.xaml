@@ -1,0 +1,12 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpenseTracker.MobileApp.Pages.Modules.PreferencesPage"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="Preferences" FontSize="28" HorizontalOptions="Center" TextColor="#512BD4"/>
+
+        <Label Text="Preferences sayfası içerik alanı" HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+
+</ContentPage>

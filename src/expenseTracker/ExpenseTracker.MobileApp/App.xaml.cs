@@ -1,4 +1,7 @@
-﻿namespace ExpenseTracker.MobileApp
+﻿using ExpenseTracker.MobileApp.Pages;
+using ExpenseTracker.MobileApp.Pages.Modules;
+
+namespace ExpenseTracker.MobileApp
 {
 	public partial class App : Application
 	{
@@ -6,7 +9,11 @@
 		{
 			InitializeComponent();
 
-			MainPage = new AppShell();
+			var layout = new LayoutPage();
+
+			layout.SetPage(new HomePage());
+
+			MainPage = layout;
 		}
 	}
 }

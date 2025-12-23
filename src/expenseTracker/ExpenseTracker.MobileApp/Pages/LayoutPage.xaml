@@ -1,0 +1,43 @@
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ExpenseTracker.MobileApp.Pages.LayoutPage"
+    BackgroundColor="White">
+
+    <Grid RowDefinitions="Auto,50,*">
+
+        <!-- Header / App Title -->
+        <Grid Grid.Row="0" BackgroundColor="#512BD4" HeightRequest="50">
+            <Label x:Name="lblProductHeader" 
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+                   <!--TextColor="#D9CCF9"/>-->
+        </Grid>
+
+        <!-- Navbar -->
+        <Grid Grid.Row="1" BackgroundColor="#D9CCF9" HeightRequest="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" ImageSource="navbar_home.png" Clicked="OnHomeClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="1" ImageSource="navbar_expenses.png" Clicked="OnExpensesClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="2" ImageSource="navbar_categories.png" Clicked="OnCategoriesClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="3" ImageSource="navbar_reports.png" Clicked="OnReportsClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="4" ImageSource="navbar_settings.png" Clicked="OnPreferencesClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="5" ImageSource="navbar_about.png" Clicked="OnAboutClicked" BackgroundColor="Transparent"/>
+        </Grid>
+
+        <!-- Render Body -->
+        <ContentView Grid.Row="2" x:Name="RenderBody"/>
+    </Grid>
+
+</ContentPage>
