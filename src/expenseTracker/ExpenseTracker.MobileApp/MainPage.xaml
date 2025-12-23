@@ -1,0 +1,27 @@
+﻿<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ExpenseTracker.MobileApp.MainPage">
+
+    <Grid RowDefinitions="56, *">
+
+        <Grid Grid.Row="0" BackgroundColor="#512BD4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" ImageSource="navbar_home.png" Clicked="OnHomeClicked" />
+            <Button Grid.Column="1" ImageSource="navbar_expenses.png" Clicked="OnExpensesClicked" />
+            <Button Grid.Column="2" ImageSource="navbar_categories.png" Clicked="OnCategoriesClicked" />
+            <Button Grid.Column="3" ImageSource="navbar_reports.png" Clicked="OnReportsClicked" />
+            <Button Grid.Column="4" ImageSource="navbar_settings.png" Clicked="OnPreferencesClicked" />
+            <Button Grid.Column="5" ImageSource="navbar_about.png" Clicked="OnAboutClicked" />
+        </Grid>
+
+    </Grid>
+</ContentPage>
