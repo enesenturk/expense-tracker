@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using ExpenseTracker.Domain.Resources;
+using ExpenseTracker.MobileApp.Constants;
+using System.Collections.ObjectModel;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 {
@@ -11,6 +13,12 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 			InitializeComponent();
 			categoriesCollection.ItemsSource = Categories;
 			LoadCategoriesFromBackend();
+
+			lblNew.Text = uiMessage.CATEGORIES;
+			lblNew.TextColor = ColorConstants.Purple;
+
+			btnNew.Text = $"+ {uiMessage.NEW}";
+			btnNew.BackgroundColor = ColorConstants.Purple;
 		}
 
 		// Backend'den kategori çekme
@@ -18,10 +26,15 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 		{
 			var backendCategories = new[]
 			{
-				new CategoryModel { Name = "Yemek" },
-				new CategoryModel { Name = "Ulaşım" },
-				new CategoryModel { Name = "Eğlence" },
-				new CategoryModel { Name = "Market" },
+				new CategoryModel { Name = "Beslenme",        RowColor = Color.FromArgb("#D9CCF9") },
+				new CategoryModel { Name = "Eğlence",         RowColor = Color.FromArgb("#A895EA") },
+				new CategoryModel { Name = "Faturalar",       RowColor = Color.FromArgb("#D9CCF9") },
+				new CategoryModel { Name = "Giyim",           RowColor = Color.FromArgb("#A895EA") },
+				new CategoryModel { Name = "Kişisel Gelişim", RowColor = Color.FromArgb("#D9CCF9") },
+				new CategoryModel { Name = "Sağlık",          RowColor = Color.FromArgb("#A895EA") },
+				new CategoryModel { Name = "Teknoloji",       RowColor = Color.FromArgb("#D9CCF9") },
+				new CategoryModel { Name = "Ulaşım",          RowColor = Color.FromArgb("#A895EA") },
+				new CategoryModel { Name = "Diğer",           RowColor = Color.FromArgb("#D9CCF9") }
 			};
 
 			foreach (var cat in backendCategories)
@@ -60,5 +73,6 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 	public class CategoryModel
 	{
 		public string Name { get; set; }
+		public Color RowColor { get; set; }
 	}
 }

@@ -1,16 +1,21 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExpenseTracker.MobileApp.Pages.Modules.HomePage"
-             BackgroundColor="White">
+             x:Class="ExpenseTracker.MobileApp.Pages.Modules.HomePage">
 
-    <Grid VerticalOptions="Center" HorizontalOptions="Center">
+    <!-- Grid TÜM EKRANI KAPLAR -->
+    <Grid BackgroundColor="#EBEBEB"
+          VerticalOptions="Fill"
+          HorizontalOptions="Fill">
 
+        <!-- Ortadaki daire -->
         <Frame x:Name="btnFrame"
                WidthRequest="300"
                HeightRequest="300"
                CornerRadius="150"
                VerticalOptions="Center"
-               HorizontalOptions="Center">
+               HorizontalOptions="Center"
+               HasShadow="False">
+
             <Button x:Name="btnAddExpense"
                     BackgroundColor="Transparent"
                     TextColor="White"

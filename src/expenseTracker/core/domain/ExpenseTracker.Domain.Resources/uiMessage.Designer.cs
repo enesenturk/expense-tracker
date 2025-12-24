@@ -79,6 +79,15 @@ namespace ExpenseTracker.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CATEGORIES.
+        /// </summary>
+        public static string CATEGORIES {
+            get {
+                return ResourceManager.GetString("CATEGORIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CATEGORY.
         /// </summary>
         public static string CATEGORY {
@@ -120,6 +129,15 @@ namespace ExpenseTracker.Domain.Resources {
         public static string NECESSARY {
             get {
                 return ResourceManager.GetString("NECESSARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEW.
+        /// </summary>
+        public static string NEW {
+            get {
+                return ResourceManager.GetString("NEW", resourceCulture);
             }
         }
         

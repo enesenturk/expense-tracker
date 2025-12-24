@@ -1,57 +1,50 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExpenseTracker.MobileApp.Pages.Modules.Categories.CategoriesPage"
-             BackgroundColor="White"
              Padding="20">
 
-    <VerticalStackLayout Spacing="10" Padding="20,20,20,20">
+    <Grid RowDefinitions="Auto,Auto,*" RowSpacing="5" Padding="20,20,20,20" BackgroundColor="#EBEBEB">
 
-        <!-- Başlık -->
-        <Label Text="Kategoriler" 
-               FontAttributes="Bold" 
-               FontSize="28"
-               HorizontalOptions="Center"
-               Margin="0,0,0,20"/>
+        <Label x:Name="lblNew" Grid.Row="0" FontSize="26" HorizontalOptions="Center" />
 
-        <!-- Dinamik Liste -->
-        <VerticalStackLayout Spacing="10" VerticalOptions="FillAndExpand">
+        <Button x:Name="btnNew" Grid.Row="1" TextColor="White" Margin="0,15,0,15"
+                CornerRadius="10" Clicked="OnAddCategoryClicked"/>
 
-            <CollectionView x:Name="categoriesCollection"
-                    SelectionMode="None"
-                    VerticalOptions="FillAndExpand"
-                    Margin="0,0,0,10">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10" ColumnDefinitions="*,Auto" VerticalOptions="Center">
-                            <Label Text="{Binding Name}"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Start"
-                           FontSize="18"/>
-                            <Button Text="−"
-                            TextColor="White"
-                            BackgroundColor="#E74C3C"
-                            WidthRequest="50"
-                            HeightRequest="50"
-                            FontSize="24"
-                            HorizontalOptions="End"
-                            VerticalOptions="Center"
-                            CornerRadius="25"
-                            Clicked="OnDeleteCategoryClicked"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+        <CollectionView Grid.Row="2"
+                        x:Name="categoriesCollection"
+                        SelectionMode="None">
 
-        </VerticalStackLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
 
-        <!-- Yeni kategori ekle -->
-        <Button Text="+ Yeni Kategori" 
-                BackgroundColor="#512BD4" 
-                TextColor="White"
-                FontAttributes="Bold"
-                CornerRadius="10"
-                Clicked="OnAddCategoryClicked"
-                Margin="0,20,0,0"/>
-    </VerticalStackLayout>
+                    <Grid Padding="5" ColumnDefinitions="*,Auto,Auto" VerticalOptions="Center" BackgroundColor="{Binding RowColor}">
+
+                        <Label Grid.Column="0" Text="{Binding Name}" FontSize="18" 
+                               TextColor="White" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                        <Button Grid.Column="1" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" 
+                                CornerRadius="20" VerticalOptions="Center" Clicked="OnDeleteCategoryClicked" Padding="0" Margin="0,0,8,0">
+
+                            <Button.ImageSource>
+                                <FileImageSource File="icon_edit.png"/>
+                            </Button.ImageSource>
+                        </Button>
+
+                        <Button Grid.Column="2" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" 
+                                CornerRadius="20" VerticalOptions="Center" Clicked="OnDeleteCategoryClicked" Padding="0">
+
+                            <Button.ImageSource>
+                                <FileImageSource File="icon_rubbish.png"/>
+                            </Button.ImageSource>
+                        </Button>
+
+                    </Grid>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
 
 </ContentPage>

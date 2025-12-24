@@ -3,10 +3,12 @@
              x:Class="ExpenseTracker.MobileApp.Pages.Modules.Expenses.ExpensesPage"
              BackgroundColor="White">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
+    <VerticalStackLayout Spacing="5" Padding="20,20,20,20">
+        
         <Label Text="Harcamalar" FontSize="28" HorizontalOptions="Center" TextColor="#512BD4"/>
 
         <Label Text="Harcamalar sayfası içerik alanı" HorizontalOptions="Center"/>
+        
     </VerticalStackLayout>
 
 </ContentPage>

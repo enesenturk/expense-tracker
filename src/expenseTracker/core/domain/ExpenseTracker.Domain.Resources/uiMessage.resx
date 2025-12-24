@@ -133,4 +133,10 @@
   <data name="NECESSARY" xml:space="preserve">
     <value>NECESSARY</value>
   </data>
+  <data name="CATEGORIES" xml:space="preserve">
+    <value>CATEGORIES</value>
+  </data>
+  <data name="NEW" xml:space="preserve">
+    <value>NEW</value>
+  </data>
 </root>

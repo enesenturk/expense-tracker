@@ -133,4 +133,10 @@
   <data name="NECESSARY" xml:space="preserve">
     <value>GEREKLİ</value>
   </data>
+  <data name="CATEGORIES" xml:space="preserve">
+    <value>KATEGORİLER</value>
+  </data>
+  <data name="NEW" xml:space="preserve">
+    <value>YENİ</value>
+  </data>
 </root>
