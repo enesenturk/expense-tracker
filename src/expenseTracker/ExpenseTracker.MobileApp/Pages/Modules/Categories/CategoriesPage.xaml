@@ -5,7 +5,7 @@
 
     <Grid RowDefinitions="Auto,Auto,*" RowSpacing="5" Padding="20,20,20,20" BackgroundColor="#EBEBEB">
 
-        <Label x:Name="lblNew" Grid.Row="0" FontSize="26" HorizontalOptions="Center" />
+        <Label x:Name="lblCategories" Grid.Row="0" FontSize="26" HorizontalOptions="Center" />
 
         <Button x:Name="btnNew" Grid.Row="1" TextColor="White" Margin="0,15,0,15"
                 CornerRadius="10" Clicked="OnAddCategoryClicked"/>

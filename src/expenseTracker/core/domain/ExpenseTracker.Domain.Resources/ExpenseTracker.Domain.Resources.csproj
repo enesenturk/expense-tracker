@@ -10,7 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="uiMessage.Designer.cs">
+    <ProjectReference Include="..\ExpenseTracker.Domain\ExpenseTracker.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Languages\uiMessage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>uiMessage.resx</DependentUpon>
@@ -18,11 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="uiMessage.resx">
+    <EmbeddedResource Update="Languages\uiMessage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>uiMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="uiMessage.tr.resx">
+    <EmbeddedResource Update="Languages\uiMessage.tr.resx">
       <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>

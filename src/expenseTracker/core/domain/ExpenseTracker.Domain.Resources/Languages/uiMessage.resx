@@ -139,4 +139,34 @@
   <data name="NEW" xml:space="preserve">
     <value>NEW</value>
   </data>
+  <data name="Monday" xml:space="preserve">
+    <value>MONDAY</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>TUESDAY</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>WEDNESDAY</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>THURSDAY</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>FRIDAY</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>SATURDAY</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>SUNDAY</value>
+  </data>
+  <data name="CURRENCY" xml:space="preserve">
+    <value>CURRENCY</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>LANGUAGE</value>
+  </data>
+  <data name="FIRST_DAY_OF_WEEK" xml:space="preserve">
+    <value>FIRST DAY of WEEK</value>
+  </data>
 </root>

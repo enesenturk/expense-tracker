@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Domain.Resources;
+﻿using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Constants;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
@@ -40,7 +40,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 			if (!amountValid || amount <= 0)
 			{
-				Application.Current.MainPage.DisplayAlert("Uyarı", "Lütfen amount giriniz!", "Tamam");
+				Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert("Uyarı", "Lütfen amount giriniz!", "Tamam");
 				return;
 			}
 

@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Domain.Resources;
+﻿using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
@@ -19,7 +19,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 
 		private void OnAddExpenseClicked(object sender, EventArgs e)
 		{
-			if (Application.Current.MainPage is LayoutPage layout)
+			if (Microsoft.Maui.Controls.Application.Current.MainPage is LayoutPage layout)
 			{
 				layout.SetPage(new CreateExpensePage());
 			}

@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Domain.Resources;
+﻿using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Constants;
 using System.Collections.ObjectModel;
 
@@ -14,8 +14,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 			categoriesCollection.ItemsSource = Categories;
 			LoadCategoriesFromBackend();
 
-			lblNew.Text = uiMessage.CATEGORIES;
-			lblNew.TextColor = ColorConstants.Purple;
+			lblCategories.Text = uiMessage.CATEGORIES;
+			lblCategories.TextColor = ColorConstants.Purple;
 
 			btnNew.Text = $"+ {uiMessage.NEW}";
 			btnNew.BackgroundColor = ColorConstants.Purple;

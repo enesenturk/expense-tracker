@@ -3,7 +3,7 @@ using ExpenseTracker.MobileApp.Pages.Modules;
 
 namespace ExpenseTracker.MobileApp
 {
-	public partial class App : Application
+	public partial class App : Microsoft.Maui.Controls.Application
 	{
 		public App()
 		{

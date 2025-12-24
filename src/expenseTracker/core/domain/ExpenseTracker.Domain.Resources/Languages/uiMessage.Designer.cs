@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ExpenseTracker.Domain.Resources {
+namespace ExpenseTracker.Domain.Resources.Languages {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ExpenseTracker.Domain.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExpenseTracker.Domain.Resources.uiMessage", typeof(uiMessage).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExpenseTracker.Domain.Resources.Languages.uiMessage", typeof(uiMessage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -97,6 +97,15 @@ namespace ExpenseTracker.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CURRENCY.
+        /// </summary>
+        public static string CURRENCY {
+            get {
+                return ResourceManager.GetString("CURRENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DATE.
         /// </summary>
         public static string DATE {
@@ -115,11 +124,47 @@ namespace ExpenseTracker.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FIRST DAY of WEEK.
+        /// </summary>
+        public static string FIRST_DAY_OF_WEEK {
+            get {
+                return ResourceManager.GetString("FIRST_DAY_OF_WEEK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FRIDAY.
+        /// </summary>
+        public static string Friday {
+            get {
+                return ResourceManager.GetString("Friday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LANGUAGE.
+        /// </summary>
+        public static string LANGUAGE {
+            get {
+                return ResourceManager.GetString("LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LOG EXPENSE!.
         /// </summary>
         public static string LOG_EXPENSE {
             get {
                 return ResourceManager.GetString("LOG_EXPENSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MONDAY.
+        /// </summary>
+        public static string Monday {
+            get {
+                return ResourceManager.GetString("Monday", resourceCulture);
             }
         }
         
@@ -138,6 +183,15 @@ namespace ExpenseTracker.Domain.Resources {
         public static string NEW {
             get {
                 return ResourceManager.GetString("NEW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SATURDAY.
+        /// </summary>
+        public static string Saturday {
+            get {
+                return ResourceManager.GetString("Saturday", resourceCulture);
             }
         }
         
@@ -178,11 +232,47 @@ namespace ExpenseTracker.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SUNDAY.
+        /// </summary>
+        public static string Sunday {
+            get {
+                return ResourceManager.GetString("Sunday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THURSDAY.
+        /// </summary>
+        public static string Thursday {
+            get {
+                return ResourceManager.GetString("Thursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TUESDAY.
+        /// </summary>
+        public static string Tuesday {
+            get {
+                return ResourceManager.GetString("Tuesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UNNECESSARY.
         /// </summary>
         public static string UNNECESSARY {
             get {
                 return ResourceManager.GetString("UNNECESSARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEDNESDAY.
+        /// </summary>
+        public static string Wednesday {
+            get {
+                return ResourceManager.GetString("Wednesday", resourceCulture);
             }
         }
     }

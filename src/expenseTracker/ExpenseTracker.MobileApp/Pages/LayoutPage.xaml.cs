@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Domain.Resources;
+﻿using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules;

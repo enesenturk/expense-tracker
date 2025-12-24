@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Dto\Base.Dto.csproj" />
+    <ProjectReference Include="..\..\domain\ExpenseTracker.Domain.Resources\ExpenseTracker.Domain.Resources.csproj" />
+  </ItemGroup>
+
+</Project>

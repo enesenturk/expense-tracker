@@ -139,4 +139,34 @@
   <data name="NEW" xml:space="preserve">
     <value>YENİ</value>
   </data>
+  <data name="Monday" xml:space="preserve">
+    <value>PAZARTESİ</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>SALI</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>ÇARŞAMBA</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>PERŞEMBE</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>CUMA</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>CUMARTESİ</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>PAZAR</value>
+  </data>
+  <data name="CURRENCY" xml:space="preserve">
+    <value>PARA BİRİMİ</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>DİL</value>
+  </data>
+  <data name="FIRST_DAY_OF_WEEK" xml:space="preserve">
+    <value>HAFTA BAŞLANGICI</value>
+  </data>
 </root>
