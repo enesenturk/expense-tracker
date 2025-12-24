@@ -1,6 +1,9 @@
 ﻿using ExpenseTracker.Domain.Resources;
+using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules;
+using ExpenseTracker.MobileApp.Pages.Modules.Categories;
+using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
 
 namespace ExpenseTracker.MobileApp.Pages
 {
@@ -12,13 +15,16 @@ namespace ExpenseTracker.MobileApp.Pages
 			InitializeComponent();
 
 			lblProductHeader.Text = uiMessage.EXPENSE_TRACKER;
+
+			gridLayout.BackgroundColor = ColorConstants.Purple;
+			gridNavbar.BackgroundColor = ColorConstants.SoftPurple;
 		}
 
-		protected override async void OnAppearing()
+		protected override void OnAppearing()
 		{
 			base.OnAppearing();
 
-			await AnimationHelper.StartFadeBlinkAsync(lblProductHeader);
+			AnimationHelper.StartFadeBlinkAsync(lblProductHeader);
 		}
 
 		public void SetPage(ContentPage page)

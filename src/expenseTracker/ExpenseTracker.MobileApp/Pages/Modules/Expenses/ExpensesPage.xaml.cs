@@ -1,4 +1,4 @@
-﻿namespace ExpenseTracker.MobileApp.Pages.Modules
+﻿namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 {
 	public partial class ExpensesPage : ContentPage
 	{

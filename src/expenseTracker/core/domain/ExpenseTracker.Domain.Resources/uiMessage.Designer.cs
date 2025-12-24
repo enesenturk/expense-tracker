@@ -61,6 +61,42 @@ namespace ExpenseTracker.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADD EXPENSE.
+        /// </summary>
+        public static string ADD_EXPENSE {
+            get {
+                return ResourceManager.GetString("ADD_EXPENSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AMOUNT.
+        /// </summary>
+        public static string AMOUNT {
+            get {
+                return ResourceManager.GetString("AMOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CATEGORY.
+        /// </summary>
+        public static string CATEGORY {
+            get {
+                return ResourceManager.GetString("CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DATE.
+        /// </summary>
+        public static string DATE {
+            get {
+                return ResourceManager.GetString("DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EXPENSE TRACKER.
         /// </summary>
         public static string EXPENSE_TRACKER {
@@ -70,11 +106,65 @@ namespace ExpenseTracker.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log Expense!.
+        ///   Looks up a localized string similar to LOG EXPENSE!.
         /// </summary>
-        public static string Log_Expense {
+        public static string LOG_EXPENSE {
             get {
-                return ResourceManager.GetString("Log_Expense", resourceCulture);
+                return ResourceManager.GetString("LOG_EXPENSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NECESSARY.
+        /// </summary>
+        public static string NECESSARY {
+            get {
+                return ResourceManager.GetString("NECESSARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SAVE.
+        /// </summary>
+        public static string SAVE {
+            get {
+                return ResourceManager.GetString("SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT.
+        /// </summary>
+        public static string SELECT {
+            get {
+                return ResourceManager.GetString("SELECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATUS.
+        /// </summary>
+        public static string STATUS {
+            get {
+                return ResourceManager.GetString("STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUB CATEGORY.
+        /// </summary>
+        public static string SUB_CATEGORY {
+            get {
+                return ResourceManager.GetString("SUB_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UNNECESSARY.
+        /// </summary>
+        public static string UNNECESSARY {
+            get {
+                return ResourceManager.GetString("UNNECESSARY", resourceCulture);
             }
         }
     }

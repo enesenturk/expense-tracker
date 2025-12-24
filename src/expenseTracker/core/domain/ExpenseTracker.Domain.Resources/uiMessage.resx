@@ -97,10 +97,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Log_Expense" xml:space="preserve">
-    <value>Log Expense!</value>
+  <data name="LOG_EXPENSE" xml:space="preserve">
+    <value>LOG EXPENSE!</value>
   </data>
   <data name="EXPENSE_TRACKER" xml:space="preserve">
     <value>EXPENSE TRACKER</value>
+  </data>
+  <data name="ADD_EXPENSE" xml:space="preserve">
+    <value>ADD EXPENSE</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>DATE</value>
+  </data>
+  <data name="CATEGORY" xml:space="preserve">
+    <value>CATEGORY</value>
+  </data>
+  <data name="SUB_CATEGORY" xml:space="preserve">
+    <value>SUB CATEGORY</value>
+  </data>
+  <data name="SELECT" xml:space="preserve">
+    <value>SELECT</value>
+  </data>
+  <data name="AMOUNT" xml:space="preserve">
+    <value>AMOUNT</value>
+  </data>
+  <data name="STATUS" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="UNNECESSARY" xml:space="preserve">
+    <value>UNNECESSARY</value>
+  </data>
+  <data name="NECESSARY" xml:space="preserve">
+    <value>NECESSARY</value>
   </data>
 </root>

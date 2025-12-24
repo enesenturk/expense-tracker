@@ -1,4 +1,7 @@
 ﻿using ExpenseTracker.Domain.Resources;
+using ExpenseTracker.MobileApp.Constants;
+using ExpenseTracker.MobileApp.Helpers;
+using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules
 {
@@ -9,12 +12,17 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 		{
 			InitializeComponent();
 
-			btnLogExpense.Text = uiMessage.Log_Expense;
+			btnAddExpense.Text = uiMessage.LOG_EXPENSE;
+
+			AnimationHelper.StartBlinking(btnFrame, ColorConstants.Purple, ColorConstants.SoftPurple);
 		}
 
-		private async void OnAddExpenseClicked(object sender, EventArgs e)
+		private void OnAddExpenseClicked(object sender, EventArgs e)
 		{
-			await DisplayAlert("Harcama", "Harcama Gir butonuna tıklandı!", "Tamam");
+			if (Application.Current.MainPage is LayoutPage layout)
+			{
+				layout.SetPage(new CreateExpensePage());
+			}
 		}
 
 	}

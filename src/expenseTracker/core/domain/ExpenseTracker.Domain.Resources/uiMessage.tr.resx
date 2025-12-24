@@ -97,10 +97,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Log_Expense" xml:space="preserve">
-    <value>Harcama Gir!</value>
+  <data name="LOG_EXPENSE" xml:space="preserve">
+    <value>HARCAMA GİR!</value>
   </data>
   <data name="EXPENSE_TRACKER" xml:space="preserve">
     <value>HARCAMA DEFTERİ</value>
+  </data>
+  <data name="ADD_EXPENSE" xml:space="preserve">
+    <value>HARCAMA EKLE</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>TARİH</value>
+  </data>
+  <data name="CATEGORY" xml:space="preserve">
+    <value>KATEGORİ</value>
+  </data>
+  <data name="SUB_CATEGORY" xml:space="preserve">
+    <value>ALT KATEGORİ</value>
+  </data>
+  <data name="SELECT" xml:space="preserve">
+    <value>SEÇİNİZ</value>
+  </data>
+  <data name="AMOUNT" xml:space="preserve">
+    <value>MİKTAR</value>
+  </data>
+  <data name="STATUS" xml:space="preserve">
+    <value>DURUM</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>KAYDET</value>
+  </data>
+  <data name="UNNECESSARY" xml:space="preserve">
+    <value>GEREKSİZ</value>
+  </data>
+  <data name="NECESSARY" xml:space="preserve">
+    <value>GEREKLİ</value>
   </data>
 </root>

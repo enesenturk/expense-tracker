@@ -70,10 +70,10 @@
     <MauiXaml Update="Pages\Modules\AboutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Pages\Modules\CategoriesPage.xaml">
+    <MauiXaml Update="Pages\Modules\Expenses\CreateExpensePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Pages\Modules\ExpensesPage.xaml">
+    <MauiXaml Update="Pages\Modules\Expenses\ExpensesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\LayoutPage.xaml">

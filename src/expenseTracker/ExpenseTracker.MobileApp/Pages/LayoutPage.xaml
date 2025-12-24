@@ -7,18 +7,17 @@
     <Grid RowDefinitions="Auto,50,*">
 
         <!-- Header / App Title -->
-        <Grid Grid.Row="0" BackgroundColor="#512BD4" HeightRequest="50">
+        <Grid x:Name="gridLayout" Grid.Row="0" HeightRequest="50">
             <Label x:Name="lblProductHeader" 
                    FontSize="26"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    TextColor="White"/>
-                   <!--TextColor="#D9CCF9"/>-->
         </Grid>
 
         <!-- Navbar -->
-        <Grid Grid.Row="1" BackgroundColor="#D9CCF9" HeightRequest="50">
+        <Grid x:Name="gridNavbar" Grid.Row="1" HeightRequest="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -38,6 +37,7 @@
 
         <!-- Render Body -->
         <ContentView Grid.Row="2" x:Name="RenderBody"/>
+
     </Grid>
 
 </ContentPage>
