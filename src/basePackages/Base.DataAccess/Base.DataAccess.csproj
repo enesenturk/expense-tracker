@@ -9,8 +9,4 @@
     <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,0 +1,19 @@
+﻿id,name,culture
+b6a1c3f0-1a23-4d5e-9f7b-0c1a2b3d4e5f,Beslenme,tr-TR
+d2c3b4a5-6e7f-4d1a-8c9b-2f3e4a5b6c7d,Ulaşım,tr-TR
+f1e2d3c4-5b6a-4f7e-9d8c-1a2b3c4d5e6f,Eğlence,tr-TR
+a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d,Faturalar,tr-TR
+c1d2e3f4-6a7b-4c8d-9e0f-1a2b3c4d5e6f,Giyim,tr-TR
+d1e2f3a4-5b6c-4d7e-8f9a-0b1c2d3e4f5a,Sağlık,tr-TR
+e1f2a3b4-5c6d-4e7f-8a9b-0c1d2e3f4a5b,Kişisel Gelişim,tr-TR
+f2a3b4c5-6d7e-4f8a-9b0c-1d2e3f4a5b6c,Teknoloji,tr-TR
+a2b3c4d5-6e7f-4a9b-8c0d-1e2f3a4b5c6d,Diğer,tr-TR
+b2c3d4e5-7f8a-4b0c-9d1e-2f3a4b5c6d7e,Food,en-US
+c2d3e4f5-8a9b-4c1d-0e2f-3a4b5c6d7e8f,Transport,en-US
+d2e3f4a5-9b0c-4d2e-1f3a-4b5c6d7e8f9a,Entertainment,en-US
+e2f3a4b5-0c1d-4e3f-2a4b-5c6d7e8f9a0b,Bills,en-US
+f2a3b4c5-1d2e-4f4a-3b5c-6d7e8f9a0b1c,Clothing,en-US
+a3b4c5d6-2e3f-4a5b-4c6d-7e8f9a0b1c2d,Health,en-US
+b3c4d5e6-3f4a-4b6c-5d7e-8f9a0b1c2d3e,Personal Development,en-US
+c3d4e5f6-4a5b-4c7d-6e8f-9a0b1c2d3e4f,Technology,en-US
+d3e4f5a6-5b6c-4d8e-7f9a-0b1c2d3e4f5a,Other,en-US

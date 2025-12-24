@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Raw\" />
+    <Folder Include="Resources\Raw\SeedData\" />
   </ItemGroup>
 
   <ItemGroup>

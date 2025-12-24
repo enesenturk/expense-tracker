@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Dto", "src\basePackage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTracker.Application.Utilities", "src\expenseTracker\core\application\ExpenseTracker.Application.Utilities\ExpenseTracker.Application.Utilities.csproj", "{1A34108D-4EC1-45D2-B5D8-20DBDE69A344}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.DataAccess", "src\basePackages\Base.DataAccess\Base.DataAccess.csproj", "{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{1A34108D-4EC1-45D2-B5D8-20DBDE69A344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A34108D-4EC1-45D2-B5D8-20DBDE69A344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A34108D-4EC1-45D2-B5D8-20DBDE69A344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,5 +119,6 @@ Global
 		{685800FF-0356-4FB4-BACE-24736F5718B4} = {90CA0E0B-3021-453B-88AD-1941CD5605F2}
 		{72D4DAED-2B18-4D2F-A603-1F5F67257CF5} = {685800FF-0356-4FB4-BACE-24736F5718B4}
 		{1A34108D-4EC1-45D2-B5D8-20DBDE69A344} = {0814B19A-A69B-4EC4-ABD4-7C8E86935AF2}
+		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26} = {685800FF-0356-4FB4-BACE-24736F5718B4}
 	EndGlobalSection
 EndGlobal
