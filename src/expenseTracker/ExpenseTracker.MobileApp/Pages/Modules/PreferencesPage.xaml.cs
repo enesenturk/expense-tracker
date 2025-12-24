@@ -24,6 +24,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 			lblLanguage.Text = uiMessage.LANGUAGE;
 			lblFirstDayOfWeek.Text = uiMessage.FIRST_DAY_OF_WEEK;
 			btnSave.Text = uiMessage.SAVE;
+			btnSave.BackgroundColor = ColorConstants.Purple;
 
 			pickerCurrency.ItemsSource = LocalizationHelper.GetSupportedCurrencies();
 			pickerLanguage.ItemsSource = LocalizationHelper.GetSupportedLanguages();
