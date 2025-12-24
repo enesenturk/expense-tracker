@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ExpenseTracker.Infrastructure.Repositories;
 
 namespace ExpenseTracker.MobileApp
 {
@@ -15,11 +15,30 @@ namespace ExpenseTracker.MobileApp
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				});
 
-#if DEBUG
-			builder.Logging.AddDebug();
-#endif
+			string appDataDirectory = FileSystem.AppDataDirectory;
+
+			string[] seedFiles = { "categories.csv" };
+
+			foreach (var file in seedFiles)
+			{
+				string destPath = Path.Combine(appDataDirectory, file);
+
+				if (!File.Exists(destPath))
+				{
+					using (var stream = FileSystem.OpenAppPackageFileAsync($"SeedData/{file}").Result)
+					{
+						using (var reader = new StreamReader(stream))
+						{
+							File.WriteAllText(destPath, reader.ReadToEnd());
+						}
+					}
+				}
+			}
+
+			builder.Services.AddRepositoryServices(appDataDirectory);
 
 			return builder.Build();
 		}
+
 	}
 }

@@ -60,6 +60,7 @@
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.Utilities\ExpenseTracker.Application.Utilities.csproj" />
     <ProjectReference Include="..\core\domain\ExpenseTracker.Domain.Resources\ExpenseTracker.Domain.Resources.csproj" />
     <ProjectReference Include="..\core\domain\ExpenseTracker.Domain\ExpenseTracker.Domain.csproj" />
+    <ProjectReference Include="..\infrastructure\ExpenseTracker.Infrastructure.Repositories\ExpenseTracker.Infrastructure.Repositories.csproj" />
   </ItemGroup>
 
   <ItemGroup>
