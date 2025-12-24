@@ -169,4 +169,16 @@
   <data name="FIRST_DAY_OF_WEEK" xml:space="preserve">
     <value>HAFTA BAŞLANGICI</value>
   </data>
+  <data name="SUCCESSFULL" xml:space="preserve">
+    <value>BAŞARILI</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>TAMAM</value>
+  </data>
+  <data name="Preferences_Saved" xml:space="preserve">
+    <value>Tercihler başarıyla kaydedildi.</value>
+  </data>
+  <data name="PREFERENCES" xml:space="preserve">
+    <value>TERCİHLER</value>
+  </data>
 </root>

@@ -187,6 +187,33 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PREFERENCES.
+        /// </summary>
+        public static string PREFERENCES {
+            get {
+                return ResourceManager.GetString("PREFERENCES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preferences saved successfully..
+        /// </summary>
+        public static string Preferences_Saved {
+            get {
+                return ResourceManager.GetString("Preferences_Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SATURDAY.
         /// </summary>
         public static string Saturday {
@@ -228,6 +255,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string SUB_CATEGORY {
             get {
                 return ResourceManager.GetString("SUB_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUCCESSFULL.
+        /// </summary>
+        public static string SUCCESSFULL {
+            get {
+                return ResourceManager.GetString("SUCCESSFULL", resourceCulture);
             }
         }
         

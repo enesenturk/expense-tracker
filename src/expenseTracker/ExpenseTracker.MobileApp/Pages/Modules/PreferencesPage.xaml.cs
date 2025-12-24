@@ -17,7 +17,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 		{
 			InitializeComponent();
 
-			lblPreferences.Text = uiMessage.CATEGORIES;
+			lblPreferences.Text = uiMessage.PREFERENCES;
 			lblPreferences.TextColor = ColorConstants.Purple;
 
 			lblCurrency.Text = uiMessage.CURRENCY;
@@ -36,25 +36,14 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 
 		void LoadPreferences()
 		{
-			bool isTurkish = CultureInfo.CurrentUICulture.Name.StartsWith("tr");
+			string selectedCulture = Preferences.Get(LocalizationHelper.Culture, LocalizationHelper.Turkish);
 
-			if (!Preferences.ContainsKey(LocalizationHelper.Language))
-			{
-				pickerLanguage.SelectedItem = isTurkish ? LocalizationHelper.Turkish : LocalizationHelper.English;
-			}
-			else
-			{
-				pickerLanguage.SelectedItem = Preferences.Get(LocalizationHelper.Language, LocalizationHelper.Turkish);
-			}
+			string cultureDisplay = selectedCulture == LocalizationHelper.TurkishCulture
+				? LocalizationHelper.Turkish
+				: LocalizationHelper.English;
 
-			if (!Preferences.ContainsKey(LocalizationHelper.Currency))
-			{
-				pickerCurrency.SelectedItem = isTurkish ? LocalizationHelper.TurkishLira : LocalizationHelper.USD;
-			}
-			else
-			{
-				pickerCurrency.SelectedItem = Preferences.Get(LocalizationHelper.Currency, LocalizationHelper.TurkishLira);
-			}
+			pickerLanguage.SelectedItem = cultureDisplay;
+			pickerCurrency.SelectedItem = Preferences.Get(LocalizationHelper.Currency, LocalizationHelper.TurkishLira);
 
 			pickerFirstDayOfWeek.SelectedItem = _days.First(
 				x => x.Key == Preferences.Get(LocalizationHelper.FirstDayOfWeek, LocalizationHelper.DefaultFirstDayOfWeek).ToString()
@@ -66,18 +55,24 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 		{
 			string selectedLanguage = pickerLanguage.SelectedItem.ToString();
 
-			Preferences.Set(LocalizationHelper.Currency, pickerCurrency.SelectedItem.ToString());
-			Preferences.Set(LocalizationHelper.Language, selectedLanguage);
-			Preferences.Set(LocalizationHelper.FirstDayOfWeek, (int)pickerFirstDayOfWeek.SelectedItem);
-
 			string cultureCode = selectedLanguage == LocalizationHelper.Turkish
-				? "tr-TR"
-				: "en-US";
+				? LocalizationHelper.TurkishCulture
+				: LocalizationHelper.EnglishCulture;
 
-			CultureInfo.CurrentCulture = new CultureInfo(cultureCode);
-			CultureInfo.CurrentUICulture = new CultureInfo(cultureCode);
+			Preferences.Set(LocalizationHelper.Currency, pickerCurrency.SelectedItem.ToString());
+			Preferences.Set(LocalizationHelper.Culture, cultureCode);
+			Preferences.Set(LocalizationHelper.FirstDayOfWeek, int.Parse(((JSonDto)pickerFirstDayOfWeek.SelectedItem).Key));
 
-			await DisplayAlert("Saved", "Preferences saved successfully.", "OK");
+			CultureInfo culture = new CultureInfo(cultureCode);
+
+			CultureInfo.DefaultThreadCurrentCulture = culture;
+			CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+			await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFULL, uiMessage.Preferences_Saved, uiMessage.OK);
+
+			var layout = new LayoutPage();
+			Microsoft.Maui.Controls.Application.Current.MainPage = layout;
+			layout.SetPage(new HomePage());
 		}
 
 	}

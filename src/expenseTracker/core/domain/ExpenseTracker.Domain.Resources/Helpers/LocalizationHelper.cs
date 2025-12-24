@@ -23,9 +23,11 @@ namespace ExpenseTracker.Domain.Resources.Helpers
 			};
 		}
 
-		public static string Language => "Language";
+		public static string Culture => "Culture";
 		public static string English => "English";
+		public static string EnglishCulture => "en-US";
 		public static string Turkish => "Türkçe";
+		public static string TurkishCulture => "tr-TR";
 
 		public static string Currency => "Currency";
 		public static string TurkishLira => "TRY (₺)";

@@ -1,5 +1,7 @@
-﻿using ExpenseTracker.MobileApp.Pages;
+﻿using ExpenseTracker.Domain.Resources.Helpers;
+using ExpenseTracker.MobileApp.Pages;
 using ExpenseTracker.MobileApp.Pages.Modules;
+using System.Globalization;
 
 namespace ExpenseTracker.MobileApp
 {
@@ -9,11 +11,18 @@ namespace ExpenseTracker.MobileApp
 		{
 			InitializeComponent();
 
+			string cultureCode = Preferences.Get(LocalizationHelper.Culture, LocalizationHelper.TurkishCulture);
+
+			CultureInfo culture = new CultureInfo(cultureCode);
+
+			CultureInfo.DefaultThreadCurrentCulture = culture;
+			CultureInfo.DefaultThreadCurrentUICulture = culture;
+
 			var layout = new LayoutPage();
 
-			layout.SetPage(new HomePage());
-
 			MainPage = layout;
+
+			layout.SetPage(new HomePage());
 		}
 	}
 }
