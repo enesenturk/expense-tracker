@@ -71,17 +71,17 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				Name = newSubCategory
 			};
 
-			BaseResponseModel<Unit> response = await ProxyCallerAsync<Create_SubCategory_CommandDto, Unit>(command);
+			BaseResponseModel<Create_SubCategory_ResponseDto> response = await ProxyCallerAsync<Create_SubCategory_CommandDto, Create_SubCategory_ResponseDto>(command);
 
 			if (!string.IsNullOrEmpty(response.Message))
 				return;
 
 			GetList_SubCategory_SingleResponseModel newRecord = _mapper.Map<GetList_SubCategory_SingleResponseModel>(command);
-			int newIdex = (_subCategories.OrderBy(o => o.Index).LastOrDefault()?.Index ?? 0) + 1;
-			newRecord.Index = newIdex;
-			newRecord.RowColor = newRecord.Index % 2 == 0 ? ColorConstants.MiddlePurple : ColorConstants.SoftPurple;
+			newRecord.Id = response.Response.Id;
 
 			_subCategories.Add(newRecord);
+
+			Refresh(ref _subCategories, o => o.OrderBy(x => x.Name), subCategoriesCollection);
 		}
 
 		#endregion
@@ -188,15 +188,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				if (!string.IsNullOrEmpty(response.Message))
 					return;
 
-				var updated = _subCategories.FirstOrDefault(x => x.Id == singleModel.Id);
-				int updatedIndex = _subCategories.IndexOf(updated);
-				_subCategories[updatedIndex] = new GetList_SubCategory_SingleResponseModel
-				{
-					Id = updated.Id,
-					Name = newName,
-					Index = updatedIndex,
-					RowColor = updated.RowColor
-				};
+				_subCategories.FirstOrDefault(x => x.Id == singleModel.Id).Name = newName;
+
+				Refresh(ref _subCategories, o => o.OrderBy(x => x.Name), subCategoriesCollection);
 
 				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Successfully_updated, uiMessage.OK);
 			}
@@ -244,6 +238,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 				if (remove != null)
 					_subCategories.Remove(remove);
+
+				Refresh(ref _subCategories, o => o.OrderBy(x => x.Name), subCategoriesCollection);
 			}
 		}
 

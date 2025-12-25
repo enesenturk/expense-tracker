@@ -60,17 +60,16 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				Name = newCategory
 			};
 
-			BaseResponseModel<Unit> response = await ProxyCallerAsync<Create_Category_CommandDto, Unit>(command);
+			BaseResponseModel<Create_Category_ResponseDto> response = await ProxyCallerAsync<Create_Category_CommandDto, Create_Category_ResponseDto>(command);
 
 			if (!string.IsNullOrEmpty(response.Message))
 				return;
 
 			GetList_Category_SingleResponseModel newRecord = _mapper.Map<GetList_Category_SingleResponseModel>(command);
-			int newIdex = (_categories.OrderBy(o => o.Index).LastOrDefault()?.Index ?? 0) + 1;
-			newRecord.Index = newIdex;
-			newRecord.RowColor = newRecord.Index % 2 == 0 ? ColorConstants.MiddlePurple : ColorConstants.SoftPurple;
-
+			newRecord.Id = response.Response.Id;
 			_categories.Add(newRecord);
+
+			Refresh(ref _categories, o => o.OrderBy(x => x.Name), categoriesCollection);
 		}
 
 		#endregion
@@ -164,6 +163,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 				if (remove != null)
 					_categories.Remove(remove);
+
+				Refresh(ref _categories, o => o.OrderBy(x => x.Name), categoriesCollection);
 			}
 		}
 

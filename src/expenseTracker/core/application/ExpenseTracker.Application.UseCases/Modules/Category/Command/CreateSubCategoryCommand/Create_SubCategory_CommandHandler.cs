@@ -4,11 +4,10 @@ using ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateSubCate
 using ExpenseTracker.Application.Utilities.Mediator;
 using ExpenseTracker.Domain.Entities;
 using ExpenseTracker.Domain.Repositories.Abstractions.Modules.Category;
-using MediatR;
 
 namespace ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateSubCategoryCommand
 {
-	public class Create_SubCategory_CommandHandler : UseCaseHandler<Create_SubCategory_CommandDto, Unit>
+	public class Create_SubCategory_CommandHandler : UseCaseHandler<Create_SubCategory_CommandDto, Create_SubCategory_ResponseDto>
 	{
 
 		#region CTOR
@@ -31,18 +30,21 @@ namespace ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateSub
 
 		#endregion
 
-		public override async Task<Unit> Handle(Create_SubCategory_CommandDto command, CancellationToken cancellationToken)
+		public override async Task<Create_SubCategory_ResponseDto> Handle(Create_SubCategory_CommandDto command, CancellationToken cancellationToken)
 		{
 			await _businessRules.EnsureNameIsUnique(command.CategoryId, command.Name);
 
-			await _subCategoryRepository.AddAsync(new t_sub_category
+			t_sub_category created = await _subCategoryRepository.AddAsync(new t_sub_category
 			{
 				name = command.Name,
 				t_category_id = command.CategoryId,
 				is_expense_created = false,
 			});
 
-			return Unit.Value;
+			return new Create_SubCategory_ResponseDto
+			{
+				Id = created.id
+			};
 		}
 
 	}

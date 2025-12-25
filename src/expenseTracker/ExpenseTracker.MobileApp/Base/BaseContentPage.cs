@@ -2,7 +2,9 @@
 using Base.Exceptions.ExceptionModels;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base.Dtos;
+using ExpenseTracker.MobileApp.Constants;
 using MediatR;
+using System.Collections.ObjectModel;
 
 namespace ExpenseTracker.MobileApp.Base
 {
@@ -52,6 +54,26 @@ namespace ExpenseTracker.MobileApp.Base
 		public virtual async void LoadDataAsync()
 		{
 			await Task.CompletedTask;
+		}
+
+		public void Refresh<T>(ref ObservableCollection<T> records, Func<IEnumerable<T>, IOrderedEnumerable<T>> orderBy, CollectionView collectionView) where T : ListRecordModel
+		{
+			List<T> updatedRecords = new List<T>();
+
+			List<T> orderedRecords = orderBy(records).ToList();
+
+			for (int i = 0; i < orderedRecords.Count; i++)
+			{
+				T record = orderedRecords[i];
+
+				record.Index = i;
+				record.RowColor = record.Index % 2 == 0 ? ColorConstants.MiddlePurple : ColorConstants.SoftPurple;
+
+				updatedRecords.Add(record);
+			}
+
+			records = new ObservableCollection<T>(updatedRecords);
+			collectionView.ItemsSource = records;
 		}
 
 		#region Behind the Scenes
