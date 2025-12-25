@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTracker.Application.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.DataAccess", "src\basePackages\Base.DataAccess\Base.DataAccess.csproj", "{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTracker.Domain.Constants", "src\expenseTracker\core\domain\ExpenseTracker.Domain.Enums\ExpenseTracker.Domain.Constants.csproj", "{0AE9E52D-4EC6-442E-8D19-10B92B1045E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Exceptions", "src\basePackages\Base.Exceptions\Base.Exceptions.csproj", "{B8A16271-4532-416C-B285-9F5D7E0BD412}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,14 @@ Global
 		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE9E52D-4EC6-442E-8D19-10B92B1045E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE9E52D-4EC6-442E-8D19-10B92B1045E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE9E52D-4EC6-442E-8D19-10B92B1045E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE9E52D-4EC6-442E-8D19-10B92B1045E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A16271-4532-416C-B285-9F5D7E0BD412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A16271-4532-416C-B285-9F5D7E0BD412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A16271-4532-416C-B285-9F5D7E0BD412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A16271-4532-416C-B285-9F5D7E0BD412}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,5 +132,7 @@ Global
 		{72D4DAED-2B18-4D2F-A603-1F5F67257CF5} = {685800FF-0356-4FB4-BACE-24736F5718B4}
 		{1A34108D-4EC1-45D2-B5D8-20DBDE69A344} = {0814B19A-A69B-4EC4-ABD4-7C8E86935AF2}
 		{663B6A89-92CD-4FCC-B9C2-2104B2E33E26} = {685800FF-0356-4FB4-BACE-24736F5718B4}
+		{0AE9E52D-4EC6-442E-8D19-10B92B1045E6} = {2623A472-A9AE-4A68-801A-5A0FEA2FAF1E}
+		{B8A16271-4532-416C-B285-9F5D7E0BD412} = {685800FF-0356-4FB4-BACE-24736F5718B4}
 	EndGlobalSection
 EndGlobal

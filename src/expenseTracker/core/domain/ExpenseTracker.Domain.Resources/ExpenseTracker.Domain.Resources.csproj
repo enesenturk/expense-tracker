@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ExpenseTracker.Domain.Enums\ExpenseTracker.Domain.Constants.csproj" />
     <ProjectReference Include="..\ExpenseTracker.Domain\ExpenseTracker.Domain.csproj" />
   </ItemGroup>
 

@@ -1,18 +1,26 @@
-﻿using ExpenseTracker.Domain.Resources.Languages;
+﻿using AutoMapper;
+using ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateCategoryCommand.Dtos;
+using ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteCategoryCommand.Dtos;
+using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCategoryQuery.Dtos;
+using ExpenseTracker.Domain.Resources.Languages;
+using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
+using ExpenseTracker.MobileApp.Helpers;
+using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos;
+using MediatR;
 using System.Collections.ObjectModel;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 {
-	public partial class CategoriesPage : ContentPage
+	public partial class CategoriesPage : BaseContentPage
 	{
-		public ObservableCollection<CategoryModel> Categories { get; set; } = new ObservableCollection<CategoryModel>();
 
-		public CategoriesPage()
+		private ObservableCollection<GetList_Category_SingleResponseModel> _categories;
+
+		public CategoriesPage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper,)
 		{
 			InitializeComponent();
-			categoriesCollection.ItemsSource = Categories;
-			LoadCategoriesFromBackend();
 
 			lblCategories.Text = uiMessage.CATEGORIES;
 			lblCategories.TextColor = ColorConstants.Purple;
@@ -21,58 +29,127 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 			btnNew.BackgroundColor = ColorConstants.Purple;
 		}
 
-		// Backend'den kategori çekme
-		private void LoadCategoriesFromBackend()
+		#region Create
+
+		private async void OnCreateCategoryClicked(object sender, EventArgs e)
 		{
-			var backendCategories = new[]
+			string newCategory = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayPromptAsync(
+				uiMessage.ADD_CATEGORY,
+				string.Empty,
+				accept: uiMessage.ADD,
+				cancel: uiMessage.CANCEL,
+				placeholder: uiMessage.NAME,
+				maxLength: 25,
+				keyboard: Keyboard.Text
+				);
+
+			if (string.IsNullOrWhiteSpace(newCategory))
+				return;
+
+			if (newCategory.Contains(','))
 			{
-				new CategoryModel { Name = "Beslenme",        RowColor = Color.FromArgb("#D9CCF9") },
-				new CategoryModel { Name = "Eğlence",         RowColor = Color.FromArgb("#A895EA") },
-				new CategoryModel { Name = "Faturalar",       RowColor = Color.FromArgb("#D9CCF9") },
-				new CategoryModel { Name = "Giyim",           RowColor = Color.FromArgb("#A895EA") },
-				new CategoryModel { Name = "Kişisel Gelişim", RowColor = Color.FromArgb("#D9CCF9") },
-				new CategoryModel { Name = "Sağlık",          RowColor = Color.FromArgb("#A895EA") },
-				new CategoryModel { Name = "Teknoloji",       RowColor = Color.FromArgb("#D9CCF9") },
-				new CategoryModel { Name = "Ulaşım",          RowColor = Color.FromArgb("#A895EA") },
-				new CategoryModel { Name = "Diğer",           RowColor = Color.FromArgb("#D9CCF9") }
+				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, uiMessage.Please_not_use_comma, uiMessage.OK);
+				return;
+			}
+
+			Create_Category_CommandDto command = new Create_Category_CommandDto
+			{
+				Culture = PreferencesHelper.GetCulture(),
+				Name = newCategory
 			};
 
-			foreach (var cat in backendCategories)
-				Categories.Add(cat);
+			await _mediator.Send(command);
+
+			GetList_Category_SingleResponseModel newRecord = _mapper.Map<GetList_Category_SingleResponseModel>(command);
+			int newIdex = _categories.LastOrDefault()?.Index ?? 0;
+			newRecord.RowColor = newIdex % 2 == 0 ? ColorConstants.MiddlePurple : ColorConstants.SoftPurple;
+
+			_categories.Add(newRecord);
 		}
 
-		// Yeni kategori ekleme
-		private async void OnAddCategoryClicked(object sender, EventArgs e)
-		{
-			string result = await DisplayPromptAsync("Yeni Kategori", "Kategori adı girin:");
-			if (!string.IsNullOrWhiteSpace(result))
-			{
-				var newCategory = new CategoryModel { Name = result.Trim() };
-				Categories.Add(newCategory);
+		#endregion
 
-				// TODO: Burada backend'e POST isteği at
+		#region Read
+
+		public async Task LoadDataAsync()
+		{
+			base.OnAppearing();
+
+			GetList_Category_QueryDto query = new GetList_Category_QueryDto
+			{
+				Culture = PreferencesHelper.GetCulture()
+			};
+
+			GetList_Category_ResponseDto response = await _mediator.Send(query);
+
+			List<GetList_Category_SingleResponseModel> records = _mapper.Map<List<GetList_Category_SingleResponseModel>>(response.Records);
+
+			_categories = new ObservableCollection<GetList_Category_SingleResponseModel>(records);
+
+			categoriesCollection.ItemsSource = _categories;
+		}
+
+		#endregion
+
+		#region Update
+
+		private async void OnUpdateCategoryClicked(object sender, EventArgs e)
+		{
+			Button button = sender as Button;
+
+			if (button.CommandParameter is Guid categoryId)
+			{
+
 			}
 		}
 
-		// Kategori silme
+		#endregion
+
+		#region Delete
+
 		private async void OnDeleteCategoryClicked(object sender, EventArgs e)
 		{
-			if (sender is Button btn && btn.BindingContext is CategoryModel category)
-			{
-				bool confirm = await DisplayAlert("Sil", $"'{category.Name}' kategorisini silmek istediğinize emin misiniz?", "Evet", "Hayır");
-				if (confirm)
-				{
-					Categories.Remove(category);
+			Button button = sender as Button;
 
-					// TODO: Burada backend'e DELETE isteği at
+			if (button.CommandParameter is Guid categoryId)
+			{
+				bool isConfirmed = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, uiMessage.Are_you_sure, uiMessage.YES, uiMessage.NO);
+
+				if (!isConfirmed)
+					return;
+
+				Delete_Category_CommandDto command = new Delete_Category_CommandDto
+				{
+					Id = categoryId
+				};
+
+				Delete_Category_ResponseDto response = await _mediator.Send(command);
+
+				if (response.IsApprovalRequired)
+				{
+					bool isApproved = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, uiMessage.Category_in_use, uiMessage.YES, uiMessage.NO);
+
+					if (!isApproved)
+						return;
+
+					Delete_Category_CommandDto reCommand = new Delete_Category_CommandDto
+					{
+						Id = categoryId,
+						IsApproved = true
+					};
+
+					await _mediator.Send(reCommand);
 				}
+
+				var remove = _categories.FirstOrDefault(c => c.Id == categoryId);
+
+				if (remove != null)
+					_categories.Remove(remove);
 			}
 		}
+
+		#endregion
+
 	}
 
-	public class CategoryModel
-	{
-		public string Name { get; set; }
-		public Color RowColor { get; set; }
-	}
 }

@@ -1,16 +1,20 @@
-﻿using ExpenseTracker.Domain.Resources.Languages;
+﻿using AutoMapper;
+using ExpenseTracker.Domain.Resources.Languages;
+using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules;
 using ExpenseTracker.MobileApp.Pages.Modules.Categories;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
+using MediatR;
 
 namespace ExpenseTracker.MobileApp.Pages
 {
-	public partial class LayoutPage : ContentPage
+	public partial class LayoutPage : BaseContentPage
 	{
 
-		public LayoutPage()
+		public LayoutPage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
@@ -36,32 +40,36 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnHomeClicked(object sender, EventArgs e)
 		{
-			SetPage(new HomePage());
+			SetPage(new HomePage(_mediator, _mapper));
 		}
 
 		private void OnExpensesClicked(object sender, EventArgs e)
 		{
-			SetPage(new ExpensesPage());
+			SetPage(new ExpensesPage(_mediator, _mapper));
 		}
 
-		private void OnCategoriesClicked(object sender, EventArgs e)
+		private async void OnCategoriesClicked(object sender, EventArgs e)
 		{
-			SetPage(new CategoriesPage());
+			var page = new CategoriesPage(_mediator, _mapper);
+
+			SetPage(page);
+
+			await page.LoadDataAsync();
 		}
 
 		private void OnReportsClicked(object sender, EventArgs e)
 		{
-			SetPage(new ReportsPage());
+			SetPage(new ReportsPage(_mediator, _mapper));
 		}
 
 		private void OnPreferencesClicked(object sender, EventArgs e)
 		{
-			SetPage(new PreferencesPage());
+			SetPage(new PreferencesPage(_mediator, _mapper));
 		}
 
 		private void OnAboutClicked(object sender, EventArgs e)
 		{
-			SetPage(new AboutPage());
+			SetPage(new AboutPage(_mediator, _mapper));
 		}
 
 		#endregion

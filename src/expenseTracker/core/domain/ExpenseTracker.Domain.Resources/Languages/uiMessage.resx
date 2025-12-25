@@ -175,10 +175,46 @@
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="Preferences_Saved" xml:space="preserve">
+  <data name="Preferences_saved" xml:space="preserve">
     <value>Preferences saved successfully.</value>
   </data>
   <data name="PREFERENCES" xml:space="preserve">
     <value>PREFERENCES</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>WARNING</value>
+  </data>
+  <data name="Are_you_sure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="Category_in_use" xml:space="preserve">
+    <value>The category is in use. All expenses related to the category will be deleted.</value>
+  </data>
+  <data name="ADD_CATEGORY" xml:space="preserve">
+    <value>ADD CATEGORY</value>
+  </data>
+  <data name="ADD" xml:space="preserve">
+    <value>ADD</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Please_not_use_comma" xml:space="preserve">
+    <value>Please do not use comma.</value>
+  </data>
+  <data name="Category_already_exists" xml:space="preserve">
+    <value>The category already exists.</value>
+  </data>
+  <data name="Error_occurred" xml:space="preserve">
+    <value>An error occurred. Please contact to the system admin.</value>
   </data>
 </root>

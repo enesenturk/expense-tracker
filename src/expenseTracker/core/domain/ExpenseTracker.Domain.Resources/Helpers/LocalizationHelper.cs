@@ -1,4 +1,4 @@
-﻿using ExpenseTracker.Domain.Enums;
+﻿using ExpenseTracker.Domain.Constants.Enums;
 
 namespace ExpenseTracker.Domain.Resources.Helpers
 {

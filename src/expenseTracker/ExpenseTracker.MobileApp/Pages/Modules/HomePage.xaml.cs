@@ -1,14 +1,18 @@
-﻿using ExpenseTracker.Domain.Resources.Languages;
+﻿using AutoMapper;
+using ExpenseTracker.Domain.Resources.Languages;
+using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
+using MediatR;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules
 {
-	public partial class HomePage : ContentPage
+	public partial class HomePage : BaseContentPage
 	{
 
-		public HomePage()
+		public HomePage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
@@ -21,7 +25,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 		{
 			if (Microsoft.Maui.Controls.Application.Current.MainPage is LayoutPage layout)
 			{
-				layout.SetPage(new CreateExpensePage());
+				layout.SetPage(new CreateExpensePage(_mediator, _mapper));
 			}
 		}
 

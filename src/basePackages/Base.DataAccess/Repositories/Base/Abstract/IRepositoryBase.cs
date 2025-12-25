@@ -14,8 +14,8 @@ namespace Base.DataAccess.Repositories.Base.Abstract
 
 		#region Read
 
-		T Get(Guid id);
-		List<T> GetList(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy, Expression<Func<T, bool>> predicate = null);
+		Task<T> GetAsync(Guid id);
+		Task<List<T>> GetListAsync(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy, Expression<Func<T, bool>> predicate = null);
 
 		#endregion
 
@@ -28,6 +28,7 @@ namespace Base.DataAccess.Repositories.Base.Abstract
 		#region Delete
 
 		Task DeleteAsync(T entity);
+		Task DeleteRangeAsync(List<T> entities);
 
 		#endregion
 

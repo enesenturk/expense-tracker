@@ -32,7 +32,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 			var props = typeof(T).GetProperties();
 			var values = props.Select(p => p.GetValue(entity)?.ToString() ?? "");
-			var line = string.Join(",", values) + Environment.NewLine;
+			var line = Environment.NewLine + string.Join(",", values);
 
 			await File.AppendAllTextAsync(_filePath, line);
 
@@ -43,23 +43,26 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		#region Read
 
-		public T Get(Guid id)
+		public async Task<T> GetAsync(Guid id)
 		{
-			List<T> list = GetList(
+			List<T> list = await GetListAsync(
 				orderBy: o => o.OrderBy(i => i.id)
 				);
 
 			return list.FirstOrDefault(x => x.id == id);
 		}
 
-		public List<T> GetList(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy, Expression<Func<T, bool>> predicate = null)
+		public async Task<List<T>> GetListAsync(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy, Expression<Func<T, bool>> predicate = null)
 		{
 			List<T> list = new List<T>();
 
-			string[] lines = File.ReadAllLines(_filePath);
+			string[] lines = await File.ReadAllLinesAsync(_filePath);
 
 			foreach (string line in lines)
 			{
+				if (string.IsNullOrEmpty(line))
+					continue;
+
 				string[] values = line.Split(',');
 				T entity = new T();
 				PropertyInfo[] props = typeof(T).GetProperties();
@@ -104,7 +107,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		public async Task<T> UpdateAsync(T entity)
 		{
-			List<T> list = GetList(
+			List<T> list = await GetListAsync(
 				orderBy: o => o.OrderBy(i => i.id)
 				);
 
@@ -123,11 +126,22 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		public async Task DeleteAsync(T entity)
 		{
-			List<T> list = GetList(
+			List<T> list = await GetListAsync(
 				orderBy: o => o.OrderBy(i => i.id)
 				);
 
 			List<T> newList = list.Where(x => x.id != entity.id).ToList();
+
+			await WriteAllAsync(newList);
+		}
+
+		public async Task DeleteRangeAsync(List<T> entities)
+		{
+			List<T> list = await GetListAsync(
+				orderBy: o => o.OrderBy(i => i.id)
+				);
+
+			List<T> newList = list.Where(x => !entities.Select(g => g.id).Contains(x.id)).ToList();
 
 			await WriteAllAsync(newList);
 		}

@@ -1,19 +1,23 @@
-﻿using Base.Dto;
+﻿using AutoMapper;
+using Base.Dto;
 using ExpenseTracker.Application.Utilities.Helpers;
-using ExpenseTracker.Domain.Enums;
+using ExpenseTracker.Domain.Constants.Enums;
 using ExpenseTracker.Domain.Resources.Helpers;
 using ExpenseTracker.Domain.Resources.Languages;
+using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
+using MediatR;
 using System.Globalization;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules
 {
-	public partial class PreferencesPage : ContentPage
+	public partial class PreferencesPage : BaseContentPage
 	{
 
 		private readonly List<JSonDto> _days = DropDownHelper.GetDropDownFromEnum<Days>(addSelectOption: false);
 
-		public PreferencesPage()
+		public PreferencesPage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
@@ -68,11 +72,11 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 			CultureInfo.DefaultThreadCurrentCulture = culture;
 			CultureInfo.DefaultThreadCurrentUICulture = culture;
 
-			await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFULL, uiMessage.Preferences_Saved, uiMessage.OK);
+			await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFULL, uiMessage.Preferences_saved, uiMessage.OK);
 
-			var layout = new LayoutPage();
+			var layout = new LayoutPage(_mediator, _mapper);
 			Microsoft.Maui.Controls.Application.Current.MainPage = layout;
-			layout.SetPage(new HomePage());
+			layout.SetPage(new HomePage(_mediator, _mapper));
 		}
 
 	}

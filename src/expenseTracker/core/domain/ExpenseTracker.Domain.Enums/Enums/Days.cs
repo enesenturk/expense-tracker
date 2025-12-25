@@ -1,4 +1,4 @@
-﻿namespace ExpenseTracker.Domain.Enums
+﻿namespace ExpenseTracker.Domain.Constants.Enums
 {
 	public enum Days
 	{

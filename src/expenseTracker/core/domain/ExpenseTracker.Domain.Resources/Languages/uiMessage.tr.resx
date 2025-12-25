@@ -175,10 +175,46 @@
   <data name="OK" xml:space="preserve">
     <value>TAMAM</value>
   </data>
-  <data name="Preferences_Saved" xml:space="preserve">
+  <data name="Preferences_saved" xml:space="preserve">
     <value>Tercihler başarıyla kaydedildi.</value>
   </data>
   <data name="PREFERENCES" xml:space="preserve">
     <value>TERCİHLER</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>UYARI</value>
+  </data>
+  <data name="Are_you_sure" xml:space="preserve">
+    <value>Emin misin?</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>EVET</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>HAYIR</value>
+  </data>
+  <data name="Category_in_use" xml:space="preserve">
+    <value>Bu kategori kullanılıyor. Kategoriye ait tüm giderler silinecek.</value>
+  </data>
+  <data name="ADD_CATEGORY" xml:space="preserve">
+    <value>KATEGORİ EKLE</value>
+  </data>
+  <data name="ADD" xml:space="preserve">
+    <value>EKLE</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>İPTAL</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>İSİM</value>
+  </data>
+  <data name="Please_not_use_comma" xml:space="preserve">
+    <value>Lütfen virgül kullanmayınız.</value>
+  </data>
+  <data name="Category_already_exists" xml:space="preserve">
+    <value>Kategori zaten mevcut.</value>
+  </data>
+  <data name="Error_occurred" xml:space="preserve">
+    <value>Bir hata oluştu. Lütfen sistem admin ile iletişime geçiniz.</value>
   </data>
 </root>

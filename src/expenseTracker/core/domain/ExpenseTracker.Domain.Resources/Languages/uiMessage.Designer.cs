@@ -61,6 +61,24 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADD.
+        /// </summary>
+        public static string ADD {
+            get {
+                return ResourceManager.GetString("ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ADD CATEGORY.
+        /// </summary>
+        public static string ADD_CATEGORY {
+            get {
+                return ResourceManager.GetString("ADD_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ADD EXPENSE.
         /// </summary>
         public static string ADD_EXPENSE {
@@ -75,6 +93,24 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string AMOUNT {
             get {
                 return ResourceManager.GetString("AMOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        public static string Are_you_sure {
+            get {
+                return ResourceManager.GetString("Are_you_sure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANCEL.
+        /// </summary>
+        public static string CANCEL {
+            get {
+                return ResourceManager.GetString("CANCEL", resourceCulture);
             }
         }
         
@@ -97,6 +133,24 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The category already exists..
+        /// </summary>
+        public static string Category_already_exists {
+            get {
+                return ResourceManager.GetString("Category_already_exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The category is in use. All expenses related to the category will be deleted..
+        /// </summary>
+        public static string Category_in_use {
+            get {
+                return ResourceManager.GetString("Category_in_use", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CURRENCY.
         /// </summary>
         public static string CURRENCY {
@@ -111,6 +165,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string DATE {
             get {
                 return ResourceManager.GetString("DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred. Please contact to the system admin..
+        /// </summary>
+        public static string Error_occurred {
+            get {
+                return ResourceManager.GetString("Error_occurred", resourceCulture);
             }
         }
         
@@ -169,6 +232,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NAME.
+        /// </summary>
+        public static string NAME {
+            get {
+                return ResourceManager.GetString("NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NECESSARY.
         /// </summary>
         public static string NECESSARY {
@@ -187,11 +259,29 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NO.
+        /// </summary>
+        public static string NO {
+            get {
+                return ResourceManager.GetString("NO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please do not use comma..
+        /// </summary>
+        public static string Please_not_use_comma {
+            get {
+                return ResourceManager.GetString("Please_not_use_comma", resourceCulture);
             }
         }
         
@@ -207,9 +297,9 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         /// <summary>
         ///   Looks up a localized string similar to Preferences saved successfully..
         /// </summary>
-        public static string Preferences_Saved {
+        public static string Preferences_saved {
             get {
-                return ResourceManager.GetString("Preferences_Saved", resourceCulture);
+                return ResourceManager.GetString("Preferences_saved", resourceCulture);
             }
         }
         
@@ -304,11 +394,29 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WARNING.
+        /// </summary>
+        public static string WARNING {
+            get {
+                return ResourceManager.GetString("WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WEDNESDAY.
         /// </summary>
         public static string Wednesday {
             get {
                 return ResourceManager.GetString("Wednesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to YES.
+        /// </summary>
+        public static string YES {
+            get {
+                return ResourceManager.GetString("YES", resourceCulture);
             }
         }
     }

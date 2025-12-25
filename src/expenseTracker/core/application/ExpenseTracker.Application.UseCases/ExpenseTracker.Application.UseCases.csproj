@@ -9,4 +9,19 @@
     <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Dto\Base.Dto.csproj" />
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
+    <ProjectReference Include="..\..\domain\ExpenseTracker.Domain.Repositories.Abstractions\ExpenseTracker.Domain.Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\..\domain\ExpenseTracker.Domain.Resources\ExpenseTracker.Domain.Resources.csproj" />
+    <ProjectReference Include="..\..\domain\ExpenseTracker.Domain\ExpenseTracker.Domain.csproj" />
+    <ProjectReference Include="..\ExpenseTracker.Application.Utilities\ExpenseTracker.Application.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

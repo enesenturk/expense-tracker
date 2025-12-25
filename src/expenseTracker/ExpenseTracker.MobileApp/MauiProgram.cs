@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.Infrastructure.Repositories;
+﻿using ExpenseTracker.Application.UseCases;
+using ExpenseTracker.Infrastructure.Repositories;
 
 namespace ExpenseTracker.MobileApp
 {
@@ -35,6 +36,8 @@ namespace ExpenseTracker.MobileApp
 				}
 			}
 
+			builder.Services.AddMobileAppServices();
+			builder.Services.AddUseCaseCommonServices();
 			builder.Services.AddRepositoryServices(appDataDirectory);
 
 			return builder.Build();

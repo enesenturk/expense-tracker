@@ -1,5 +1,6 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
              x:Class="ExpenseTracker.MobileApp.Pages.Modules.AboutPage"
              BackgroundColor="White">
 
@@ -9,4 +10,4 @@
         <Label Text="About sayfası içerik alanı" HorizontalOptions="Center"/>
     </VerticalStackLayout>
 
-</ContentPage>
+</base:BaseContentPage>
