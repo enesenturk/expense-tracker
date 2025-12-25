@@ -4,6 +4,7 @@ using ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteCategor
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCategoryQuery.Dtos;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
+using ExpenseTracker.MobileApp.Base.Dtos;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos;
@@ -17,8 +18,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 		private ObservableCollection<GetList_Category_SingleResponseModel> _categories;
 
-		public CategoriesPage(IMediator mediator, IMapper mapper)
-			: base(mediator, mapper,)
+		public CategoriesPage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
+			: base(mediator, mapper, baseMediatorCaller)
 		{
 			InitializeComponent();
 
@@ -80,13 +81,24 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				Culture = PreferencesHelper.GetCulture()
 			};
 
-			GetList_Category_ResponseDto response = await _mediator.Send(query);
+			BaseResponseModel<GetList_Category_ResponseDto> response = await _baseMediatorCaller.ProxyCallerAsync<GetList_Category_QueryDto, GetList_Category_ResponseDto>(
+				Microsoft.Maui.Controls.Application.Current.MainPage,
+				_mediator,
+				query
+				);
 
-			List<GetList_Category_SingleResponseModel> records = _mapper.Map<List<GetList_Category_SingleResponseModel>>(response.Records);
+			if (!string.IsNullOrEmpty(response.Message))
+			{
+				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, response.Message, uiMessage.OK);
+			}
+			else
+			{
+				List<GetList_Category_SingleResponseModel> records = _mapper.Map<List<GetList_Category_SingleResponseModel>>(response.Response.Records);
 
-			_categories = new ObservableCollection<GetList_Category_SingleResponseModel>(records);
+				_categories = new ObservableCollection<GetList_Category_SingleResponseModel>(records);
 
-			categoriesCollection.ItemsSource = _categories;
+				categoriesCollection.ItemsSource = _categories;
+			}
 		}
 
 		#endregion

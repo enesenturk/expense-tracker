@@ -6,8 +6,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 {
 	public partial class AboutPage : BaseContentPage
 	{
-		public AboutPage(IMediator mediator, IMapper mapper)
-			: base(mediator, mapper)
+		public AboutPage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
+			: base(mediator, mapper, baseMediatorCaller)
 		{
 			InitializeComponent();
 		}

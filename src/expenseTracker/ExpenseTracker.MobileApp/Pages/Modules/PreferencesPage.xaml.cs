@@ -16,8 +16,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 
 		private readonly List<JSonDto> _days = DropDownHelper.GetDropDownFromEnum<Days>(addSelectOption: false);
 
-		public PreferencesPage(IMediator mediator, IMapper mapper)
-			: base(mediator, mapper)
+		public PreferencesPage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
+			: base(mediator, mapper, baseMediatorCaller)
 		{
 			InitializeComponent();
 

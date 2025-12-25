@@ -13,8 +13,8 @@ namespace ExpenseTracker.MobileApp.Pages
 	public partial class LayoutPage : BaseContentPage
 	{
 
-		public LayoutPage(IMediator mediator, IMapper mapper)
-			: base(mediator, mapper)
+		public LayoutPage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
+			: base(mediator, mapper, baseMediatorCaller)
 		{
 			InitializeComponent();
 
