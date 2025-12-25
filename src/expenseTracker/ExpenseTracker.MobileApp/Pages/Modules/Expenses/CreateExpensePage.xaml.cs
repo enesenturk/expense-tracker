@@ -8,8 +8,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 {
 	public partial class CreateExpensePage : BaseContentPage
 	{
-		public CreateExpensePage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
-			: base(mediator, mapper, baseMediatorCaller)
+		public CreateExpensePage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 

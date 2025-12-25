@@ -16,8 +16,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 
 		private readonly List<JSonDto> _days = DropDownHelper.GetDropDownFromEnum<Days>(addSelectOption: false);
 
-		public PreferencesPage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
-			: base(mediator, mapper, baseMediatorCaller)
+		public PreferencesPage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
@@ -72,7 +72,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 			CultureInfo.DefaultThreadCurrentCulture = culture;
 			CultureInfo.DefaultThreadCurrentUICulture = culture;
 
-			await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFULL, uiMessage.Preferences_saved, uiMessage.OK);
+			await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Preferences_saved, uiMessage.OK);
 
 			var layout = new LayoutPage(_mediator, _mapper);
 			Microsoft.Maui.Controls.Application.Current.MainPage = layout;

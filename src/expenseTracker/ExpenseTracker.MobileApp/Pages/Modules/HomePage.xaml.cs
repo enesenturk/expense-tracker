@@ -11,8 +11,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 	public partial class HomePage : BaseContentPage
 	{
 
-		public HomePage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
-			: base(mediator, mapper, baseMediatorCaller)
+		public HomePage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 

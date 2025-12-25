@@ -7,7 +7,8 @@ using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Base.Dtos;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
-using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos;
+using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos.Request;
+using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos.Response;
 using MediatR;
 using System.Collections.ObjectModel;
 
@@ -18,8 +19,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 		private ObservableCollection<GetList_Category_SingleResponseModel> _categories;
 
-		public CategoriesPage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
-			: base(mediator, mapper, baseMediatorCaller)
+		public CategoriesPage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
@@ -32,7 +33,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 		#region Create
 
-		private async void OnCreateCategoryClicked(object sender, EventArgs e)
+		private async void OnCreateClicked(object sender, EventArgs e)
 		{
 			string newCategory = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayPromptAsync(
 				uiMessage.ADD_CATEGORY,
@@ -59,11 +60,15 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				Name = newCategory
 			};
 
-			await _mediator.Send(command);
+			BaseResponseModel<Unit> response = await ProxyCallerAsync<Create_Category_CommandDto, Unit>(command);
+
+			if (!string.IsNullOrEmpty(response.Message))
+				return;
 
 			GetList_Category_SingleResponseModel newRecord = _mapper.Map<GetList_Category_SingleResponseModel>(command);
-			int newIdex = _categories.LastOrDefault()?.Index ?? 0;
-			newRecord.RowColor = newIdex % 2 == 0 ? ColorConstants.MiddlePurple : ColorConstants.SoftPurple;
+			int newIdex = (_categories.OrderBy(o => o.Index).LastOrDefault()?.Index ?? 0) + 1;
+			newRecord.Index = newIdex;
+			newRecord.RowColor = newRecord.Index % 2 == 0 ? ColorConstants.MiddlePurple : ColorConstants.SoftPurple;
 
 			_categories.Add(newRecord);
 		}
@@ -72,7 +77,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 		#region Read
 
-		public async Task LoadDataAsync()
+		public override async void LoadDataAsync()
 		{
 			base.OnAppearing();
 
@@ -81,37 +86,39 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				Culture = PreferencesHelper.GetCulture()
 			};
 
-			BaseResponseModel<GetList_Category_ResponseDto> response = await _baseMediatorCaller.ProxyCallerAsync<GetList_Category_QueryDto, GetList_Category_ResponseDto>(
-				Microsoft.Maui.Controls.Application.Current.MainPage,
-				_mediator,
-				query
-				);
+			BaseResponseModel<GetList_Category_ResponseDto> response = await ProxyCallerAsync<GetList_Category_QueryDto, GetList_Category_ResponseDto>(query);
 
 			if (!string.IsNullOrEmpty(response.Message))
-			{
-				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, response.Message, uiMessage.OK);
-			}
-			else
-			{
-				List<GetList_Category_SingleResponseModel> records = _mapper.Map<List<GetList_Category_SingleResponseModel>>(response.Response.Records);
+				return;
 
-				_categories = new ObservableCollection<GetList_Category_SingleResponseModel>(records);
+			List<GetList_Category_SingleResponseModel> records = _mapper.Map<List<GetList_Category_SingleResponseModel>>(response.Response.Records);
 
-				categoriesCollection.ItemsSource = _categories;
-			}
+			_categories = new ObservableCollection<GetList_Category_SingleResponseModel>(records);
+
+			categoriesCollection.ItemsSource = _categories;
 		}
 
 		#endregion
 
 		#region Update
 
-		private async void OnUpdateCategoryClicked(object sender, EventArgs e)
+		private void OnUpdateClicked(object sender, EventArgs e)
 		{
 			Button button = sender as Button;
 
-			if (button.CommandParameter is Guid categoryId)
-			{
+			GetList_Category_SingleResponseModel singleModel = button.BindingContext as GetList_Category_SingleResponseModel;
 
+			if (singleModel != null)
+			{
+				Update_Category_RequestModel requestModel = new Update_Category_RequestModel
+				{
+					Id = singleModel.Id,
+					Name = singleModel.Name
+				};
+
+				var layout = new LayoutPage(_mediator, _mapper);
+				Microsoft.Maui.Controls.Application.Current.MainPage = layout;
+				layout.SetPage(new CategoryPage(_mediator, _mapper, requestModel));
 			}
 		}
 
@@ -119,7 +126,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 		#region Delete
 
-		private async void OnDeleteCategoryClicked(object sender, EventArgs e)
+		private async void OnDeleteClicked(object sender, EventArgs e)
 		{
 			Button button = sender as Button;
 
@@ -135,9 +142,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 					Id = categoryId
 				};
 
-				Delete_Category_ResponseDto response = await _mediator.Send(command);
+				BaseResponseModel<Delete_Category_ResponseDto> response = await ProxyCallerAsync<Delete_Category_CommandDto, Delete_Category_ResponseDto>(command);
 
-				if (response.IsApprovalRequired)
+				if (response.Response.IsApprovalRequired)
 				{
 					bool isApproved = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, uiMessage.Category_in_use, uiMessage.YES, uiMessage.NO);
 
@@ -150,7 +157,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 						IsApproved = true
 					};
 
-					await _mediator.Send(reCommand);
+					BaseResponseModel<Delete_Category_ResponseDto> reResponse = await ProxyCallerAsync<Delete_Category_CommandDto, Delete_Category_ResponseDto>(reCommand);
 				}
 
 				var remove = _categories.FirstOrDefault(c => c.Id == categoryId);

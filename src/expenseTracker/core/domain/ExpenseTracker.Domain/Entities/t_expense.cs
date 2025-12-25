@@ -6,5 +6,7 @@ namespace ExpenseTracker.Domain.Entities
 	{
 
 		public Guid t_category_id { get; set; }
+		public Guid t_sub_category_id { get; set; }
+
 	}
 }

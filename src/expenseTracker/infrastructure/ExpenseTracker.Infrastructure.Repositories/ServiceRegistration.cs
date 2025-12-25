@@ -11,6 +11,10 @@ namespace ExpenseTracker.Infrastructure.Repositories
 		public static void AddRepositoryServices(this IServiceCollection services, string destinationPath)
 		{
 
+			services.AddScoped<ISubCategoryRepository>(sp =>
+				new CsvSubCategoryRepository(Path.Combine(destinationPath, "subcategories.csv"))
+			);
+
 			services.AddScoped<ICategoryRepository>(sp =>
 				new CsvCategoryRepository(Path.Combine(destinationPath, "categories.csv"))
 			);

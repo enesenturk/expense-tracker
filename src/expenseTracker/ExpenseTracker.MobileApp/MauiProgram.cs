@@ -18,11 +18,13 @@ namespace ExpenseTracker.MobileApp
 
 			string appDataDirectory = FileSystem.AppDataDirectory;
 
-			string[] seedFiles = { "categories.csv" };
+			string[] seedFiles = { "categories.csv", "subcategories.csv" };
 
 			foreach (var file in seedFiles)
 			{
 				string destPath = Path.Combine(appDataDirectory, file);
+
+				File.Delete(destPath);
 
 				if (!File.Exists(destPath))
 				{

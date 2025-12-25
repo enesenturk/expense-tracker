@@ -13,8 +13,8 @@ namespace ExpenseTracker.MobileApp.Pages
 	public partial class LayoutPage : BaseContentPage
 	{
 
-		public LayoutPage(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
-			: base(mediator, mapper, baseMediatorCaller)
+		public LayoutPage(IMediator mediator, IMapper mapper)
+			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
@@ -31,9 +31,11 @@ namespace ExpenseTracker.MobileApp.Pages
 			AnimationHelper.StartFadeBlinkAsync(lblProductHeader);
 		}
 
-		public void SetPage(ContentPage page)
+		public void SetPage(BaseContentPage page)
 		{
 			RenderBody.Content = page.Content;
+
+			page.LoadDataAsync();
 		}
 
 		#region Navigations
@@ -48,13 +50,9 @@ namespace ExpenseTracker.MobileApp.Pages
 			SetPage(new ExpensesPage(_mediator, _mapper));
 		}
 
-		private async void OnCategoriesClicked(object sender, EventArgs e)
+		private void OnCategoriesClicked(object sender, EventArgs e)
 		{
-			var page = new CategoriesPage(_mediator, _mapper);
-
-			SetPage(page);
-
-			await page.LoadDataAsync();
+			SetPage(new CategoriesPage(_mediator, _mapper));
 		}
 
 		private void OnReportsClicked(object sender, EventArgs e)

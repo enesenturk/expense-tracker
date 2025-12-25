@@ -9,7 +9,7 @@
         <Label x:Name="lblCategories" Grid.Row="0" FontSize="26" HorizontalOptions="Center" />
 
         <Button x:Name="btnNew" Grid.Row="1" TextColor="White" Margin="0,15,0,15"
-                CornerRadius="10" Clicked="OnCreateCategoryClicked"/>
+                CornerRadius="10" Clicked="OnCreateClicked"/>
 
         <CollectionView Grid.Row="2"
                         x:Name="categoriesCollection"
@@ -26,7 +26,7 @@
                         <Button Grid.Column="1" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" 
                                 CornerRadius="20" VerticalOptions="Center" 
                                 Padding="0" Margin="0,0,8,0"
-                                CommandParameter="{Binding Id}" Clicked="OnUpdateCategoryClicked">
+                                CommandParameter="{Binding .}" Clicked="OnUpdateClicked">
 
                             <Button.ImageSource>
                                 <FileImageSource File="icon_edit.png"/>
@@ -36,7 +36,7 @@
                         <Button Grid.Column="2" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" 
                                 CornerRadius="20" VerticalOptions="Center" 
                                 Padding="0" Margin="0,0,8,0"
-                                CommandParameter="{Binding Id}" Clicked="OnDeleteCategoryClicked">
+                                CommandParameter="{Binding Id}" Clicked="OnDeleteClicked">
 
                             <Button.ImageSource>
                                 <FileImageSource File="icon_rubbish.png"/>

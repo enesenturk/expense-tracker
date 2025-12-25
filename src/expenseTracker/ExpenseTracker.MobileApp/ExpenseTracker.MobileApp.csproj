@@ -55,10 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Raw\SeedData\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.UseCases\ExpenseTracker.Application.UseCases.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.Utilities\ExpenseTracker.Application.Utilities.csproj" />
@@ -75,6 +71,9 @@
 
   <ItemGroup>
     <MauiXaml Update="Pages\Modules\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\Modules\Categories\CategoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\Modules\Expenses\CreateExpensePage.xaml">

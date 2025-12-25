@@ -169,8 +169,8 @@
   <data name="FIRST_DAY_OF_WEEK" xml:space="preserve">
     <value>FIRST DAY of WEEK</value>
   </data>
-  <data name="SUCCESSFULL" xml:space="preserve">
-    <value>SUCCESSFULL</value>
+  <data name="SUCCESSFUL" xml:space="preserve">
+    <value>SUCCESSFUL</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -216,5 +216,20 @@
   </data>
   <data name="Error_occurred" xml:space="preserve">
     <value>An error occurred. Please contact to the system admin.</value>
+  </data>
+  <data name="CATEGORY_DETAIL" xml:space="preserve">
+    <value>CATEGORY DETAIL</value>
+  </data>
+  <data name="UPDATE" xml:space="preserve">
+    <value>UPDATE</value>
+  </data>
+  <data name="Successfully_updated" xml:space="preserve">
+    <value>The record is updated.</value>
+  </data>
+  <data name="ADD_SUB_CATEGORY" xml:space="preserve">
+    <value>ADD SUB CATEGORY</value>
+  </data>
+  <data name="UPDATE_SUB_CATEGORY" xml:space="preserve">
+    <value>UPDATE SUB CATEGORY</value>
   </data>
 </root>

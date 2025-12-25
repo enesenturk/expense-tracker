@@ -12,7 +12,7 @@ namespace ExpenseTracker.MobileApp
 		private readonly IMediator _mediator;
 		private readonly IMapper _mapper;
 
-		public App(IMediator mediator, IMapper mapper, BaseMediatorCaller baseMediatorCaller)
+		public App(IMediator mediator, IMapper mapper)
 		{
 			InitializeComponent();
 

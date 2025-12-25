@@ -88,6 +88,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADD SUB CATEGORY.
+        /// </summary>
+        public static string ADD_SUB_CATEGORY {
+            get {
+                return ResourceManager.GetString("ADD_SUB_CATEGORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AMOUNT.
         /// </summary>
         public static string AMOUNT {
@@ -138,6 +147,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string Category_already_exists {
             get {
                 return ResourceManager.GetString("Category_already_exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CATEGORY DETAIL.
+        /// </summary>
+        public static string CATEGORY_DETAIL {
+            get {
+                return ResourceManager.GetString("CATEGORY_DETAIL", resourceCulture);
             }
         }
         
@@ -349,11 +367,20 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SUCCESSFULL.
+        ///   Looks up a localized string similar to SUCCESSFUL.
         /// </summary>
-        public static string SUCCESSFULL {
+        public static string SUCCESSFUL {
             get {
-                return ResourceManager.GetString("SUCCESSFULL", resourceCulture);
+                return ResourceManager.GetString("SUCCESSFUL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The record is updated..
+        /// </summary>
+        public static string Successfully_updated {
+            get {
+                return ResourceManager.GetString("Successfully_updated", resourceCulture);
             }
         }
         
@@ -390,6 +417,24 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string UNNECESSARY {
             get {
                 return ResourceManager.GetString("UNNECESSARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE.
+        /// </summary>
+        public static string UPDATE {
+            get {
+                return ResourceManager.GetString("UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE SUB CATEGORY.
+        /// </summary>
+        public static string UPDATE_SUB_CATEGORY {
+            get {
+                return ResourceManager.GetString("UPDATE_SUB_CATEGORY", resourceCulture);
             }
         }
         
