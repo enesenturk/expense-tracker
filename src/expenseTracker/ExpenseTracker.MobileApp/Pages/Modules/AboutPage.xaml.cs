@@ -15,7 +15,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 
 			gridMain.BackgroundColor = ColorConstants.SoftGrey;
 
-			lblAbout.Text = uiMessage.PREFERENCES;
+			lblAbout.Text = uiMessage.ABOUT;
 			lblAbout.TextColor = ColorConstants.Purple;
 
 		}

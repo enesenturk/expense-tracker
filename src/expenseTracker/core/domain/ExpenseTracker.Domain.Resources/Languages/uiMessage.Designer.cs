@@ -61,6 +61,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ABOUT.
+        /// </summary>
+        public static string ABOUT {
+            get {
+                return ResourceManager.GetString("ABOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ADD.
         /// </summary>
         public static string ADD {

@@ -274,4 +274,7 @@
   <data name="NECESSARY_UNNECESSARY" xml:space="preserve">
     <value>NECESSARY / UNNECESSARY</value>
   </data>
+  <data name="ABOUT" xml:space="preserve">
+    <value>ABOUT</value>
+  </data>
 </root>
