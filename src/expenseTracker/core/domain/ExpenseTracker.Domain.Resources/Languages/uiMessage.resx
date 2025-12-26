@@ -232,4 +232,7 @@
   <data name="UPDATE_SUB_CATEGORY" xml:space="preserve">
     <value>UPDATE SUB CATEGORY</value>
   </data>
+  <data name="Other_category_can_not_be_deleted" xml:space="preserve">
+    <value>category can not be deleted.</value>
+  </data>
 </root>

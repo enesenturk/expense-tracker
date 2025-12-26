@@ -295,6 +295,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to category can not be deleted..
+        /// </summary>
+        public static string Other_category_can_not_be_deleted {
+            get {
+                return ResourceManager.GetString("Other_category_can_not_be_deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please do not use comma..
         /// </summary>
         public static string Please_not_use_comma {

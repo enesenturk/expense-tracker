@@ -9,7 +9,7 @@ namespace ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCate
 
 	public class GetList_Category_SingleResponseDto : ListRecordDto
 	{
-		public Guid Id { get; set; }
 		public string Name { get; set; }
+		public bool IsOther { get; set; }
 	}
 }

@@ -1,18 +1,18 @@
-﻿Beslenme,tr-TR,false,b6a1c3f0-1a23-4d5e-9f7b-0c1a2b3d4e5f
-Ulaşım,tr-TR,false,d2c3b4a5-6e7f-4d1a-8c9b-2f3e4a5b6c7d
-Eğlence,tr-TR,false,f1e2d3c4-5b6a-4f7e-9d8c-1a2b3c4d5e6f
-Faturalar,tr-TR,false,a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d
-Giyim,tr-TR,false,c1d2e3f4-6a7b-4c8d-9e0f-1a2b3c4d5e6f
-Sağlık,tr-TR,false,d1e2f3a4-5b6c-4d7e-8f9a-0b1c2d3e4f5a
-Kişisel Gelişim,tr-TR,false,e1f2a3b4-5c6d-4e7f-8a9b-0c1d2e3f4a5b
-Teknoloji,tr-TR,false,f2a3b4c5-6d7e-4f8a-9b0c-1d2e3f4a5b6c
-Diğer,tr-TR,false,a2b3c4d5-6e7f-4a9b-8c0d-1e2f3a4b5c6d
-Food,en-US,false,b2c3d4e5-7f8a-4b0c-9d1e-2f3a4b5c6d7e
-Transport,en-US,false,c2d3e4f5-8a9b-4c1d-0e2f-3a4b5c6d7e8f
-Entertainment,en-US,false,d2e3f4a5-9b0c-4d2e-1f3a-4b5c6d7e8f9a
-Bills,en-US,false,e2f3a4b5-0c1d-4e3f-2a4b-5c6d7e8f9a0b
-Clothing,en-US,false,f2a3b4c5-1d2e-4f4a-3b5c-6d7e8f9a0b1c
-Health,en-US,false,a3b4c5d6-2e3f-4a5b-4c6d-7e8f9a0b1c2d
-Personal Development,en-US,false,b3c4d5e6-3f4a-4b6c-5d7e-8f9a0b1c2d3e
-Technology,en-US,false,c3d4e5f6-4a5b-4c7d-6e8f-9a0b1c2d3e4f
-Other,en-US,false,d3e4f5a6-5b6c-4d8e-7f9a-0b1c2d3e4f5a
+﻿Beslenme,tr-TR,false,false,b6a1c3f0-1a23-4d5e-9f7b-0c1a2b3d4e5f
+Ulaşım,tr-TR,false,false,d2c3b4a5-6e7f-4d1a-8c9b-2f3e4a5b6c7d
+Eğlence,tr-TR,false,false,f1e2d3c4-5b6a-4f7e-9d8c-1a2b3c4d5e6f
+Faturalar,tr-TR,false,false,a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+Giyim,tr-TR,false,false,c1d2e3f4-6a7b-4c8d-9e0f-1a2b3c4d5e6f
+Sağlık,tr-TR,false,false,d1e2f3a4-5b6c-4d7e-8f9a-0b1c2d3e4f5a
+Kişisel Gelişim,tr-TR,false,false,e1f2a3b4-5c6d-4e7f-8a9b-0c1d2e3f4a5b
+Teknoloji,tr-TR,false,false,f2a3b4c5-6d7e-4f8a-9b0c-1d2e3f4a5b6c
+Diğer,tr-TR,false,true,a2b3c4d5-6e7f-4a9b-8c0d-1e2f3a4b5c6d
+Food,en-US,false,false,b2c3d4e5-7f8a-4b0c-9d1e-2f3a4b5c6d7e
+Transport,en-US,false,false,c2d3e4f5-8a9b-4c1d-0e2f-3a4b5c6d7e8f
+Entertainment,en-US,false,false,d2e3f4a5-9b0c-4d2e-1f3a-4b5c6d7e8f9a
+Bills,en-US,false,false,e2f3a4b5-0c1d-4e3f-2a4b-5c6d7e8f9a0b
+Clothing,en-US,false,false,f2a3b4c5-1d2e-4f4a-3b5c-6d7e8f9a0b1c
+Health,en-US,false,false,a3b4c5d6-2e3f-4a5b-4c6d-7e8f9a0b1c2d
+Personal Development,en-US,false,false,b3c4d5e6-3f4a-4b6c-5d7e-8f9a0b1c2d3e
+Technology,en-US,false,false,c3d4e5f6-4a5b-4c7d-6e8f-9a0b1c2d3e4f
+Other,en-US,false,true,d3e4f5a6-5b6c-4d8e-7f9a-0b1c2d3e4f5a

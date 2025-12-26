@@ -1,5 +1,7 @@
 ﻿using ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateCategoryCommand.BusinessRules;
 using ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateSubCategoryCommand.BusinessRules;
+using ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteCategoryCommand.BusinessRules;
+using ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteSubCategoryCommand.BusinessRules;
 using ExpenseTracker.Application.UseCases.Modules.Category.Command.UpdateCategoryCommand.BusinessRules;
 using ExpenseTracker.Application.UseCases.Modules.Category.Command.UpdateSubCategoryCommand.BusinessRules;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,8 +26,10 @@ namespace ExpenseTracker.Application.UseCases
 
 			services.AddScoped<Create_Category_Command_BusinessRules>();
 			services.AddScoped<Update_Category_Command_BusinessRules>();
+			services.AddScoped<Delete_Category_Command_BusinessRules>();
 			services.AddScoped<Create_SubCategory_Command_BusinessRules>();
 			services.AddScoped<Update_SubCategory_Command_BusinessRules>();
+			services.AddScoped<Delete_SubCategory_Command_BusinessRules>();
 
 			return services;
 		}

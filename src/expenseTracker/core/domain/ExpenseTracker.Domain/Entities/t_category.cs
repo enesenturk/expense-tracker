@@ -7,5 +7,6 @@ namespace ExpenseTracker.Domain.Entities
 		public string name { get; set; }
 		public string culture { get; set; }
 		public bool is_expense_created { get; set; }
+		public bool is_other { get; set; }
 	}
 }

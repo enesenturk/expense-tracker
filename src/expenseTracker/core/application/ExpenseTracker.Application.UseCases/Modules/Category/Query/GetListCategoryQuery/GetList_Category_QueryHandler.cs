@@ -27,7 +27,7 @@ namespace ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCate
 			Expression<Func<t_category, bool>> predicate = x => x.culture == query.Culture;
 
 			List<t_category> records = await _categoryRepository.GetListAsync(
-				orderBy: o => o.OrderBy(n => n.name),
+				orderBy: o => o.OrderBy(i => i.is_other).ThenBy(n => n.name),
 				predicate: predicate
 				);
 

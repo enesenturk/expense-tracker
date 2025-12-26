@@ -27,7 +27,7 @@ namespace ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListSubC
 			Expression<Func<t_sub_category, bool>> predicate = x => x.t_category_id == query.CategoryId;
 
 			List<t_sub_category> records = await _subCategoryRepository.GetListAsync(
-				orderBy: o => o.OrderBy(n => n.name),
+				orderBy: o => o.OrderBy(i => i.is_other).ThenBy(n => n.name),
 				predicate: predicate
 				);
 

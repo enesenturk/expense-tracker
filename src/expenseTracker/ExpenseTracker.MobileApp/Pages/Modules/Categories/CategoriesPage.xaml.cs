@@ -69,7 +69,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 			newRecord.Id = response.Response.Id;
 			_categories.Add(newRecord);
 
-			Refresh(ref _categories, o => o.OrderBy(x => x.Name), categoriesCollection);
+			Refresh(ref _categories, o => o.OrderBy(i => i.IsOther).ThenBy(n => n.Name), categoriesCollection);
 		}
 
 		#endregion
@@ -143,6 +143,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 				BaseResponseModel<Delete_Category_ResponseDto> response = await ProxyCallerAsync<Delete_Category_CommandDto, Delete_Category_ResponseDto>(command);
 
+				if (!string.IsNullOrEmpty(response.Message))
+					return;
+
 				if (response.Response.IsApprovalRequired)
 				{
 					bool isApproved = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, uiMessage.Category_in_use, uiMessage.YES, uiMessage.NO);
@@ -157,6 +160,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 					};
 
 					BaseResponseModel<Delete_Category_ResponseDto> reResponse = await ProxyCallerAsync<Delete_Category_CommandDto, Delete_Category_ResponseDto>(reCommand);
+
+					if (!string.IsNullOrEmpty(reResponse.Message))
+						return;
 				}
 
 				var remove = _categories.FirstOrDefault(c => c.Id == categoryId);
@@ -164,7 +170,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				if (remove != null)
 					_categories.Remove(remove);
 
-				Refresh(ref _categories, o => o.OrderBy(x => x.Name), categoriesCollection);
+				Refresh(ref _categories, o => o.OrderBy(i => i.IsOther).ThenBy(n => n.Name), categoriesCollection);
 			}
 		}
 

@@ -11,7 +11,8 @@ namespace ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCate
 		{
 
 			CreateMap<t_category, GetList_Category_SingleResponseDto>()
-				.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name));
+				.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name))
+				.ForMember(dest => dest.IsOther, opt => opt.MapFrom(src => src.is_other));
 
 		}
 	}

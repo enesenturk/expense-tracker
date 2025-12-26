@@ -232,4 +232,7 @@
   <data name="UPDATE_SUB_CATEGORY" xml:space="preserve">
     <value>ALT KATEGORİ GÜNCELLE</value>
   </data>
+  <data name="Other_category_can_not_be_deleted" xml:space="preserve">
+    <value>kategorisi silinemez.</value>
+  </data>
 </root>

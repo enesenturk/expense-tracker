@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteSubCategoryCommand.BusinessRules;
 using ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteSubCategoryCommand.Dtos;
 using ExpenseTracker.Application.Utilities.Mediator;
 using ExpenseTracker.Domain.Entities;
@@ -15,14 +16,20 @@ namespace ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteSub
 		private readonly ISubCategoryRepository _subCategoryRepository;
 		private readonly IExpenseRepository _expenseRepository;
 
+		private readonly Delete_SubCategory_Command_BusinessRules _businessRules;
+
 		public Delete_SubCategory_CommandHandler(IMapper mapper,
 
 			ISubCategoryRepository subCategoryRepository,
-			IExpenseRepository expenseRepository
+			IExpenseRepository expenseRepository,
+
+			Delete_SubCategory_Command_BusinessRules businessRules
 			) : base(mapper)
 		{
 			_subCategoryRepository = subCategoryRepository;
 			_expenseRepository = expenseRepository;
+
+			_businessRules = businessRules;
 		}
 
 		#endregion
@@ -32,6 +39,8 @@ namespace ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteSub
 			Guid categoryId = command.Id;
 
 			t_sub_category record = await _subCategoryRepository.GetAsync(categoryId);
+
+			_businessRules.EnsureIsNotOther(record);
 
 			if (record.is_expense_created && !command.IsApproved)
 			{

@@ -81,7 +81,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 			_subCategories.Add(newRecord);
 
-			Refresh(ref _subCategories, o => o.OrderBy(x => x.Name), subCategoriesCollection);
+			Refresh(ref _subCategories, o => o.OrderBy(i => i.IsOther).ThenBy(n => n.Name), subCategoriesCollection);
 		}
 
 		#endregion
@@ -190,7 +190,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 				_subCategories.FirstOrDefault(x => x.Id == singleModel.Id).Name = newName;
 
-				Refresh(ref _subCategories, o => o.OrderBy(x => x.Name), subCategoriesCollection);
+				Refresh(ref _subCategories, o => o.OrderBy(i => i.IsOther).ThenBy(n => n.Name), subCategoriesCollection);
 
 				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Successfully_updated, uiMessage.OK);
 			}
@@ -218,6 +218,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 				BaseResponseModel<Delete_SubCategory_ResponseDto> response = await ProxyCallerAsync<Delete_SubCategory_CommandDto, Delete_SubCategory_ResponseDto>(command);
 
+				if (!string.IsNullOrEmpty(response.Message))
+					return;
+
 				if (response.Response.IsApprovalRequired)
 				{
 					bool isApproved = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, uiMessage.Category_in_use, uiMessage.YES, uiMessage.NO);
@@ -232,6 +235,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 					};
 
 					BaseResponseModel<Delete_SubCategory_ResponseDto> reResponse = await ProxyCallerAsync<Delete_SubCategory_CommandDto, Delete_SubCategory_ResponseDto>(reCommand);
+
+					if (!string.IsNullOrEmpty(reResponse.Message))
+						return;
 				}
 
 				var remove = _subCategories.FirstOrDefault(c => c.Id == subCategoryId);
@@ -239,7 +245,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 				if (remove != null)
 					_subCategories.Remove(remove);
 
-				Refresh(ref _subCategories, o => o.OrderBy(x => x.Name), subCategoriesCollection);
+				Refresh(ref _subCategories, o => o.OrderBy(i => i.IsOther).ThenBy(n => n.Name), subCategoriesCollection);
 			}
 		}
 
