@@ -33,7 +33,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 				entity.id = Guid.NewGuid();
 
 			var props = typeof(T).GetProperties();
-			var values = props.Select(p => p.GetValue(entity)?.ToString() ?? "");
+			var values = props.Select(p => Serialize(p.GetValue(entity)));
 			var line = Environment.NewLine + string.Join(",", values);
 
 			await File.AppendAllTextAsync(_filePath, line);
@@ -49,12 +49,14 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		{
 			List<T> list = await GetListAsync(
 				orderBy: o => o.OrderBy(i => i.id)
-				);
+			);
 
 			return list.FirstOrDefault(x => x.id == id);
 		}
 
-		public async Task<List<T>> GetListAsync(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy, Expression<Func<T, bool>> predicate = null)
+		public async Task<List<T>> GetListAsync(
+			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy,
+			Expression<Func<T, bool>> predicate = null)
 		{
 			List<T> list = new List<T>();
 
@@ -62,7 +64,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 			foreach (string line in lines)
 			{
-				if (string.IsNullOrEmpty(line))
+				if (string.IsNullOrWhiteSpace(line))
 					continue;
 
 				string[] values = line.Split(',');
@@ -71,23 +73,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 				for (int i = 0; i < props.Length && i < values.Length; i++)
 				{
-					Type propType = props[i].PropertyType;
-
-					object convertedValue;
-
-					if (propType == typeof(Guid))
-					{
-						convertedValue = Guid.Parse(values[i]);
-					}
-					else if (propType.IsEnum)
-					{
-						convertedValue = Enum.Parse(propType, values[i]);
-					}
-					else
-					{
-						convertedValue = Convert.ChangeType(values[i], propType);
-					}
-
+					object convertedValue = Deserialize(values[i], props[i].PropertyType);
 					props[i].SetValue(entity, convertedValue);
 				}
 
@@ -158,7 +144,10 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 			foreach (var entity in list)
 			{
-				var values = typeof(T).GetProperties().Select(p => p.GetValue(entity)?.ToString() ?? "");
+				var values = typeof(T)
+					.GetProperties()
+					.Select(p => Serialize(p.GetValue(entity)));
+
 				sb.AppendLine(string.Join(",", values));
 			}
 
@@ -172,6 +161,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 			return value switch
 			{
+				Guid g => g.ToString(),
 				DateTime dt => dt.ToString("yyyy-MM-dd HH:mm:ss", _culture),
 				decimal d => d.ToString(_culture),
 				double d => d.ToString(_culture),
@@ -185,6 +175,9 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 		{
 			if (string.IsNullOrWhiteSpace(value))
 				return null;
+
+			if (targetType == typeof(Guid))
+				return Guid.Parse(value);
 
 			if (targetType == typeof(DateTime))
 				return DateTime.ParseExact(
@@ -201,6 +194,9 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 			if (targetType == typeof(float))
 				return float.Parse(value, _culture);
+
+			if (targetType == typeof(bool))
+				return bool.Parse(value);
 
 			if (targetType.IsEnum)
 				return Enum.Parse(targetType, value);
