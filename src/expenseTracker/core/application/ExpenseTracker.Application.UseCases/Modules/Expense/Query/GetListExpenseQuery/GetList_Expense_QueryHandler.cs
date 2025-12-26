@@ -14,11 +14,17 @@ namespace ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpen
 
 		#region CTOR
 
+		private readonly ICategoryRepository _categoryRepository;
 		private readonly IExpenseRepository _expenseRepository;
 		private readonly ISubCategoryRepository _subCategoryRepository;
 
-		public GetList_Expense_QueryHandler(IMapper mapper, IExpenseRepository expenseRepository, ISubCategoryRepository subCategoryRepository) : base(mapper)
+		public GetList_Expense_QueryHandler(IMapper mapper,
+			ICategoryRepository categoryRepository,
+			IExpenseRepository expenseRepository,
+			ISubCategoryRepository subCategoryRepository
+			) : base(mapper)
 		{
+			_categoryRepository = categoryRepository;
 			_expenseRepository = expenseRepository;
 			_subCategoryRepository = subCategoryRepository;
 		}
@@ -29,9 +35,16 @@ namespace ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpen
 		{
 			Expression<Func<t_expense, bool>> predicate = x => x.date >= query.Start && x.date <= query.End;
 
+			if (query.CategoryId != null)
+				predicate = x => x.date >= query.Start && x.date <= query.End && x.t_category_id == query.CategoryId;
+
 			List<t_expense> records = await _expenseRepository.GetListAsync(
 				orderBy: o => o.OrderByDescending(i => i.date).ThenBy(n => n.t_sub_category_id),
 				predicate: predicate
+				);
+
+			List<t_category> categories = await _categoryRepository.GetListAsync(
+				orderBy: o => o.OrderBy(n => n.name)
 				);
 
 			List<t_sub_category> subCategories = await _subCategoryRepository.GetListAsync(
@@ -42,6 +55,7 @@ namespace ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpen
 
 			mappedRecords.ForEach(mr =>
 			{
+				mr.CategoryName = categories.FirstOrDefault(sc => sc.id == mr.CategoryId)?.name;
 				mr.SubCategoryName = subCategories.FirstOrDefault(sc => sc.id == mr.SubCategoryId)?.name;
 			});
 

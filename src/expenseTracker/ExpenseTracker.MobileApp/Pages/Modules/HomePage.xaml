@@ -4,9 +4,7 @@
              x:Class="ExpenseTracker.MobileApp.Pages.Modules.HomePage">
 
     <!-- Grid TÜM EKRANI KAPLAR -->
-    <Grid BackgroundColor="#EBEBEB"
-          VerticalOptions="Fill"
-          HorizontalOptions="Fill">
+    <Grid x:Name="gridMain" VerticalOptions="Fill" HorizontalOptions="Fill">
 
         <!-- Ortadaki daire -->
         <Frame x:Name="btnFrame"

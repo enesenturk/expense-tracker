@@ -25,6 +25,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 		{
 			InitializeComponent();
 
+			gridMain.BackgroundColor = ColorConstants.SoftGrey;
+
 			datePicker.Date = DateTime.Now;
 			lblPage.Text = uiMessage.ADD_EXPENSE;
 			lblPage.TextColor = ColorConstants.Purple;
@@ -45,30 +47,6 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 		#endregion
 
 		#region Create
-
-		private async void OnCategoryChanged(object sender, EventArgs e)
-		{
-			GetList_Category_SingleResponseModel selectedCategory = pickerCategory.SelectedItem as GetList_Category_SingleResponseModel;
-
-			if (selectedCategory != null)
-			{
-				GetList_SubCategory_QueryDto query = new GetList_SubCategory_QueryDto
-				{
-					CategoryId = selectedCategory.Id
-				};
-
-				BaseResponseModel<GetList_SubCategory_ResponseDto> response = await ProxyCallerAsync<GetList_SubCategory_QueryDto, GetList_SubCategory_ResponseDto>(query);
-
-				if (!string.IsNullOrEmpty(response.Message))
-					return;
-
-				List<GetList_SubCategory_SingleResponseModel> records = _mapper.Map<List<GetList_SubCategory_SingleResponseModel>>(response.Response.Records);
-
-				pickerSubCategory.ItemsSource = records;
-				pickerSubCategory.ItemDisplayBinding = new Binding(nameof(GetList_SubCategory_SingleResponseModel.Name));
-				pickerSubCategory.IsEnabled = true;
-			}
-		}
 
 		private async void OnAddSaveClicked(object sender, EventArgs e)
 		{
@@ -143,6 +121,30 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 			pickerCategory.ItemsSource = _categories;
 			pickerCategory.ItemDisplayBinding = new Binding(nameof(GetList_Category_SingleResponseModel.Name));
+		}
+
+		private async void OnCategoryChanged(object sender, EventArgs e)
+		{
+			GetList_Category_SingleResponseModel selectedCategory = pickerCategory.SelectedItem as GetList_Category_SingleResponseModel;
+
+			if (selectedCategory != null)
+			{
+				GetList_SubCategory_QueryDto query = new GetList_SubCategory_QueryDto
+				{
+					CategoryId = selectedCategory.Id
+				};
+
+				BaseResponseModel<GetList_SubCategory_ResponseDto> response = await ProxyCallerAsync<GetList_SubCategory_QueryDto, GetList_SubCategory_ResponseDto>(query);
+
+				if (!string.IsNullOrEmpty(response.Message))
+					return;
+
+				List<GetList_SubCategory_SingleResponseModel> records = _mapper.Map<List<GetList_SubCategory_SingleResponseModel>>(response.Response.Records);
+
+				pickerSubCategory.ItemsSource = records;
+				pickerSubCategory.ItemDisplayBinding = new Binding(nameof(GetList_SubCategory_SingleResponseModel.Name));
+				pickerSubCategory.IsEnabled = true;
+			}
 		}
 
 		#endregion

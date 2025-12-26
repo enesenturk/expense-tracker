@@ -6,8 +6,10 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses.Models.Response
 	{
 		public DateTime Date { get; set; }
 		public string Date_formatted { get; set; }
+		public string CategoryName { get; set; }
 		public string SubCategoryName { get; set; }
 		public decimal Amount { get; set; }
+		public bool IsNecessary { get; set; }
 		public string Necessary { get; set; }
 	}
 }

@@ -9,6 +9,8 @@ namespace ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpen
 
 	public class GetList_Expense_SingleResponseDto : ListRecordDto
 	{
+		public Guid CategoryId { get; set; }
+		public string CategoryName { get; set; }
 		public Guid SubCategoryId { get; set; }
 		public string SubCategoryName { get; set; }
 		public DateTime Date { get; set; }

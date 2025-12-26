@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Base.Dto;
 using ExpenseTracker.Application.Utilities.Helpers;
-using ExpenseTracker.Domain.Constants.Enums;
 using ExpenseTracker.Domain.Resources.Helpers;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
@@ -16,12 +15,14 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 
 		#region CTOR
 
-		private readonly List<JSonDto> _days = DropDownHelper.GetDropDownFromEnum<Days>(addSelectOption: false);
+		private readonly List<JSonDto> _days = DropDownHelper.GetDropDownFromEnum<DayOfWeek>(addSelectOption: false);
 
 		public PreferencesPage(IMediator mediator, IMapper mapper)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
+
+			gridMain.BackgroundColor = ColorConstants.SoftGrey;
 
 			lblPreferences.Text = uiMessage.PREFERENCES;
 			lblPreferences.TextColor = ColorConstants.Purple;

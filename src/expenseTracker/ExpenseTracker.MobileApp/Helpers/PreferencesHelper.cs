@@ -10,5 +10,10 @@ namespace ExpenseTracker.MobileApp.Helpers
 			return Preferences.Get(LocalizationHelper.Culture, LocalizationHelper.Turkish);
 		}
 
+		internal static int GetFirstDayOfWeek()
+		{
+			return Preferences.Get(LocalizationHelper.FirstDayOfWeek, LocalizationHelper.DefaultFirstDayOfWeek);
+		}
+
 	}
 }

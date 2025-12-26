@@ -97,6 +97,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ALL.
+        /// </summary>
+        public static string ALL {
+            get {
+                return ResourceManager.GetString("ALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AMOUNT.
         /// </summary>
         public static string AMOUNT {
@@ -174,6 +183,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string CURRENCY {
             get {
                 return ResourceManager.GetString("CURRENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CUSTOM.
+        /// </summary>
+        public static string Custom {
+            get {
+                return ResourceManager.GetString("Custom", resourceCulture);
             }
         }
         
@@ -277,6 +295,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NECESSARY / UNNECESSARY.
+        /// </summary>
+        public static string NECESSARY_UNNECESSARY {
+            get {
+                return ResourceManager.GetString("NECESSARY_UNNECESSARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NEW.
         /// </summary>
         public static string NEW {
@@ -367,6 +394,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to REPORTS.
+        /// </summary>
+        public static string REPORTS {
+            get {
+                return ResourceManager.GetString("REPORTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SATURDAY.
         /// </summary>
         public static string Saturday {
@@ -453,6 +489,33 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string Sunday {
             get {
                 return ResourceManager.GetString("Sunday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THIS MONTH.
+        /// </summary>
+        public static string ThisMonth {
+            get {
+                return ResourceManager.GetString("ThisMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THIS WEEK.
+        /// </summary>
+        public static string ThisWeek {
+            get {
+                return ResourceManager.GetString("ThisWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THIS YEAR.
+        /// </summary>
+        public static string ThisYear {
+            get {
+                return ResourceManager.GetString("ThisYear", resourceCulture);
             }
         }
         

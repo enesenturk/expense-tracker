@@ -1,5 +1,6 @@
 ﻿using ExpenseTracker.Application.UseCases;
 using ExpenseTracker.Infrastructure.Repositories;
+using Microcharts.Maui;
 
 namespace ExpenseTracker.MobileApp
 {
@@ -10,6 +11,7 @@ namespace ExpenseTracker.MobileApp
 			var builder = MauiApp.CreateBuilder();
 			builder
 				.UseMauiApp<App>()
+				.UseMicrocharts()
 				.ConfigureFonts(fonts =>
 				{
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -24,7 +26,7 @@ namespace ExpenseTracker.MobileApp
 			{
 				string destPath = Path.Combine(appDataDirectory, file);
 
-				//File.Delete(destPath);
+				File.Delete(destPath);
 
 				if (!File.Exists(destPath))
 				{

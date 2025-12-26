@@ -16,6 +16,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 		{
 			InitializeComponent();
 
+			gridMain.BackgroundColor = ColorConstants.SoftGrey;
+
 			btnAddExpense.Text = uiMessage.LOG_EXPENSE;
 
 			AnimationHelper.StartBlinking(btnFrame, ColorConstants.Purple, ColorConstants.SoftPurple);

@@ -4,6 +4,7 @@ namespace ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpen
 {
 	public class GetList_Expense_QueryDto : IRequest<GetList_Expense_ResponseDto>
 	{
+		public Guid? CategoryId { get; set; }
 		public DateTime Start { get; set; }
 		public DateTime End { get; set; }
 	}

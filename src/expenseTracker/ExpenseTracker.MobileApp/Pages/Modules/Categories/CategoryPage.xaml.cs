@@ -29,6 +29,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 		{
 			InitializeComponent();
 
+			gridMain.BackgroundColor = ColorConstants.SoftGrey;
+
 			_model = model;
 
 			lblCategory.Text = uiMessage.CATEGORY_DETAIL;

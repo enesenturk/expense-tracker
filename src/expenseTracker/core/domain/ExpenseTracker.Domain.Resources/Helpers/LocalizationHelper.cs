@@ -1,6 +1,4 @@
-﻿using ExpenseTracker.Domain.Constants.Enums;
-
-namespace ExpenseTracker.Domain.Resources.Helpers
+﻿namespace ExpenseTracker.Domain.Resources.Helpers
 {
 	public class LocalizationHelper
 	{
@@ -34,7 +32,7 @@ namespace ExpenseTracker.Domain.Resources.Helpers
 		public static string USD => "USD ($)";
 
 		public static string FirstDayOfWeek => "FirstDayOfWeek";
-		public static int DefaultFirstDayOfWeek => (int)Days.Monday;
+		public static int DefaultFirstDayOfWeek => (int)DayOfWeek.Monday;
 
 	}
 }

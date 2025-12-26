@@ -4,7 +4,7 @@
                       x:Class="ExpenseTracker.MobileApp.Pages.Modules.Categories.CategoriesPage"
                       Padding="20">
 
-    <Grid RowDefinitions="Auto,Auto,*" RowSpacing="5" Padding="20,20,20,20" BackgroundColor="#EBEBEB">
+    <Grid x:Name="gridMain" RowDefinitions="Auto,Auto,*" RowSpacing="5" Padding="20,20,20,20">
 
         <Label x:Name="lblCategories" Grid.Row="0" FontSize="26" HorizontalOptions="Center" />
 

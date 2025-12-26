@@ -23,6 +23,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 		{
 			InitializeComponent();
 
+			gridMain.BackgroundColor = ColorConstants.SoftGrey;
+
 			lblExpenses.Text = uiMessage.EXPENSES;
 			lblExpenses.TextColor = ColorConstants.Purple;
 

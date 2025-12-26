@@ -2,10 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
              x:Class="ExpenseTracker.MobileApp.Pages.Modules.Expenses.CreateExpensePage"
-             BackgroundColor="White"
              Padding="20">
 
-    <ScrollView Padding="0">
+    <ScrollView x:Name="gridMain" Padding="0">
         <VerticalStackLayout Spacing="5" Padding="20,20,20,20">
 
             <Label x:Name="lblPage"
@@ -41,4 +40,5 @@
 
         </VerticalStackLayout>
     </ScrollView>
+    
 </base:BaseContentPage>
