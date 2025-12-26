@@ -4,38 +4,54 @@
                       x:Class="ExpenseTracker.MobileApp.Pages.Modules.Expenses.ExpensesPage"
                       Padding="20">
 
-    <Grid RowDefinitions="Auto,Auto,*" RowSpacing="5" Padding="20,20,20,20" BackgroundColor="#EBEBEB">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*" RowSpacing="0" Padding="20,20,20,20" BackgroundColor="#EBEBEB">
 
-        <Label x:Name="lblExpenses" Grid.Row="0" FontSize="26" HorizontalOptions="Center" />
+        <Label x:Name="lblExpenses" Grid.Row="0" FontSize="26" Margin="0,0,0,20" HorizontalOptions="Center" />
 
-        <CollectionView Grid.Row="2"
-                x:Name="expenesesCollection"
-                SelectionMode="None"
-                HorizontalOptions="FillAndExpand">
+        <Grid Grid.Row="1" ColumnDefinitions="3*,3*,2*" ColumnSpacing="5" Margin="0,0,0,10">
+            <DatePicker x:Name="dpStartDate" />
+            <DatePicker x:Name="dpEndDate" Grid.Column="1" />
+            <Button x:Name="btnSearch" Grid.Column="2" Clicked="OnSearchClicked" />
+        </Grid>
 
-            <CollectionView.Header>
-                <Grid ColumnDefinitions="3*,3*,2*,2*" Padding="5" ColumnSpacing="5" HorizontalOptions="FillAndExpand" BackgroundColor="White">
-                    <Label Grid.Column="0" x:Name="hdrDate" FontSize="14" FontAttributes="Bold" />
-                    <Label Grid.Column="1" x:Name="hdrSubCategory" FontSize="14" FontAttributes="Bold" />
-                    <Label Grid.Column="2" x:Name="hdrAmount" FontSize="14" FontAttributes="Bold" HorizontalOptions="End" />
-                    <Label Grid.Column="3" x:Name="hdrIsNecessary" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
-                </Grid>
-            </CollectionView.Header>
+        <Grid Grid.Row="2" ColumnDefinitions="6*,6*,4*,4*,1*" Padding="10" VerticalOptions="Center" ColumnSpacing="5" BackgroundColor="White">
+            <Label Grid.Column="0" x:Name="hdrDate" FontSize="14" FontAttributes="Bold" />
+            <Label Grid.Column="1" x:Name="hdrSubCategory" FontSize="14" FontAttributes="Bold" />
+            <Label Grid.Column="2" x:Name="hdrAmount" FontSize="14" FontAttributes="Bold" HorizontalOptions="End" />
+            <Label Grid.Column="3" x:Name="hdrIsNecessary" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Grid.Column="4" />
+        </Grid>
+
+        <CollectionView Grid.Row="4"
+                    x:Name="expenesesCollection"
+                    SelectionMode="None"
+                    HorizontalOptions="FillAndExpand">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="3*,3*,2*,2*" Padding="5" ColumnSpacing="5" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding RowColor}">
+                    <Grid ColumnDefinitions="6*,6*,4*,4*,1*" Padding="5" VerticalOptions="Center" ColumnSpacing="5" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding RowColor}">
                         <Label Grid.Column="0" Text="{Binding Date_formatted}" FontSize="14" TextColor="White" />
                         <Label Grid.Column="1" Text="{Binding SubCategoryName}" FontSize="14" TextColor="White" />
                         <Label Grid.Column="2" Text="{Binding Amount}" FontSize="14" TextColor="White" HorizontalOptions="End" />
                         <Label Grid.Column="3" Text="{Binding Necessary}" FontSize="14" TextColor="White" HorizontalOptions="Center" />
+
+                        <Button Grid.Column="4" BackgroundColor="Transparent" WidthRequest="25" HeightRequest="25" 
+                                CornerRadius="20" VerticalOptions="Center" 
+                                Padding="0" Margin="0,0,8,0"
+                                CommandParameter="{Binding Id}" Clicked="OnDeleteClicked">
+
+                            <Button.ImageSource>
+                                <FileImageSource File="icon_rubbish.png"/>
+                            </Button.ImageSource>
+                        </Button>
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
 
         </CollectionView>
 
-
     </Grid>
+
 
 </base:BaseContentPage>

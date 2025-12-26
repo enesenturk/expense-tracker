@@ -5,6 +5,7 @@ using ExpenseTracker.Application.Utilities.Mediator;
 using ExpenseTracker.Domain.Entities;
 using ExpenseTracker.Domain.Repositories.Abstractions.Modules.Category;
 using ExpenseTracker.Domain.Repositories.Abstractions.Modules.Expense;
+using System.Linq.Expressions;
 
 namespace ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpenseQuery
 {
@@ -26,10 +27,11 @@ namespace ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpen
 
 		public override async Task<GetList_Expense_ResponseDto> Handle(GetList_Expense_QueryDto query, CancellationToken cancellationToken)
 		{
-			//Expression<Func<t_expense, bool>> predicate = x => x.culture == query.Culture;
+			Expression<Func<t_expense, bool>> predicate = x => x.date >= query.Start && x.date <= query.End;
 
 			List<t_expense> records = await _expenseRepository.GetListAsync(
-				orderBy: o => o.OrderBy(i => i.date).ThenBy(n => n.t_sub_category_id)
+				orderBy: o => o.OrderByDescending(i => i.date).ThenBy(n => n.t_sub_category_id),
+				predicate: predicate
 				);
 
 			List<t_sub_category> subCategories = await _subCategoryRepository.GetListAsync(

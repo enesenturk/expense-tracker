@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ExpenseTracker.Application.UseCases.Modules.Expense.Command.DeleteExpenseCommand.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpenseQuery.Dtos;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
@@ -33,18 +34,37 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 			hdrAmount.TextColor = ColorConstants.Purple;
 			hdrIsNecessary.Text = uiMessage.NECESSARY;
 			hdrIsNecessary.TextColor = ColorConstants.Purple;
+
+			DateTime now = DateTime.Now;
+
+			dpStartDate.Date = now.AddDays(-1 * now.Day + 1);
+			dpEndDate.Date = now;
+
+			btnSearch.Text = uiMessage.SEARCH;
 		}
 
 		#endregion
 
 		#region Read
 
-		public override async void LoadDataAsync()
+		public override void LoadDataAsync()
 		{
 			base.OnAppearing();
 
+			Search();
+		}
+
+		private void OnSearchClicked(object sender, EventArgs e)
+		{
+			Search();
+		}
+
+		private async void Search()
+		{
 			GetList_Expense_QueryDto query = new GetList_Expense_QueryDto
 			{
+				Start = dpStartDate.Date,
+				End = dpEndDate.Date
 			};
 
 			BaseResponseModel<GetList_Expense_ResponseDto> response = await ProxyCallerAsync<GetList_Expense_QueryDto, GetList_Expense_ResponseDto>(query);
@@ -57,6 +77,40 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 			_expenses = new ObservableCollection<GetList_Expense_SingleResponseModel>(records);
 
 			expenesesCollection.ItemsSource = _expenses;
+		}
+
+		#endregion
+
+		#region Delete
+
+		private async void OnDeleteClicked(object sender, EventArgs e)
+		{
+			Button button = sender as Button;
+
+			if (button.CommandParameter is Guid categoryId)
+			{
+				bool isConfirmed = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.WARNING, uiMessage.Are_you_sure, uiMessage.YES, uiMessage.NO);
+
+				if (!isConfirmed)
+					return;
+
+				Delete_Expense_CommandDto command = new Delete_Expense_CommandDto
+				{
+					Id = categoryId
+				};
+
+				BaseResponseModel<Unit> response = await ProxyCallerAsync<Delete_Expense_CommandDto, Unit>(command);
+
+				if (!string.IsNullOrEmpty(response.Message))
+					return;
+
+				var remove = _expenses.FirstOrDefault(c => c.Id == categoryId);
+
+				if (remove != null)
+					_expenses.Remove(remove);
+
+				Refresh(ref _expenses, o => o.OrderByDescending(i => i.Date), expenesesCollection);
+			}
 		}
 
 		#endregion

@@ -385,6 +385,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SEARCH.
+        /// </summary>
+        public static string SEARCH {
+            get {
+                return ResourceManager.GetString("SEARCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT.
         /// </summary>
         public static string SELECT {
