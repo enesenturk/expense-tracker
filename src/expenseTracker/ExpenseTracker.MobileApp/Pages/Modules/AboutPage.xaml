@@ -1,13 +1,12 @@
 <base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
-             x:Class="ExpenseTracker.MobileApp.Pages.Modules.AboutPage"
-             BackgroundColor="White">
+             x:Class="ExpenseTracker.MobileApp.Pages.Modules.AboutPage">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
-        <Label Text="About" FontSize="28" HorizontalOptions="Center" TextColor="#512BD4"/>
+    <Grid x:Name="gridMain" RowDefinitions="Auto,Auto,*" RowSpacing="10" Padding="20">
 
-        <Label Text="About sayfası içerik alanı" HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+        <Label x:Name="lblAbout" Grid.Row="0" FontSize="26" HorizontalOptions="Center" Margin="0,0,0,10"/>
+
+    </Grid>
 
 </base:BaseContentPage>

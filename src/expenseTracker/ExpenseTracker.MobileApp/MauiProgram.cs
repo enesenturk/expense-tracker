@@ -26,7 +26,7 @@ namespace ExpenseTracker.MobileApp
 			{
 				string destPath = Path.Combine(appDataDirectory, file);
 
-				File.Delete(destPath);
+				//File.Delete(destPath);
 
 				if (!File.Exists(destPath))
 				{
