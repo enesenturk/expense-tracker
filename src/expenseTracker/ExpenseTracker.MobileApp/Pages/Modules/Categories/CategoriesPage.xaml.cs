@@ -4,11 +4,11 @@ using ExpenseTracker.Application.UseCases.Modules.Category.Command.DeleteCategor
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCategoryQuery.Dtos;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
-using ExpenseTracker.MobileApp.Base.Dtos;
+using ExpenseTracker.MobileApp.Base.Models;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
-using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos.Request;
-using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos.Response;
+using ExpenseTracker.MobileApp.Pages.Modules.Categories.Models.Request;
+using ExpenseTracker.MobileApp.Pages.Modules.Categories.Models.Response;
 using MediatR;
 using System.Collections.ObjectModel;
 

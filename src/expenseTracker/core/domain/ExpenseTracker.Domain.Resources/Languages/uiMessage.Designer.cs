@@ -205,6 +205,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EXPENSES.
+        /// </summary>
+        public static string EXPENSES {
+            get {
+                return ResourceManager.GetString("EXPENSES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FIRST DAY of WEEK.
         /// </summary>
         public static string FIRST_DAY_OF_WEEK {

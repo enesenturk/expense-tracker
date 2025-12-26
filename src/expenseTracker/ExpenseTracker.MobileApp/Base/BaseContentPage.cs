@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Base.Exceptions.ExceptionModels;
 using ExpenseTracker.Domain.Resources.Languages;
-using ExpenseTracker.MobileApp.Base.Dtos;
+using ExpenseTracker.MobileApp.Base.Models;
 using ExpenseTracker.MobileApp.Constants;
 using MediatR;
 using System.Collections.ObjectModel;

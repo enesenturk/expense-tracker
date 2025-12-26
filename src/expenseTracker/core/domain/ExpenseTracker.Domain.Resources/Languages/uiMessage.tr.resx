@@ -247,4 +247,7 @@
   <data name="Successfully_added" xml:space="preserve">
     <value>Kayıt eklendi.</value>
   </data>
+  <data name="EXPENSES" xml:space="preserve">
+    <value>HARCAMALAR</value>
+  </data>
 </root>

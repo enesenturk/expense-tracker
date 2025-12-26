@@ -1,4 +1,4 @@
-﻿namespace ExpenseTracker.MobileApp.Base.Dtos
+﻿namespace ExpenseTracker.MobileApp.Base.Models
 {
 	public class ListRecordModel
 	{

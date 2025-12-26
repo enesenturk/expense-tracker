@@ -1,4 +1,4 @@
-﻿namespace ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos.Request
+﻿namespace ExpenseTracker.MobileApp.Pages.Modules.Categories.Models.Request
 {
 	public class Update_SubCategory_RequestModel
 	{

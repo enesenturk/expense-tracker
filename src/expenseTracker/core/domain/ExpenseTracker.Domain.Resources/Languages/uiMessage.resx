@@ -247,4 +247,7 @@
   <data name="Successfully_added" xml:space="preserve">
     <value>Successfully added.</value>
   </data>
+  <data name="EXPENSES" xml:space="preserve">
+    <value>EXPENSES</value>
+  </data>
 </root>

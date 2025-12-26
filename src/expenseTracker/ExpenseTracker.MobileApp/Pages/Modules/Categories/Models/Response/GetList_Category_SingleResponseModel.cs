@@ -1,6 +1,6 @@
-﻿using ExpenseTracker.MobileApp.Base.Dtos;
+﻿using ExpenseTracker.MobileApp.Base.Models;
 
-namespace ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos.Response
+namespace ExpenseTracker.MobileApp.Pages.Modules.Categories.Models.Response
 {
 	public class GetList_Category_SingleResponseModel : ListRecordModel
 	{

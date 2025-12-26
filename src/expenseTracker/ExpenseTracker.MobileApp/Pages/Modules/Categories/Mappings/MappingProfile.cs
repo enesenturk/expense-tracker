@@ -4,7 +4,7 @@ using ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateSubCate
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCategoryQuery.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListSubCategoryQuery.Dtos;
 using ExpenseTracker.MobileApp.Constants;
-using ExpenseTracker.MobileApp.Pages.Modules.Categories.Dtos.Response;
+using ExpenseTracker.MobileApp.Pages.Modules.Categories.Models.Response;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules.Categories.Mappings
 {

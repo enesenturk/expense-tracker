@@ -1,15 +1,41 @@
 ﻿<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
-             x:Class="ExpenseTracker.MobileApp.Pages.Modules.Expenses.ExpensesPage"
-             BackgroundColor="White">
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
+                      x:Class="ExpenseTracker.MobileApp.Pages.Modules.Expenses.ExpensesPage"
+                      Padding="20">
 
-    <VerticalStackLayout Spacing="5" Padding="20,20,20,20">
-        
-        <Label Text="Harcamalar" FontSize="28" HorizontalOptions="Center" TextColor="#512BD4"/>
+    <Grid RowDefinitions="Auto,Auto,*" RowSpacing="5" Padding="20,20,20,20" BackgroundColor="#EBEBEB">
 
-        <Label Text="Harcamalar sayfası içerik alanı" HorizontalOptions="Center"/>
-        
-    </VerticalStackLayout>
+        <Label x:Name="lblExpenses" Grid.Row="0" FontSize="26" HorizontalOptions="Center" />
+
+        <CollectionView Grid.Row="2"
+                x:Name="expenesesCollection"
+                SelectionMode="None"
+                HorizontalOptions="FillAndExpand">
+
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="3*,3*,2*,2*" Padding="5" ColumnSpacing="5" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                    <Label Grid.Column="0" x:Name="hdrDate" FontSize="14" FontAttributes="Bold" />
+                    <Label Grid.Column="1" x:Name="hdrSubCategory" FontSize="14" FontAttributes="Bold" />
+                    <Label Grid.Column="2" x:Name="hdrAmount" FontSize="14" FontAttributes="Bold" HorizontalOptions="End" />
+                    <Label Grid.Column="3" x:Name="hdrIsNecessary" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="3*,3*,2*,2*" Padding="5" ColumnSpacing="5" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding RowColor}">
+                        <Label Grid.Column="0" Text="{Binding Date_formatted}" FontSize="14" TextColor="White" />
+                        <Label Grid.Column="1" Text="{Binding SubCategoryName}" FontSize="14" TextColor="White" />
+                        <Label Grid.Column="2" Text="{Binding Amount}" FontSize="14" TextColor="White" HorizontalOptions="End" />
+                        <Label Grid.Column="3" Text="{Binding Necessary}" FontSize="14" TextColor="White" HorizontalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+    </Grid>
 
 </base:BaseContentPage>
