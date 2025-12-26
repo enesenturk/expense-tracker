@@ -7,6 +7,9 @@ namespace ExpenseTracker.Domain.Entities
 
 		public Guid t_category_id { get; set; }
 		public Guid t_sub_category_id { get; set; }
+		public DateTime date { get; set; }
+		public decimal amount { get; set; }
+		public bool is_necessary { get; set; }
 
 	}
 }

@@ -14,6 +14,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 	public partial class PreferencesPage : BaseContentPage
 	{
 
+		#region CTOR
+
 		private readonly List<JSonDto> _days = DropDownHelper.GetDropDownFromEnum<Days>(addSelectOption: false);
 
 		public PreferencesPage(IMediator mediator, IMapper mapper)
@@ -37,7 +39,6 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 			LoadPreferences();
 		}
 
-
 		void LoadPreferences()
 		{
 			string selectedCulture = Preferences.Get(LocalizationHelper.Culture, LocalizationHelper.Turkish);
@@ -54,6 +55,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 				);
 		}
 
+		#endregion
+
+		#region Update
 
 		private async void OnSaveClicked(object sender, EventArgs e)
 		{
@@ -78,6 +82,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules
 			Microsoft.Maui.Controls.Application.Current.MainPage = layout;
 			layout.SetPage(new HomePage(_mediator, _mapper));
 		}
+
+		#endregion
 
 	}
 }

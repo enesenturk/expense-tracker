@@ -17,6 +17,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 	public partial class CategoriesPage : BaseContentPage
 	{
 
+		#region CTOR
+
 		private ObservableCollection<GetList_Category_SingleResponseModel> _categories;
 
 		public CategoriesPage(IMediator mediator, IMapper mapper)
@@ -30,6 +32,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 			btnNew.Text = $"+ {uiMessage.NEW}";
 			btnNew.BackgroundColor = ColorConstants.Purple;
 		}
+
+		#endregion
 
 		#region Create
 

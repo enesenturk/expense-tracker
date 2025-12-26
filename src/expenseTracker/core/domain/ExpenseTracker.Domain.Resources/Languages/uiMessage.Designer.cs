@@ -304,11 +304,38 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid amount..
+        /// </summary>
+        public static string Please_enter_valid_amount {
+            get {
+                return ResourceManager.GetString("Please_enter_valid_amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please do not use comma..
         /// </summary>
         public static string Please_not_use_comma {
             get {
                 return ResourceManager.GetString("Please_not_use_comma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a category..
+        /// </summary>
+        public static string Please_select_category {
+            get {
+                return ResourceManager.GetString("Please_select_category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a sub category..
+        /// </summary>
+        public static string Please_select_sub_category {
+            get {
+                return ResourceManager.GetString("Please_select_sub_category", resourceCulture);
             }
         }
         
@@ -385,7 +412,16 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The record is updated..
+        ///   Looks up a localized string similar to Successfully added..
+        /// </summary>
+        public static string Successfully_added {
+            get {
+                return ResourceManager.GetString("Successfully_added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully updated..
         /// </summary>
         public static string Successfully_updated {
             get {

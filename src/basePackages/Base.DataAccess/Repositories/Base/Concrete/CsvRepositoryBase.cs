@@ -1,5 +1,6 @@
 ﻿using Base.DataAccess.Entity;
 using Base.DataAccess.Repositories.Base.Abstract;
+using System.Globalization;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		#region CTOR
 
+		private readonly CultureInfo _culture = CultureInfo.InvariantCulture;
 		private readonly string _filePath;
 
 		public CsvRepositoryBase(string filePath)
@@ -148,6 +150,8 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		#endregion
 
+		#region Behind the Scenes
+
 		private async Task WriteAllAsync(List<T> list)
 		{
 			var sb = new StringBuilder();
@@ -160,6 +164,51 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 			await File.WriteAllTextAsync(_filePath, sb.ToString());
 		}
+
+		private string Serialize(object value)
+		{
+			if (value == null)
+				return "";
+
+			return value switch
+			{
+				DateTime dt => dt.ToString("yyyy-MM-dd HH:mm:ss", _culture),
+				decimal d => d.ToString(_culture),
+				double d => d.ToString(_culture),
+				float f => f.ToString(_culture),
+				bool b => b.ToString(),
+				_ => value.ToString()
+			};
+		}
+
+		private object Deserialize(string value, Type targetType)
+		{
+			if (string.IsNullOrWhiteSpace(value))
+				return null;
+
+			if (targetType == typeof(DateTime))
+				return DateTime.ParseExact(
+					value,
+					"yyyy-MM-dd HH:mm:ss",
+					_culture
+				);
+
+			if (targetType == typeof(decimal))
+				return decimal.Parse(value, _culture);
+
+			if (targetType == typeof(double))
+				return double.Parse(value, _culture);
+
+			if (targetType == typeof(float))
+				return float.Parse(value, _culture);
+
+			if (targetType.IsEnum)
+				return Enum.Parse(targetType, value);
+
+			return Convert.ChangeType(value, targetType, _culture);
+		}
+
+		#endregion
 
 	}
 }

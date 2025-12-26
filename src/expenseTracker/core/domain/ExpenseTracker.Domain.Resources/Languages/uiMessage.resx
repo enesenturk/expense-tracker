@@ -224,7 +224,7 @@
     <value>UPDATE</value>
   </data>
   <data name="Successfully_updated" xml:space="preserve">
-    <value>The record is updated.</value>
+    <value>Successfully updated.</value>
   </data>
   <data name="ADD_SUB_CATEGORY" xml:space="preserve">
     <value>ADD SUB CATEGORY</value>
@@ -234,5 +234,17 @@
   </data>
   <data name="Other_category_can_not_be_deleted" xml:space="preserve">
     <value>category can not be deleted.</value>
+  </data>
+  <data name="Please_enter_valid_amount" xml:space="preserve">
+    <value>Please enter a valid amount.</value>
+  </data>
+  <data name="Please_select_category" xml:space="preserve">
+    <value>Please select a category.</value>
+  </data>
+  <data name="Please_select_sub_category" xml:space="preserve">
+    <value>Please select a sub category.</value>
+  </data>
+  <data name="Successfully_added" xml:space="preserve">
+    <value>Successfully added.</value>
   </data>
 </root>

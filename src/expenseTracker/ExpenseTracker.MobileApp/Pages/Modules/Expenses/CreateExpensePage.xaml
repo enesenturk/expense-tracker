@@ -18,13 +18,13 @@
             <DatePicker x:Name="datePicker" />
 
             <Label x:Name="lblCategory" FontAttributes="Bold"/>
-            <Picker x:Name="pickerCategory" />
+            <Picker x:Name="pickerCategory" SelectedIndexChanged="OnCategoryChanged" />
 
             <Label x:Name="lblSubCategory" FontAttributes="Bold"/>
-            <Picker x:Name="pickerSubCategory" />
+            <Picker x:Name="pickerSubCategory" IsEnabled="False" />
 
             <Label x:Name="lblAmount" FontAttributes="Bold"/>
-            <Entry x:Name="amountEntry" Keyboard="Numeric" Placeholder="0.00"/>
+            <Entry x:Name="amountEntry" Keyboard="Numeric" Placeholder="100"/>
 
             <Label x:Name="lblExpenseType" FontAttributes="Bold"/>
             <HorizontalStackLayout Spacing="20">

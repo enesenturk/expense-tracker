@@ -235,4 +235,16 @@
   <data name="Other_category_can_not_be_deleted" xml:space="preserve">
     <value>kategorisi silinemez.</value>
   </data>
+  <data name="Please_enter_valid_amount" xml:space="preserve">
+    <value>Lütfen geçerli bir harcama değeri giriniz.</value>
+  </data>
+  <data name="Please_select_category" xml:space="preserve">
+    <value>Lütfen kategori seçiniz.</value>
+  </data>
+  <data name="Please_select_sub_category" xml:space="preserve">
+    <value>Lütfen alt kategori seçiniz.</value>
+  </data>
+  <data name="Successfully_added" xml:space="preserve">
+    <value>Kayıt eklendi.</value>
+  </data>
 </root>

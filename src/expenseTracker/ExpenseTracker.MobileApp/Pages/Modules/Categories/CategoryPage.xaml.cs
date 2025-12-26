@@ -18,6 +18,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 	public partial class CategoryPage : BaseContentPage
 	{
 
+		#region CTOR
+
 		private Update_Category_RequestModel _model;
 
 		private ObservableCollection<GetList_SubCategory_SingleResponseModel> _subCategories;
@@ -41,6 +43,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 			btnNew.Text = $"+ {uiMessage.NEW}";
 			btnNew.BackgroundColor = ColorConstants.Purple;
 		}
+
+		#endregion
 
 		#region Create
 
