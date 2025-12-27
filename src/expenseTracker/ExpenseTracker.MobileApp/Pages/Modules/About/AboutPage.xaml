@@ -10,40 +10,23 @@
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="12">
 
-                <Label FontSize="16" FontAttributes="Bold" Text="🔒 Tamamen Güvenli ve Kapalı Sistem"/>
+                <Label x:Name="lblClosedSystemTitle" FontSize="16" FontAttributes="Bold" />
+                <Label x:Name="lblClosedSystemDescription" FontSize="14" />
 
-                <Label FontSize="14"
-                   Text="Bu uygulama kapalı bir sistem olarak tasarlanmıştır. Tüm verileriniz yalnızca kendi cihazınızda saklanır. İnternete gönderilmez, üçüncü taraflarla paylaşılmaz ve herhangi bir sunucuya aktarılmaz."/>
+                <Label x:Name="lblLocalDataTitle" FontSize="16" FontAttributes="Bold" />
+                <Label x:Name="lblLocalDataDescription" FontSize="14" />
 
-                <Label FontSize="16"
-                   FontAttributes="Bold"
-                   Text="📱 Verileriniz Sadece Sizin"/>
+                <Label x:Name="lblCustomizationTitle" FontSize="16" FontAttributes="Bold" />
+                <Label x:Name="lblCustomizationDescription" FontSize="14" />
 
-                <Label FontSize="14"
-                   Text="Harcamalarınız, kategorileriniz ve raporlarınız tamamen yerel olarak tutulur. Uygulama, kişisel verilerinizi hiçbir şekilde başka bir yerde kullanmaz."/>
+                <Label x:Name="lblReportingTitle" FontSize="16" FontAttributes="Bold" />
+                <Label x:Name="lblReportingDescription" FontSize="14" />
 
-                <Label FontSize="16"
-                   FontAttributes="Bold"
-                   Text="⚙️ Kişiselleştirilebilir Deneyim"/>
-
-                <Label FontSize="14"
-                   Text="Uygulama; tarih filtreleri, hafta başlangıcı, kategori yapıları ve raporlama seçenekleri gibi birçok ayarı kişisel tercihlerinize göre özelleştirmenize olanak tanır."/>
-
-                <Label FontSize="16"
-                   FontAttributes="Bold"
-                   Text="📊 Net ve Anlaşılır Raporlama"/>
-
-                <Label FontSize="14"
-                   Text="Harcamalarınızı kategori, alt kategori ve gereklilik durumuna göre grafiklerle ve özetlerle kolayca analiz edebilirsiniz."/>
-
-                <Label FontSize="16"
-                   FontAttributes="Bold"
-                   Text="🚀 Basit ve Hızlı"/>
-
-                <Label FontSize="14"
-                   Text="Uygulama sade bir tasarıma sahiptir. Gereksiz karmaşıklık veya dikkat dağıtıcı unsurlar içermez."/>
+                <Label x:Name="lblSimpleFastTitle" FontSize="16" FontAttributes="Bold" />
+                <Label x:Name="lblSimpleFastDescription" FontSize="14" />
 
             </VerticalStackLayout>
+
         </ScrollView>
 
     </Grid>

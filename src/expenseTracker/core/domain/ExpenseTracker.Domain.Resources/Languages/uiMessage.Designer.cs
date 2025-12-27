@@ -115,11 +115,38 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This application is designed as a closed system. All your data is stored only on your device. It is never sent to the internet, shared with third parties, or transferred to any server..
+        /// </summary>
+        public static string All_data_stored_locally {
+            get {
+                return ResourceManager.GetString("All_data_stored_locally", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🔒 Fully Secure and Closed System.
+        /// </summary>
+        public static string All_safe_and_closed_system {
+            get {
+                return ResourceManager.GetString("All_safe_and_closed_system", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AMOUNT.
         /// </summary>
         public static string AMOUNT {
             get {
                 return ResourceManager.GetString("AMOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can easily analyze your expenses with charts and summaries based on category, subcategory, and necessity status..
+        /// </summary>
+        public static string Analyze_expenses_with_charts {
+            get {
+                return ResourceManager.GetString("Analyze_expenses_with_charts", resourceCulture);
             }
         }
         
@@ -187,6 +214,24 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The application features a clean design with no unnecessary complexity or distracting elements..
+        /// </summary>
+        public static string Clean_and_distraction_free_design {
+            get {
+                return ResourceManager.GetString("Clean_and_distraction_free_design", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 📊 Clear and Easy-to-Understand Reporting.
+        /// </summary>
+        public static string Clear_and_simple_reporting {
+            get {
+                return ResourceManager.GetString("Clear_and_simple_reporting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CURRENCY.
         /// </summary>
         public static string CURRENCY {
@@ -201,6 +246,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string Custom {
             get {
                 return ResourceManager.GetString("Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ⚙️ Customizable Experience.
+        /// </summary>
+        public static string Customizable_experience {
+            get {
+                return ResourceManager.GetString("Customizable_experience", resourceCulture);
             }
         }
         
@@ -349,6 +403,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The application allows you to personalize many settings such as date filters, week start options, category structures, and reporting preferences according to your needs..
+        /// </summary>
+        public static string Personalize_dates_categories_reports {
+            get {
+                return ResourceManager.GetString("Personalize_dates_categories_reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a valid amount..
         /// </summary>
         public static string Please_enter_valid_amount {
@@ -444,6 +507,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string SELECT {
             get {
                 return ResourceManager.GetString("SELECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🚀 Simple and Fast.
+        /// </summary>
+        public static string Simple_and_fast {
+            get {
+                return ResourceManager.GetString("Simple_and_fast", resourceCulture);
             }
         }
         
@@ -597,6 +669,24 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string YES {
             get {
                 return ResourceManager.GetString("YES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 📱 Your Data Belongs Only to You.
+        /// </summary>
+        public static string Your_data_is_yours {
+            get {
+                return ResourceManager.GetString("Your_data_is_yours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your expenses, categories, and reports are stored entirely locally. The application does not use your personal data anywhere else..
+        /// </summary>
+        public static string Your_expenses_categories_reports_local {
+            get {
+                return ResourceManager.GetString("Your_expenses_categories_reports_local", resourceCulture);
             }
         }
     }

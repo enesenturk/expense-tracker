@@ -277,4 +277,34 @@
   <data name="ABOUT" xml:space="preserve">
     <value>HAKKINDA</value>
   </data>
+  <data name="All_safe_and_closed_system" xml:space="preserve">
+    <value>🔒 Tamamen Güvenli ve Kapalı Sistem</value>
+  </data>
+  <data name="All_data_stored_locally" xml:space="preserve">
+    <value>Bu uygulama kapalı bir sistem olarak tasarlanmıştır. Tüm verileriniz yalnızca kendi cihazınızda saklanır. İnternete gönderilmez, üçüncü taraflarla paylaşılmaz ve herhangi bir sunucuya aktarılmaz.</value>
+  </data>
+  <data name="Your_data_is_yours" xml:space="preserve">
+    <value>📱 Verileriniz Sadece Sizin</value>
+  </data>
+  <data name="Your_expenses_categories_reports_local" xml:space="preserve">
+    <value>Harcamalarınız, kategorileriniz ve raporlarınız tamamen yerel olarak tutulur. Uygulama, kişisel verilerinizi hiçbir şekilde başka bir yerde kullanmaz.</value>
+  </data>
+  <data name="Customizable_experience" xml:space="preserve">
+    <value>⚙️ Kişiselleştirilebilir Deneyim</value>
+  </data>
+  <data name="Personalize_dates_categories_reports" xml:space="preserve">
+    <value>Uygulama; tarih filtreleri, hafta başlangıcı, kategori yapıları ve raporlama seçenekleri gibi birçok ayarı kişisel tercihlerinize göre özelleştirmenize olanak tanır.</value>
+  </data>
+  <data name="Clear_and_simple_reporting" xml:space="preserve">
+    <value>📊 Net ve Anlaşılır Raporlama</value>
+  </data>
+  <data name="Analyze_expenses_with_charts" xml:space="preserve">
+    <value>Harcamalarınızı kategori, alt kategori ve gereklilik durumuna göre grafiklerle ve özetlerle kolayca analiz edebilirsiniz.</value>
+  </data>
+  <data name="Simple_and_fast" xml:space="preserve">
+    <value>🚀 Basit ve Hızlı</value>
+  </data>
+  <data name="Clean_and_distraction_free_design" xml:space="preserve">
+    <value>Uygulama sade bir tasarıma sahiptir. Gereksiz karmaşıklık veya dikkat dağıtıcı unsurlar içermez.</value>
+  </data>
 </root>

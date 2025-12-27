@@ -7,8 +7,8 @@ using ExpenseTracker.MobileApp.Pages.Modules.About;
 using ExpenseTracker.MobileApp.Pages.Modules.Categories;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
 using ExpenseTracker.MobileApp.Pages.Modules.Home;
-using ExpenseTracker.MobileApp.Pages.Modules.Preferences;
 using ExpenseTracker.MobileApp.Pages.Modules.Reports;
+using ExpenseTracker.MobileApp.Pages.Modules.UserPreferences;
 using MediatR;
 
 namespace ExpenseTracker.MobileApp.Pages

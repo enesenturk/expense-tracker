@@ -8,6 +8,7 @@ using ExpenseTracker.MobileApp.Base.Models;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules.Categories.Models.Response;
+using ExpenseTracker.MobileApp.Pages.Modules.Home;
 using MediatR;
 using System.Collections.ObjectModel;
 

@@ -277,4 +277,34 @@
   <data name="ABOUT" xml:space="preserve">
     <value>ABOUT</value>
   </data>
+  <data name="All_safe_and_closed_system" xml:space="preserve">
+    <value>🔒 Fully Secure and Closed System</value>
+  </data>
+  <data name="All_data_stored_locally" xml:space="preserve">
+    <value>This application is designed as a closed system. All your data is stored only on your device. It is never sent to the internet, shared with third parties, or transferred to any server.</value>
+  </data>
+  <data name="Your_data_is_yours" xml:space="preserve">
+    <value>📱 Your Data Belongs Only to You</value>
+  </data>
+  <data name="Your_expenses_categories_reports_local" xml:space="preserve">
+    <value>Your expenses, categories, and reports are stored entirely locally. The application does not use your personal data anywhere else.</value>
+  </data>
+  <data name="Customizable_experience" xml:space="preserve">
+    <value>⚙️ Customizable Experience</value>
+  </data>
+  <data name="Personalize_dates_categories_reports" xml:space="preserve">
+    <value>The application allows you to personalize many settings such as date filters, week start options, category structures, and reporting preferences according to your needs.</value>
+  </data>
+  <data name="Clear_and_simple_reporting" xml:space="preserve">
+    <value>📊 Clear and Easy-to-Understand Reporting</value>
+  </data>
+  <data name="Analyze_expenses_with_charts" xml:space="preserve">
+    <value>You can easily analyze your expenses with charts and summaries based on category, subcategory, and necessity status.</value>
+  </data>
+  <data name="Simple_and_fast" xml:space="preserve">
+    <value>🚀 Simple and Fast</value>
+  </data>
+  <data name="Clean_and_distraction_free_design" xml:space="preserve">
+    <value>The application features a clean design with no unnecessary complexity or distracting elements.</value>
+  </data>
 </root>

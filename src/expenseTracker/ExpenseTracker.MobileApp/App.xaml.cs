@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ExpenseTracker.Domain.Resources.Helpers;
 using ExpenseTracker.MobileApp.Pages;
-using ExpenseTracker.MobileApp.Pages.Modules;
+using ExpenseTracker.MobileApp.Pages.Modules.Home;
 using MediatR;
 using System.Globalization;
 

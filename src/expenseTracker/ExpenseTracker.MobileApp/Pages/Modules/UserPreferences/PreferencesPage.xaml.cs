@@ -5,10 +5,11 @@ using ExpenseTracker.Domain.Resources.Helpers;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
+using ExpenseTracker.MobileApp.Pages.Modules.Home;
 using MediatR;
 using System.Globalization;
 
-namespace ExpenseTracker.MobileApp.Pages.Modules.Preferences
+namespace ExpenseTracker.MobileApp.Pages.Modules.UserPreferences
 {
 	public partial class PreferencesPage : BaseContentPage
 	{
