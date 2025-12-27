@@ -4,7 +4,7 @@ using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
 using MediatR;
 
-namespace ExpenseTracker.MobileApp.Pages.Modules
+namespace ExpenseTracker.MobileApp.Pages.Modules.About
 {
 	public partial class AboutPage : BaseContentPage
 	{

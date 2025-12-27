@@ -6,7 +6,7 @@ using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
 using MediatR;
 
-namespace ExpenseTracker.MobileApp.Pages.Modules
+namespace ExpenseTracker.MobileApp.Pages.Modules.Home
 {
 	public partial class HomePage : BaseContentPage
 	{

@@ -8,7 +8,7 @@ using ExpenseTracker.MobileApp.Constants;
 using MediatR;
 using System.Globalization;
 
-namespace ExpenseTracker.MobileApp.Pages.Modules
+namespace ExpenseTracker.MobileApp.Pages.Modules.Preferences
 {
 	public partial class PreferencesPage : BaseContentPage
 	{

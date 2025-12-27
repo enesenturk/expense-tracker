@@ -1,7 +1,7 @@
 ﻿<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
-             x:Class="ExpenseTracker.MobileApp.Pages.Modules.HomePage">
+             x:Class="ExpenseTracker.MobileApp.Pages.Modules.Home.HomePage">
 
     <!-- Grid TÜM EKRANI KAPLAR -->
     <Grid x:Name="gridMain" VerticalOptions="Fill" HorizontalOptions="Fill">

@@ -3,9 +3,11 @@ using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
 using ExpenseTracker.MobileApp.Helpers;
-using ExpenseTracker.MobileApp.Pages.Modules;
+using ExpenseTracker.MobileApp.Pages.Modules.About;
 using ExpenseTracker.MobileApp.Pages.Modules.Categories;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
+using ExpenseTracker.MobileApp.Pages.Modules.Home;
+using ExpenseTracker.MobileApp.Pages.Modules.Preferences;
 using ExpenseTracker.MobileApp.Pages.Modules.Reports;
 using MediatR;
 
