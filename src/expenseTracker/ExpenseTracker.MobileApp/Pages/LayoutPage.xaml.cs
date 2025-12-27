@@ -32,11 +32,11 @@ namespace ExpenseTracker.MobileApp.Pages
 			AnimationHelper.StartFadeBlinkAsync(lblProductHeader);
 		}
 
-		public void SetPage(BaseContentPage page)
+		public async void SetPage(BaseContentPage page)
 		{
 			RenderBody.Content = page.Content;
 
-			page.LoadDataAsync();
+			await page.LoadDataAsync();
 		}
 
 		#region Navigations

@@ -49,19 +49,19 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 		#region Read
 
-		public override void LoadDataAsync()
+		public override async Task LoadDataAsync()
 		{
 			base.OnAppearing();
 
-			Search();
+			await Search();
 		}
 
-		private void OnSearchClicked(object sender, EventArgs e)
+		private async void OnSearchClicked(object sender, EventArgs e)
 		{
-			Search();
+			await Search();
 		}
 
-		private async void Search()
+		private async Task Search()
 		{
 			GetList_Expense_QueryDto query = new GetList_Expense_QueryDto
 			{

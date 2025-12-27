@@ -19,14 +19,24 @@ namespace ExpenseTracker.MobileApp
 			_mediator = mediator;
 			_mapper = mapper;
 
-			string cultureCode = Preferences.Get(LocalizationHelper.Culture, LocalizationHelper.TurkishCulture);
-			CultureInfo culture = new CultureInfo(cultureCode);
-			CultureInfo.DefaultThreadCurrentCulture = culture;
-			CultureInfo.DefaultThreadCurrentUICulture = culture;
+			SetDefaultLocalization();
 
 			var layout = new LayoutPage(_mediator, _mapper);
 			MainPage = layout;
 			layout.SetPage(new HomePage(_mediator, _mapper));
+		}
+
+		private void SetDefaultLocalization()
+		{
+			Preferences.Set(LocalizationHelper.Currency, LocalizationHelper.TurkishLira);
+			Preferences.Set(LocalizationHelper.FirstDayOfWeek, LocalizationHelper.DefaultFirstDayOfWeek);
+
+			string cultureCode = Preferences.Get(LocalizationHelper.Culture, LocalizationHelper.TurkishCulture);
+			Preferences.Set(LocalizationHelper.Culture, cultureCode);
+
+			CultureInfo culture = new CultureInfo(cultureCode);
+			CultureInfo.DefaultThreadCurrentCulture = culture;
+			CultureInfo.DefaultThreadCurrentUICulture = culture;
 		}
 
 	}

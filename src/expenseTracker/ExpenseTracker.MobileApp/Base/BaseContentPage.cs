@@ -51,7 +51,7 @@ namespace ExpenseTracker.MobileApp.Base
 			}
 		}
 
-		public virtual async void LoadDataAsync()
+		public virtual async Task LoadDataAsync()
 		{
 			await Task.CompletedTask;
 		}

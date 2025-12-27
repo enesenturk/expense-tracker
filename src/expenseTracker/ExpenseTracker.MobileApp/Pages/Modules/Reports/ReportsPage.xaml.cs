@@ -52,7 +52,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 
 		#region Read
 
-		public override async void LoadDataAsync()
+		public override async Task LoadDataAsync()
 		{
 			base.OnAppearing();
 
