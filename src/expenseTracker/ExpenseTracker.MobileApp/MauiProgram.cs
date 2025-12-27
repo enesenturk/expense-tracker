@@ -26,11 +26,11 @@ namespace ExpenseTracker.MobileApp
 			{
 				string destPath = Path.Combine(appDataDirectory, file);
 
-				//File.Delete(destPath);
+				// File.Delete(destPath);
 
 				if (!File.Exists(destPath))
 				{
-					using (var stream = FileSystem.OpenAppPackageFileAsync($"SeedData/{file}").Result)
+					using (var stream = FileSystem.OpenAppPackageFileAsync(file).GetAwaiter().GetResult())
 					{
 						using (var reader = new StreamReader(stream))
 						{

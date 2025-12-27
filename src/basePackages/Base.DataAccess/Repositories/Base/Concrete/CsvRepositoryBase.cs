@@ -198,9 +198,6 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 			if (targetType == typeof(bool))
 				return bool.Parse(value);
 
-			if (targetType.IsEnum)
-				return Enum.Parse(targetType, value);
-
 			return Convert.ChangeType(value, targetType, _culture);
 		}
 
