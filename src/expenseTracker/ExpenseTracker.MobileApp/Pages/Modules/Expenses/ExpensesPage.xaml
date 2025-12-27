@@ -14,11 +14,11 @@
             <Button x:Name="btnSearch" Grid.Column="2" Clicked="OnSearchClicked" />
         </Grid>
 
-        <Grid Grid.Row="2" ColumnDefinitions="6*,6*,4*,4*,1*" Padding="10" VerticalOptions="Center" ColumnSpacing="5" BackgroundColor="White">
-            <Label Grid.Column="0" x:Name="hdrDate" FontSize="14" FontAttributes="Bold" />
-            <Label Grid.Column="1" x:Name="hdrSubCategory" FontSize="14" FontAttributes="Bold" />
-            <Label Grid.Column="2" x:Name="hdrAmount" FontSize="14" FontAttributes="Bold" HorizontalOptions="End" />
-            <Label Grid.Column="3" x:Name="hdrIsNecessary" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Grid Grid.Row="2" ColumnDefinitions="6*,6*,4*,4*,1*" Padding="2" VerticalOptions="Center" ColumnSpacing="5" BackgroundColor="White">
+            <Label Grid.Column="0" x:Name="hdrDate" FontSize="12" FontAttributes="Bold" />
+            <Label Grid.Column="1" x:Name="hdrSubCategory" FontSize="12" FontAttributes="Bold" />
+            <Label Grid.Column="2" x:Name="hdrAmount" FontSize="12" FontAttributes="Bold" HorizontalOptions="End" />
+            <Label Grid.Column="3" x:Name="hdrIsNecessary" FontSize="12" FontAttributes="Bold" HorizontalOptions="Center" />
             <Label Grid.Column="4" />
         </Grid>
 
@@ -29,7 +29,7 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="6*,6*,4*,4*,1*" Padding="5" VerticalOptions="Center" ColumnSpacing="5" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding RowColor}">
+                    <Grid ColumnDefinitions="6*,6*,4*,4*,1*" Padding="2" VerticalOptions="Center" ColumnSpacing="5" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding RowColor}">
                         <Label Grid.Column="0" Text="{Binding Date_formatted}" FontSize="14" TextColor="White" />
                         <Label Grid.Column="1" Text="{Binding SubCategoryName}" FontSize="14" TextColor="White" />
                         <Label Grid.Column="2" Text="{Binding Amount_formatted}" FontSize="14" TextColor="White" HorizontalOptions="End" />

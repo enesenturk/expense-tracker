@@ -28,9 +28,9 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" ImageSource="navbar_home.png" Clicked="OnHomeClicked" BackgroundColor="Transparent"/>
-            <Button Grid.Column="1" ImageSource="navbar_expenses.png" Clicked="OnExpensesClicked" BackgroundColor="Transparent"/>
-            <Button Grid.Column="2" ImageSource="navbar_categories.png" Clicked="OnCategoriesClicked" BackgroundColor="Transparent"/>
-            <Button Grid.Column="3" ImageSource="navbar_reports.png" Clicked="OnReportsClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="1" ImageSource="navbar_reports.png" Clicked="OnReportsClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="2" ImageSource="navbar_expenses.png" Clicked="OnExpensesClicked" BackgroundColor="Transparent"/>
+            <Button Grid.Column="3" ImageSource="navbar_categories.png" Clicked="OnCategoriesClicked" BackgroundColor="Transparent"/>
             <Button Grid.Column="4" ImageSource="navbar_settings.png" Clicked="OnPreferencesClicked" BackgroundColor="Transparent"/>
             <Button Grid.Column="5" ImageSource="navbar_about.png" Clicked="OnAboutClicked" BackgroundColor="Transparent"/>
         </Grid>
