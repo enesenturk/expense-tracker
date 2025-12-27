@@ -310,4 +310,7 @@
   <data name="MONTHLY_EXPENSES" xml:space="preserve">
     <value>MONTHLY EXPENSES</value>
   </data>
+  <data name="MONTH_START_DAY" xml:space="preserve">
+    <value>MONTH START DAY</value>
+  </data>
 </root>

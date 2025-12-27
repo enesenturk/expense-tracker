@@ -179,14 +179,48 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 			{
 				case DateFilterTypeModel.ThisYear:
 					{
-						dpStartDate.Date = new DateTime(today.Year, 1, 1);
-						dpEndDate.Date = new DateTime(today.Year, 12, 31);
+						int monthStartDay = PreferencesHelper.GetMonthStartDay();
+
+						int safeDayThisMonth = Math.Min(monthStartDay, DateTime.DaysInMonth(today.Year, today.Month));
+
+						DateTime thisMonthStart = new DateTime(today.Year, today.Month, safeDayThisMonth);
+
+						DateTime startDate = today < thisMonthStart ?
+							thisMonthStart.AddYears(-1) :
+							thisMonthStart;
+
+						DateTime endDate = startDate.AddYears(1).AddDays(-1);
+
+						dpStartDate.Date = startDate;
+						dpEndDate.Date = endDate;
+
 						break;
 					}
 				case DateFilterTypeModel.ThisMonth:
 					{
-						dpStartDate.Date = new DateTime(today.Year, today.Month, 1);
-						dpEndDate.Date = dpStartDate.Date.AddMonths(1).AddDays(-1);
+						int monthStartDay = PreferencesHelper.GetMonthStartDay();
+
+						int safeStartDay = Math.Min(monthStartDay, DateTime.DaysInMonth(today.Year, today.Month));
+
+						DateTime startDate = new DateTime(today.Year, today.Month, safeStartDay);
+
+						if (startDate > today)
+						{
+							var prevMonth = today.AddMonths(-1);
+
+							safeStartDay = Math.Min(
+								monthStartDay,
+								DateTime.DaysInMonth(prevMonth.Year, prevMonth.Month)
+							);
+
+							startDate = new DateTime(prevMonth.Year, prevMonth.Month, safeStartDay);
+						}
+
+						DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+
+						dpStartDate.Date = startDate;
+						dpEndDate.Date = endDate;
+
 						break;
 					}
 				default:
@@ -200,6 +234,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 
 						dpStartDate.Date = today.AddDays(-diff);
 						dpEndDate.Date = dpStartDate.Date.AddDays(6);
+
 						break;
 					}
 			}

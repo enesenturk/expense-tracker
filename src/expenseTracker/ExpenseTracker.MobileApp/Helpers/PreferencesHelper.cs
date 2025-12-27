@@ -77,7 +77,7 @@ namespace ExpenseTracker.MobileApp.Helpers
 
 		internal static int GetMonthStartDay()
 		{
-			return Preferences.Get(LocalizationHelper.MonthStartDay, 1);
+			return Preferences.Get(LocalizationHelper.MonthStartDay, LocalizationHelper.DefaultMonthStartDay);
 		}
 
 		internal static void SetMonthStartDay(int startDay)

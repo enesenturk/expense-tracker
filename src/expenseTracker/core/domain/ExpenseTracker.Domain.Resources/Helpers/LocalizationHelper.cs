@@ -33,7 +33,9 @@
 
 		public static string FirstDayOfWeek => "FirstDayOfWeek";
 		public static int DefaultFirstDayOfWeek => (int)DayOfWeek.Monday;
+
 		public static string MonthStartDay => "MonthStartDay";
+		public static int DefaultMonthStartDay => 1;
 
 	}
 }

@@ -10,17 +10,22 @@
 
         <VerticalStackLayout Grid.Row="1">
 
-            <VerticalStackLayout Margin="0,0,0,40">
+            <VerticalStackLayout Margin="0,0,0,20">
                 <Label x:Name="lblCurrency" FontAttributes="Bold" Margin="0,0,0,4"/>
                 <Picker x:Name="pickerCurrency"/>
             </VerticalStackLayout>
 
-            <VerticalStackLayout Margin="0,0,0,40">
+            <VerticalStackLayout Margin="0,0,0,20">
                 <Label x:Name="lblLanguage" FontAttributes="Bold" Margin="0,0,0,4"/>
                 <Picker x:Name="pickerLanguage"/>
             </VerticalStackLayout>
 
-            <VerticalStackLayout Margin="0,0,0,40">
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label x:Name="lblMonthStartDay" FontAttributes="Bold" Margin="0,0,0,4"/>
+                <Picker x:Name="pickerMonthStartDay"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,0,0,20">
                 <Label x:Name="lblFirstDayOfWeek" FontAttributes="Bold" Margin="0,0,0,4"/>
                 <Picker x:Name="pickerFirstDayOfWeek" ItemDisplayBinding="{Binding Value}"/>
             </VerticalStackLayout>

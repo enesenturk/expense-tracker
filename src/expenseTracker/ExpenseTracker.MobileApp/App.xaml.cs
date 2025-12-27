@@ -31,7 +31,7 @@ namespace ExpenseTracker.MobileApp
 		{
 			PreferencesHelper.SetCurrency(LocalizationHelper.TurkishLira);
 			PreferencesHelper.SetFirstDayOfWeek(LocalizationHelper.DefaultFirstDayOfWeek);
-			PreferencesHelper.SetMonthStartDay(1);
+			PreferencesHelper.SetMonthStartDay(LocalizationHelper.DefaultMonthStartDay);
 
 			string cultureCode = PreferencesHelper.GetCultureCode();
 
