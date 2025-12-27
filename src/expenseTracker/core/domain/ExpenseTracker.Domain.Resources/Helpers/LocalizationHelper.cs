@@ -23,16 +23,17 @@
 
 		public static string Culture => "Culture";
 		public static string English => "English";
-		public static string EnglishCulture => "en-US";
+		public static string EnglishCode => "en-US";
 		public static string Turkish => "Türkçe";
-		public static string TurkishCulture => "tr-TR";
+		public static string TurkishCode => "tr-TR";
 
 		public static string Currency => "Currency";
-		public static string TurkishLira => "TRY (₺)";
-		public static string USD => "USD ($)";
+		public static string TurkishLira => "₺";
+		public static string USD => "$";
 
 		public static string FirstDayOfWeek => "FirstDayOfWeek";
 		public static int DefaultFirstDayOfWeek => (int)DayOfWeek.Monday;
+		public static string MonthStartDay => "MonthStartDay";
 
 	}
 }

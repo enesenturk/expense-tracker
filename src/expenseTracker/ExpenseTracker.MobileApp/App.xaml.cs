@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExpenseTracker.Domain.Resources.Helpers;
+using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages;
 using ExpenseTracker.MobileApp.Pages.Modules.Home;
 using MediatR;
@@ -28,11 +29,11 @@ namespace ExpenseTracker.MobileApp
 
 		private void SetDefaultLocalization()
 		{
-			Preferences.Set(LocalizationHelper.Currency, LocalizationHelper.TurkishLira);
-			Preferences.Set(LocalizationHelper.FirstDayOfWeek, LocalizationHelper.DefaultFirstDayOfWeek);
+			PreferencesHelper.SetCurrency(LocalizationHelper.TurkishLira);
+			PreferencesHelper.SetFirstDayOfWeek(LocalizationHelper.DefaultFirstDayOfWeek);
+			PreferencesHelper.SetMonthStartDay(1);
 
-			string cultureCode = Preferences.Get(LocalizationHelper.Culture, LocalizationHelper.TurkishCulture);
-			Preferences.Set(LocalizationHelper.Culture, cultureCode);
+			string cultureCode = PreferencesHelper.GetCultureCode();
 
 			CultureInfo culture = new CultureInfo(cultureCode);
 			CultureInfo.DefaultThreadCurrentCulture = culture;

@@ -82,7 +82,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 					CategoryId = category.Id,
 					SubCategoryId = subCategory.Id,
 					Amount = amount,
-					IsNecessary = isNecessary
+					IsNecessary = isNecessary,
+					MonthStartDay = PreferencesHelper.GetMonthStartDay()
 				};
 
 				BaseResponseModel<Unit> response = await ProxyCallerAsync<Create_Expense_CommandDto, Unit>(command);
@@ -108,7 +109,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 			GetList_Category_QueryDto query = new GetList_Category_QueryDto
 			{
-				Culture = PreferencesHelper.GetCulture()
+				Culture = PreferencesHelper.GetCultureCode()
 			};
 
 			BaseResponseModel<GetList_Category_ResponseDto> response = await ProxyCallerAsync<GetList_Category_QueryDto, GetList_Category_ResponseDto>(query);

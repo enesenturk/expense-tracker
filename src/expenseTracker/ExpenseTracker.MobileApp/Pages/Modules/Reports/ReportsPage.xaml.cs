@@ -58,7 +58,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 
 			GetList_Category_QueryDto query = new GetList_Category_QueryDto
 			{
-				Culture = PreferencesHelper.GetCulture()
+				Culture = PreferencesHelper.GetCultureCode()
 			};
 
 			BaseResponseModel<GetList_Category_ResponseDto> response = await ProxyCallerAsync<GetList_Category_QueryDto, GetList_Category_ResponseDto>(query);
@@ -120,7 +120,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 					.Select((g, index) => new ChartEntry((float)g.Sum(x => x.Amount))
 					{
 						Label = g.Key,
-						ValueLabel = g.Sum(x => x.Amount).ToString(),
+						ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {PreferencesHelper.GetCurrency()}",
 						Color = SKColor.Parse(ColorConstants.GetColorByIndex(index))
 					})
 					.ToList()
@@ -134,7 +134,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 						.Select((g, index) => new ChartEntry((float)g.Sum(x => x.Amount))
 						{
 							Label = g.Key ? uiMessage.NECESSARY : uiMessage.UNNECESSARY,
-							ValueLabel = g.Sum(x => x.Amount).ToString(),
+							ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {PreferencesHelper.GetCurrency()}",
 							Color = SKColor.Parse(ColorConstants.GetColorByIndex(index))
 						})
 						.ToList()
@@ -146,7 +146,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 						.Select((g, index) => new ChartEntry((float)g.Sum(x => x.Amount))
 						{
 							Label = g.Key,
-							ValueLabel = g.Sum(x => x.Amount).ToString(),
+							ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {PreferencesHelper.GetCurrency()}",
 							Color = SKColor.Parse(ColorConstants.GetColorByIndex(index))
 						})
 						.ToList();

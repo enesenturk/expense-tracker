@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.Application.UseCases;
+﻿using Base.Caching;
+using ExpenseTracker.Application.UseCases;
 using ExpenseTracker.Infrastructure.Repositories;
 using Microcharts.Maui;
 
@@ -42,6 +43,7 @@ namespace ExpenseTracker.MobileApp
 					}
 				}
 
+				builder.Services.AddCacheServices();
 				builder.Services.AddMobileAppServices();
 				builder.Services.AddUseCaseCommonServices();
 				builder.Services.AddRepositoryServices(appDataDirectory);

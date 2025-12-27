@@ -110,6 +110,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\basePackages\Base.Caching\Base.Caching.csproj" />
     <ProjectReference Include="..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.UseCases\ExpenseTracker.Application.UseCases.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.Utilities\ExpenseTracker.Application.Utilities.csproj" />
@@ -119,13 +120,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Pages\Modules\HomePage.xaml.cs">
+    <Compile Update="Pages\Modules\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <MauiXaml Update="Pages\Modules\AboutPage.xaml">
+    <MauiXaml Update="Pages\Modules\About\AboutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\Modules\Categories\CategoryPage.xaml">
@@ -140,7 +141,7 @@
     <MauiXaml Update="Pages\LayoutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Pages\Modules\PreferencesPage.xaml">
+    <MauiXaml Update="Pages\Modules\UserPreferences\PreferencesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\Modules\Reports\ReportsPage.xaml">

@@ -307,4 +307,7 @@
   <data name="Clean_and_distraction_free_design" xml:space="preserve">
     <value>Uygulama sade bir tasarıma sahiptir. Gereksiz karmaşıklık veya dikkat dağıtıcı unsurlar içermez.</value>
   </data>
+  <data name="MONTHLY_EXPENSES" xml:space="preserve">
+    <value>AYLIK HARCAMA</value>
+  </data>
 </root>

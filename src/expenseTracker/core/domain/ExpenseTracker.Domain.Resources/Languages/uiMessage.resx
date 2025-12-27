@@ -307,4 +307,7 @@
   <data name="Clean_and_distraction_free_design" xml:space="preserve">
     <value>The application features a clean design with no unnecessary complexity or distracting elements.</value>
   </data>
+  <data name="MONTHLY_EXPENSES" xml:space="preserve">
+    <value>MONTHLY EXPENSES</value>
+  </data>
 </root>

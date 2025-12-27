@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\basePackages\Base.Caching\Base.Caching.csproj" />
     <ProjectReference Include="..\..\..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
     <ProjectReference Include="..\..\..\..\basePackages\Base.Dto\Base.Dto.csproj" />
     <ProjectReference Include="..\..\..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />

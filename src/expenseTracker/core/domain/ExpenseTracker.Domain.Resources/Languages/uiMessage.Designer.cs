@@ -340,6 +340,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MONTHLY EXPENSES.
+        /// </summary>
+        public static string MONTHLY_EXPENSES {
+            get {
+                return ResourceManager.GetString("MONTHLY_EXPENSES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NAME.
         /// </summary>
         public static string NAME {

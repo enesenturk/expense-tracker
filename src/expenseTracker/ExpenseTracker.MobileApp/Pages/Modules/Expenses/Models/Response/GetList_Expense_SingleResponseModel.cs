@@ -9,6 +9,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses.Models.Response
 		public string CategoryName { get; set; }
 		public string SubCategoryName { get; set; }
 		public decimal Amount { get; set; }
+		public string Amount_formatted { get; set; }
 		public bool IsNecessary { get; set; }
 		public string Necessary { get; set; }
 	}

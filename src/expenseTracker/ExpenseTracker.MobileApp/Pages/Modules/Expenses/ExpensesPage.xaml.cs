@@ -5,6 +5,7 @@ using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Base.Models;
 using ExpenseTracker.MobileApp.Constants;
+using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses.Models.Response;
 using MediatR;
 using System.Collections.ObjectModel;
@@ -30,7 +31,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 			hdrDate.Text = uiMessage.DATE;
 			hdrDate.TextColor = ColorConstants.Purple;
-			hdrSubCategory.Text = uiMessage.SUB_CATEGORY;
+			hdrSubCategory.Text = uiMessage.CATEGORY;
 			hdrSubCategory.TextColor = ColorConstants.Purple;
 			hdrAmount.Text = uiMessage.AMOUNT;
 			hdrAmount.TextColor = ColorConstants.Purple;
@@ -98,7 +99,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 				Delete_Expense_CommandDto command = new Delete_Expense_CommandDto
 				{
-					Id = categoryId
+					Id = categoryId,
+					MonthStartDay = PreferencesHelper.GetMonthStartDay()
 				};
 
 				BaseResponseModel<Unit> response = await ProxyCallerAsync<Delete_Expense_CommandDto, Unit>(command);
