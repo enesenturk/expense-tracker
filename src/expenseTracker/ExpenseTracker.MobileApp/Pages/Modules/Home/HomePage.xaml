@@ -3,10 +3,8 @@
              xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
              x:Class="ExpenseTracker.MobileApp.Pages.Modules.Home.HomePage">
 
-    <!-- Grid TÜM EKRANI KAPLAR -->
     <Grid x:Name="gridMain" VerticalOptions="Fill" HorizontalOptions="Fill">
 
-        <!-- Ortadaki daire -->
         <Frame x:Name="btnFrame"
                WidthRequest="300"
                HeightRequest="300"
