@@ -23,6 +23,12 @@ namespace ExpenseTracker.MobileApp.Pages
 
 			lblProductHeader.Text = uiMessage.EXPENSE_TRACKER;
 
+			//lblAppDate.Text = ConfigConstants.Date;
+			lblAppPublisher.Text = ConfigConstants.Publisher;
+			lblAppVersion.Text = ConfigConstants.Version;
+
+			grdFooter.BackgroundColor = ColorConstants.Purple;
+
 			gridLayout.BackgroundColor = ColorConstants.Purple;
 			gridNavbar.BackgroundColor = ColorConstants.SoftPurple;
 		}

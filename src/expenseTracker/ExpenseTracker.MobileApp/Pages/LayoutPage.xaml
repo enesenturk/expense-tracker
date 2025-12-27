@@ -2,10 +2,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
-    x:Class="ExpenseTracker.MobileApp.Pages.LayoutPage"
-    BackgroundColor="White">
+    x:Class="ExpenseTracker.MobileApp.Pages.LayoutPage">
 
-    <Grid RowDefinitions="Auto,50,*">
+    <Grid RowDefinitions="Auto,50,*,50">
 
         <!-- Header / App Title -->
         <Grid x:Name="gridLayout" Grid.Row="0" HeightRequest="50">
@@ -38,6 +37,26 @@
 
         <!-- Render Body -->
         <ContentView Grid.Row="2" x:Name="RenderBody"/>
+
+        <!-- Footer -->
+        <Grid x:Name="grdFooter" Grid.Row="3" HeightRequest="50" Padding="10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left -->
+            <Label Grid.Column="0" x:Name="lblAppVersion" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16" TextColor="White" />
+
+            <!-- Center -->
+            <Label Grid.Column="1" x:Name="lblAppDate" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" TextColor="White" />
+
+            <!-- Right -->
+            <Label Grid.Column="2" x:Name="lblAppPublisher" VerticalOptions="Center" HorizontalOptions="End" FontSize="16" FontAttributes="Bold" TextColor="White" />
+
+        </Grid>
 
     </Grid>
 
