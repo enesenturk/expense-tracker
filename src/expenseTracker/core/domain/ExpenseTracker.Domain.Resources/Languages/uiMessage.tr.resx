@@ -319,4 +319,10 @@
   <data name="SETTINGS" xml:space="preserve">
     <value>AYARLAR</value>
   </data>
+  <data name="EXPORT_DATA" xml:space="preserve">
+    <value>DIŞARI AKTAR</value>
+  </data>
+  <data name="IMPORT_DATA" xml:space="preserve">
+    <value>İÇERİ AKTAR</value>
+  </data>
 </root>

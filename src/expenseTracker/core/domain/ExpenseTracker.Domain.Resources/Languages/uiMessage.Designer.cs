@@ -295,6 +295,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EXPORT.
+        /// </summary>
+        public static string EXPORT_DATA {
+            get {
+                return ResourceManager.GetString("EXPORT_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FIRST DAY of WEEK.
         /// </summary>
         public static string FIRST_DAY_OF_WEEK {
@@ -309,6 +318,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string Friday {
             get {
                 return ResourceManager.GetString("Friday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IMPORT.
+        /// </summary>
+        public static string IMPORT_DATA {
+            get {
+                return ResourceManager.GetString("IMPORT_DATA", resourceCulture);
             }
         }
         

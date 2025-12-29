@@ -34,6 +34,19 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 			lblLanguage.Text = uiMessage.LANGUAGE;
 			lblMonthStartDay.Text = uiMessage.MONTH_START_DAY;
 			lblFirstDayOfWeek.Text = uiMessage.FIRST_DAY_OF_WEEK;
+			lblBackupInfo.TextColor = ColorConstants.Purple;
+			frmSaveForm.BorderColor = ColorConstants.Purple;
+			frmSaveForm.BackgroundColor = ColorConstants.SoftGrey;
+
+			frmBackup.BackgroundColor = ColorConstants.SoftGrey;
+			frmBackup.BorderColor = ColorConstants.Purple;
+			frmBackupInfo.BackgroundColor = ColorConstants.SoftGrey;
+			frmBackupInfo.BorderColor = ColorConstants.Purple;
+			lblExportCsv.Text = uiMessage.EXPORT_DATA;
+			lblExportCsv.TextColor = ColorConstants.Purple;
+			lblImportCsv.Text = uiMessage.IMPORT_DATA;
+			lblImportCsv.TextColor = ColorConstants.Purple;
+
 			btnSave.Text = uiMessage.SAVE;
 			btnSave.BackgroundColor = ColorConstants.Purple;
 

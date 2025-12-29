@@ -1,40 +1,59 @@
-<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
              x:Class="ExpenseTracker.MobileApp.Pages.Modules.Settings.SettingsPage"
              BackgroundColor="White">
 
-    <Grid x:Name="gridMain" RowDefinitions="Auto,Auto,*" RowSpacing="10" Padding="20">
+    <Grid x:Name="gridMain" RowDefinitions="Auto,Auto,*,Auto" RowSpacing="10" Padding="20">
 
         <Label x:Name="lblSettings" Grid.Row="0" FontSize="26" HorizontalOptions="Center" Margin="0,0,0,10"/>
 
-        <VerticalStackLayout Grid.Row="1">
+        <Frame x:Name="frmSaveForm" Grid.Row="1" Padding="10" CornerRadius="12" HasShadow="False">
+            <VerticalStackLayout>
 
-            <VerticalStackLayout Margin="0,0,0,20">
-                <Label x:Name="lblCurrency" FontAttributes="Bold" Margin="0,0,0,4"/>
-                <Picker x:Name="pickerCurrency"/>
+                <VerticalStackLayout Margin="0,0,0,20">
+                    <Label x:Name="lblCurrency" FontAttributes="Bold" Margin="0,0,0,4"/>
+                    <Picker x:Name="pickerCurrency"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Margin="0,0,0,20">
+                    <Label x:Name="lblLanguage" FontAttributes="Bold" Margin="0,0,0,4"/>
+                    <Picker x:Name="pickerLanguage"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Margin="0,0,0,20">
+                    <Label x:Name="lblMonthStartDay" FontAttributes="Bold" Margin="0,0,0,4"/>
+                    <Picker x:Name="pickerMonthStartDay"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Margin="0,0,0,20">
+                    <Label x:Name="lblFirstDayOfWeek" FontAttributes="Bold" Margin="0,0,0,4"/>
+                    <Picker x:Name="pickerFirstDayOfWeek" ItemDisplayBinding="{Binding Value}"/>
+                </VerticalStackLayout>
+
+                <Button x:Name="btnSave" TextColor="White" FontAttributes="Bold" 
+                    CornerRadius="10" FontSize="20" HeightRequest="50" Clicked="OnSaveClicked"/>
+
             </VerticalStackLayout>
+        </Frame>
 
-            <VerticalStackLayout Margin="0,0,0,20">
-                <Label x:Name="lblLanguage" FontAttributes="Bold" Margin="0,0,0,4"/>
-                <Picker x:Name="pickerLanguage"/>
-            </VerticalStackLayout>
+        <BoxView Grid.Row="2" HeightRequest="1" Opacity="0"/>
 
-            <VerticalStackLayout Margin="0,0,0,20">
-                <Label x:Name="lblMonthStartDay" FontAttributes="Bold" Margin="0,0,0,4"/>
-                <Picker x:Name="pickerMonthStartDay"/>
-            </VerticalStackLayout>
+        <Frame x:Name="frmBackup" Grid.Row="3" Padding="10,15,10,10" CornerRadius="12" HasShadow="False">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Label x:Name="lblExportCsv" Grid.Column="0" FontSize="20" TextDecorations="Underline" FontAttributes="Bold"/>
 
-            <VerticalStackLayout Margin="0,0,0,20">
-                <Label x:Name="lblFirstDayOfWeek" FontAttributes="Bold" Margin="0,0,0,4"/>
-                <Picker x:Name="pickerFirstDayOfWeek" ItemDisplayBinding="{Binding Value}"/>
-            </VerticalStackLayout>
+                <Frame x:Name="frmBackupInfo" Grid.Column="1" Padding="0" WidthRequest="36" HeightRequest="36" CornerRadius="18" 
+                   HorizontalOptions="Center" HasShadow="False">
+                    <Label x:Name="lblBackupInfo" Text="?" FontSize="24" FontAttributes="Bold"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </Frame>
 
-        </VerticalStackLayout>
-
-        <Button x:Name="btnSave" Grid.Row="2" TextColor="White" FontAttributes="Bold" 
-                CornerRadius="10" FontSize="20" HeightRequest="50" Clicked="OnSaveClicked" />
+                <Label x:Name="lblImportCsv" Grid.Column="2" FontSize="20" TextDecorations="Underline" FontAttributes="Bold"/>
+            </Grid>
+        </Frame>
 
     </Grid>
+
 
 </base:BaseContentPage>

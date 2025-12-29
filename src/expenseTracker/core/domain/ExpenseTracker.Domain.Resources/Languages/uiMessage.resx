@@ -319,4 +319,10 @@
   <data name="SETTINGS" xml:space="preserve">
     <value>SETTINGS</value>
   </data>
+  <data name="EXPORT_DATA" xml:space="preserve">
+    <value>EXPORT</value>
+  </data>
+  <data name="IMPORT_DATA" xml:space="preserve">
+    <value>IMPORT</value>
+  </data>
 </root>
