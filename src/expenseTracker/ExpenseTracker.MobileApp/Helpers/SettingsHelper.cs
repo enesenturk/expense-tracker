@@ -2,7 +2,7 @@
 
 namespace ExpenseTracker.MobileApp.Helpers
 {
-	public class PreferencesHelper
+	public class SettingsHelper
 	{
 
 		#region Culture

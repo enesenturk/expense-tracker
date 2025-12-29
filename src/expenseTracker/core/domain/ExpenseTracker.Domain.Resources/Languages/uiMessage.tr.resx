@@ -311,6 +311,12 @@
     <value>AYLIK HARCAMA</value>
   </data>
   <data name="MONTH_START_DAY" xml:space="preserve">
-    <value>AYBAŞI</value>
+    <value>AY BAŞLANGICI</value>
+  </data>
+  <data name="Settings_saved" xml:space="preserve">
+    <value>Ayarlar kaydedildi.</value>
+  </data>
+  <data name="SETTINGS" xml:space="preserve">
+    <value>AYARLAR</value>
   </data>
 </root>

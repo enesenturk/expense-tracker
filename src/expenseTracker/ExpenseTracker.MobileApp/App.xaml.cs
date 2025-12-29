@@ -29,11 +29,11 @@ namespace ExpenseTracker.MobileApp
 
 		private void SetDefaultLocalization()
 		{
-			PreferencesHelper.SetCurrency(LocalizationHelper.TurkishLira);
-			PreferencesHelper.SetFirstDayOfWeek(LocalizationHelper.DefaultFirstDayOfWeek);
-			PreferencesHelper.SetMonthStartDay(LocalizationHelper.DefaultMonthStartDay);
+			SettingsHelper.SetCurrency(LocalizationHelper.TurkishLira);
+			SettingsHelper.SetFirstDayOfWeek(LocalizationHelper.DefaultFirstDayOfWeek);
+			SettingsHelper.SetMonthStartDay(LocalizationHelper.DefaultMonthStartDay);
 
-			string cultureCode = PreferencesHelper.GetCultureCode();
+			string cultureCode = SettingsHelper.GetCultureCode();
 
 			CultureInfo culture = new CultureInfo(cultureCode);
 			CultureInfo.DefaultThreadCurrentCulture = culture;

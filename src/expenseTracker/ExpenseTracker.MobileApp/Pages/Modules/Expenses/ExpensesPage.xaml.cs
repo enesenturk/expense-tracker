@@ -100,7 +100,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 				Delete_Expense_CommandDto command = new Delete_Expense_CommandDto
 				{
 					Id = categoryId,
-					MonthStartDay = PreferencesHelper.GetMonthStartDay()
+					MonthStartDay = SettingsHelper.GetMonthStartDay()
 				};
 
 				BaseResponseModel<Unit> response = await ProxyCallerAsync<Delete_Expense_CommandDto, Unit>(command);

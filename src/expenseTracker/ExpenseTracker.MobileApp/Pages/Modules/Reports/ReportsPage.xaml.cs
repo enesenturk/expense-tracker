@@ -58,7 +58,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 
 			GetList_Category_QueryDto query = new GetList_Category_QueryDto
 			{
-				Culture = PreferencesHelper.GetCultureCode()
+				Culture = SettingsHelper.GetCultureCode()
 			};
 
 			BaseResponseModel<GetList_Category_ResponseDto> response = await ProxyCallerAsync<GetList_Category_QueryDto, GetList_Category_ResponseDto>(query);
@@ -120,7 +120,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 					.Select((g, index) => new ChartEntry((float)g.Sum(x => x.Amount))
 					{
 						Label = g.Key,
-						ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {PreferencesHelper.GetCurrency()}",
+						ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {SettingsHelper.GetCurrency()}",
 						Color = SKColor.Parse(ColorConstants.GetColorByIndex(index))
 					})
 					.ToList()
@@ -134,7 +134,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 						.Select((g, index) => new ChartEntry((float)g.Sum(x => x.Amount))
 						{
 							Label = g.Key ? uiMessage.NECESSARY : uiMessage.UNNECESSARY,
-							ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {PreferencesHelper.GetCurrency()}",
+							ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {SettingsHelper.GetCurrency()}",
 							Color = SKColor.Parse(ColorConstants.GetColorByIndex(index))
 						})
 						.ToList()
@@ -146,7 +146,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 						.Select((g, index) => new ChartEntry((float)g.Sum(x => x.Amount))
 						{
 							Label = g.Key,
-							ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {PreferencesHelper.GetCurrency()}",
+							ValueLabel = $"{g.Sum(x => x.Amount).ToString()} {SettingsHelper.GetCurrency()}",
 							Color = SKColor.Parse(ColorConstants.GetColorByIndex(index))
 						})
 						.ToList();
@@ -179,7 +179,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 			{
 				case DateFilterTypeModel.ThisYear:
 					{
-						int monthStartDay = PreferencesHelper.GetMonthStartDay();
+						int monthStartDay = SettingsHelper.GetMonthStartDay();
 
 						int safeDayThisMonth = Math.Min(monthStartDay, DateTime.DaysInMonth(today.Year, today.Month));
 
@@ -198,7 +198,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 					}
 				case DateFilterTypeModel.ThisMonth:
 					{
-						int monthStartDay = PreferencesHelper.GetMonthStartDay();
+						int monthStartDay = SettingsHelper.GetMonthStartDay();
 
 						int safeStartDay = Math.Min(monthStartDay, DateTime.DaysInMonth(today.Year, today.Month));
 
@@ -225,7 +225,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 					}
 				default:
 					{
-						int firstDayOfWeek = PreferencesHelper.GetFirstDayOfWeek();
+						int firstDayOfWeek = SettingsHelper.GetFirstDayOfWeek();
 
 						int todayDay = today.DayOfWeek == DayOfWeek.Sunday ? 7 : (int)today.DayOfWeek;
 						int diff = todayDay - firstDayOfWeek;

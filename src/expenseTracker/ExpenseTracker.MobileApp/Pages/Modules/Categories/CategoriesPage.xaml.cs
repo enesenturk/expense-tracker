@@ -62,7 +62,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 			Create_Category_CommandDto command = new Create_Category_CommandDto
 			{
-				Culture = PreferencesHelper.GetCultureCode(),
+				Culture = SettingsHelper.GetCultureCode(),
 				Name = newCategory
 			};
 
@@ -88,7 +88,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Categories
 
 			GetList_Category_QueryDto query = new GetList_Category_QueryDto
 			{
-				Culture = PreferencesHelper.GetCultureCode(),
+				Culture = SettingsHelper.GetCultureCode(),
 			};
 
 			BaseResponseModel<GetList_Category_ResponseDto> response = await ProxyCallerAsync<GetList_Category_QueryDto, GetList_Category_ResponseDto>(query);

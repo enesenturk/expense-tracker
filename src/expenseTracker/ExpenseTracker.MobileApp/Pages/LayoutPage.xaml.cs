@@ -8,7 +8,7 @@ using ExpenseTracker.MobileApp.Pages.Modules.Categories;
 using ExpenseTracker.MobileApp.Pages.Modules.Expenses;
 using ExpenseTracker.MobileApp.Pages.Modules.Home;
 using ExpenseTracker.MobileApp.Pages.Modules.Reports;
-using ExpenseTracker.MobileApp.Pages.Modules.UserPreferences;
+using ExpenseTracker.MobileApp.Pages.Modules.Settings;
 using MediatR;
 
 namespace ExpenseTracker.MobileApp.Pages
@@ -71,7 +71,7 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnPreferencesClicked(object sender, EventArgs e)
 		{
-			SetPage(new PreferencesPage(_mediator, _mapper));
+			SetPage(new SettingsPage(_mediator, _mapper));
 		}
 
 		private void OnAboutClicked(object sender, EventArgs e)

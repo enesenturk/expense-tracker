@@ -14,7 +14,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses.Mappings
 
 			CreateMap<GetList_Expense_SingleResponseDto, GetList_Expense_SingleResponseModel>()
 				.ForMember(dest => dest.Date_formatted, opt => opt.MapFrom(src => src.Date.ToShortDateString()))
-				.ForMember(dest => dest.Amount_formatted, opt => opt.MapFrom(src => $"{src.Amount} {PreferencesHelper.GetCurrency()}"))
+				.ForMember(dest => dest.Amount_formatted, opt => opt.MapFrom(src => $"{src.Amount} {SettingsHelper.GetCurrency()}"))
 				.ForMember(dest => dest.IsNecessary, opt => opt.MapFrom(src => src.IsNecessary))
 				.ForMember(dest => dest.Necessary, opt => opt.MapFrom(src => src.IsNecessary ? "+" : "-"))
 				.ForMember(dest => dest.RowColor, opt => opt.MapFrom(src =>

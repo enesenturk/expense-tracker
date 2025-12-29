@@ -1,12 +1,12 @@
 <base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:base="clr-namespace:ExpenseTracker.MobileApp.Base"
-             x:Class="ExpenseTracker.MobileApp.Pages.Modules.UserPreferences.PreferencesPage"
+             x:Class="ExpenseTracker.MobileApp.Pages.Modules.Settings.SettingsPage"
              BackgroundColor="White">
 
     <Grid x:Name="gridMain" RowDefinitions="Auto,Auto,*" RowSpacing="10" Padding="20">
 
-        <Label x:Name="lblPreferences" Grid.Row="0" FontSize="26" HorizontalOptions="Center" Margin="0,0,0,10"/>
+        <Label x:Name="lblSettings" Grid.Row="0" FontSize="26" HorizontalOptions="Center" Margin="0,0,0,10"/>
 
         <VerticalStackLayout Grid.Row="1">
 

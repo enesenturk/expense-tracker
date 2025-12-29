@@ -313,4 +313,10 @@
   <data name="MONTH_START_DAY" xml:space="preserve">
     <value>MONTH START DAY</value>
   </data>
+  <data name="Settings_saved" xml:space="preserve">
+    <value>Settings saved.</value>
+  </data>
+  <data name="SETTINGS" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
 </root>

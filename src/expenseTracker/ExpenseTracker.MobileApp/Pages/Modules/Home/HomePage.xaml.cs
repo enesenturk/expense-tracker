@@ -54,7 +54,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Home
 
 			Get_TotalExpenseThisMonth_QueryDto query = new Get_TotalExpenseThisMonth_QueryDto
 			{
-				MonthStartDay = PreferencesHelper.GetMonthStartDay()
+				MonthStartDay = SettingsHelper.GetMonthStartDay()
 			};
 
 			BaseResponseModel<Get_TotalExpenseThisMonth_ResponseDto> response = await ProxyCallerAsync<Get_TotalExpenseThisMonth_QueryDto, Get_TotalExpenseThisMonth_ResponseDto>(query);
@@ -62,7 +62,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Home
 			if (!string.IsNullOrEmpty(response.Message))
 				return;
 
-			lblMonthlyAmount.Text = $"{response.Response.TotalAmount} {PreferencesHelper.GetCurrency()}";
+			lblMonthlyAmount.Text = $"{response.Response.TotalAmount} {SettingsHelper.GetCurrency()}";
 		}
 
 		#endregion
