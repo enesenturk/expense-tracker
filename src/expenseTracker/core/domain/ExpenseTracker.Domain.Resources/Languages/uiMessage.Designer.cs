@@ -259,6 +259,32 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data Backup &amp; Restore.
+        /// </summary>
+        public static string Data_Backup_Restore {
+            get {
+                return ResourceManager.GetString("Data_Backup_Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This application is a closed system and your data is stored only on your device.
+        ///
+        ///To protect your data in case of a phone change or factory reset, you can use the backup feature.
+        ///
+        ///▶ EXPORT
+        ///Saves all your data as a CSV file.
+        ///
+        ///▶ IMPORT
+        ///Restores data from a CSV file. You can choose to delete existing data or merge the imported data with your current data..
+        /// </summary>
+        public static string Data_Backup_Restore_Description {
+            get {
+                return ResourceManager.GetString("Data_Backup_Restore_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DATE.
         /// </summary>
         public static string DATE {

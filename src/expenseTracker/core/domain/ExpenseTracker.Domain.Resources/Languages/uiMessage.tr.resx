@@ -325,4 +325,18 @@
   <data name="IMPORT_DATA" xml:space="preserve">
     <value>İÇERİ AKTAR</value>
   </data>
+  <data name="Data_Backup_Restore" xml:space="preserve">
+    <value>Veri Yedekleme ve Kurtarma</value>
+  </data>
+  <data name="Data_Backup_Restore_Description" xml:space="preserve">
+    <value>Bu uygulama kapalı bir sistemdir ve verileriniz yalnızca cihazınızda saklanır.
+
+Telefon değişikliği veya format durumlarında verilerinizi korumak için yedekleme kullanabilirsiniz.
+
+▶ DIŞA AKTAR
+Verilerinizi CSV dosyası olarak kaydeder.
+
+▶ İÇE AKTAR
+CSV dosyasından verileri geri yükler. Mevcut verilerinizi silebilir veya mevcut verilerin üzerine ekleme yapabilirsiniz.</value>
+  </data>
 </root>

@@ -325,4 +325,18 @@
   <data name="IMPORT_DATA" xml:space="preserve">
     <value>IMPORT</value>
   </data>
+  <data name="Data_Backup_Restore" xml:space="preserve">
+    <value>Data Backup &amp; Restore</value>
+  </data>
+  <data name="Data_Backup_Restore_Description" xml:space="preserve">
+    <value>This application is a closed system and your data is stored only on your device.
+
+To protect your data in case of a phone change or factory reset, you can use the backup feature.
+
+▶ EXPORT
+Saves all your data as a CSV file.
+
+▶ IMPORT
+Restores data from a CSV file. You can choose to delete existing data or merge the imported data with your current data.</value>
+  </data>
 </root>

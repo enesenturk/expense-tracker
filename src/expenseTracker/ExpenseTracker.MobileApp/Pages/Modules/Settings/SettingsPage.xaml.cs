@@ -34,7 +34,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 			lblLanguage.Text = uiMessage.LANGUAGE;
 			lblMonthStartDay.Text = uiMessage.MONTH_START_DAY;
 			lblFirstDayOfWeek.Text = uiMessage.FIRST_DAY_OF_WEEK;
-			lblBackupInfo.TextColor = ColorConstants.Purple;
+			btnBackupInfo.TextColor = ColorConstants.Purple;
 			frmSaveForm.BorderColor = ColorConstants.Purple;
 			frmSaveForm.BackgroundColor = ColorConstants.SoftGrey;
 
@@ -71,6 +71,19 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 			pickerFirstDayOfWeek.SelectedItem = _days.First(
 				x => x.Key == SettingsHelper.GetFirstDayOfWeek().ToString()
 				);
+		}
+
+		#endregion
+
+		#region Read
+
+		private async void OnBackupInfoClicked(object sender, EventArgs e)
+		{
+			await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(
+				uiMessage.Data_Backup_Restore,
+				uiMessage.Data_Backup_Restore_Description,
+				uiMessage.OK
+			);
 		}
 
 		#endregion
