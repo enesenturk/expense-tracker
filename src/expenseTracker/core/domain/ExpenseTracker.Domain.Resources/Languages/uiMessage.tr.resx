@@ -339,4 +339,7 @@ Verilerinizi CSV dosyası olarak kaydeder.
 ▶ İÇE AKTAR
 CSV dosyasından verileri geri yükler. Mevcut verilerinizi silebilir veya mevcut verilerin üzerine ekleme yapabilirsiniz.</value>
   </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>HATA</value>
+  </data>
 </root>

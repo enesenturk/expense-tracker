@@ -294,6 +294,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ERROR.
+        /// </summary>
+        public static string ERROR {
+            get {
+                return ResourceManager.GetString("ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error occurred. Please contact to the system admin..
         /// </summary>
         public static string Error_occurred {

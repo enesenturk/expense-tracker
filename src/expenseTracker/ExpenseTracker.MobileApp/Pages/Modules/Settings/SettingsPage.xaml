@@ -42,7 +42,11 @@
         <Frame x:Name="frmBackup" Grid.Row="3" Padding="10,15,10,10" CornerRadius="12" HasShadow="False">
             <Grid ColumnDefinitions="Auto,*,Auto">
 
-                <Label x:Name="lblExportCsv" Grid.Column="0" FontSize="20" TextDecorations="Underline" FontAttributes="Bold" Margin="0,2,0,0"/>
+                <Label x:Name="lblExportCsv" Grid.Column="0" FontSize="20" TextDecorations="Underline" FontAttributes="Bold" Margin="0,2,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnExportCsvTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
 
                 <Frame x:Name="frmBackupInfo" Grid.Column="1" Padding="0" WidthRequest="36" HeightRequest="36" 
                        CornerRadius="18" HorizontalOptions="Center" HasShadow="False">
@@ -50,8 +54,12 @@
                             BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="OnBackupInfoClicked"/>
                 </Frame>
 
-                <Label x:Name="lblImportCsv" Grid.Column="2" FontSize="20" TextDecorations="Underline" FontAttributes="Bold" Margin="0,2,0,0"/>
-                
+                <Label x:Name="lblImportCsv" Grid.Column="2" FontSize="20" TextDecorations="Underline" FontAttributes="Bold" Margin="0,2,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImportCsvTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
             </Grid>
         </Frame>
 

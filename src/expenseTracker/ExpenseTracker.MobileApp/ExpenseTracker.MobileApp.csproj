@@ -15,26 +15,20 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0-android</TargetFramework>
-
     <OutputType>Exe</OutputType>
     <RootNamespace>ExpenseTracker.MobileApp</RootNamespace>
-
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
-
     <ImplicitUsings>enable</ImplicitUsings>
-
-    <!-- App Info -->
     <ApplicationTitle>Expense Tracker</ApplicationTitle>
     <ApplicationId>com.expensetracker.mobile</ApplicationId>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <ApplicationVersion>1</ApplicationVersion>
-
-    <!-- Android -->
     <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
-  <!--<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <!--
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
@@ -49,10 +43,11 @@
     <BundleAssemblies>false</BundleAssemblies>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
-    --><!--<AndroidLinkTool>r8</AndroidLinkTool>--><!--
+    <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <TargetFrameworks>net8.0-android</TargetFrameworks>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
@@ -63,14 +58,15 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
-    --><!--<AndroidLinkTool>r8</AndroidLinkTool>--><!--
+    <AndroidLinkTool>r8</AndroidLinkTool>
     <MandroidI18n />
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <TargetFrameworks>net8.0-android</TargetFrameworks>
-  </PropertyGroup>-->
+  </PropertyGroup>
+  -->
 
   <ItemGroup>
     <!-- App Icon -->
@@ -116,6 +112,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\basePackages\Base.Caching\Base.Caching.csproj" />
     <ProjectReference Include="..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.DataIO\Base.DataIO.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.UseCases\ExpenseTracker.Application.UseCases.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.Utilities\ExpenseTracker.Application.Utilities.csproj" />
     <ProjectReference Include="..\core\domain\ExpenseTracker.Domain.Enums\ExpenseTracker.Domain.Constants.csproj" />
@@ -126,6 +123,9 @@
   <ItemGroup>
     <Compile Update="Pages\Modules\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Modules\Settings\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -145,7 +145,7 @@
     <MauiXaml Update="Pages\LayoutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Pages\Modules\UserPreferences\PreferencesPage.xaml">
+    <MauiXaml Update="Pages\Modules\Settings\SettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\Modules\Reports\ReportsPage.xaml">

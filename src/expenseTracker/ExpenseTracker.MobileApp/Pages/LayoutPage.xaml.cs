@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Base.DataIO.Csv;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Constants;
@@ -16,10 +17,14 @@ namespace ExpenseTracker.MobileApp.Pages
 	public partial class LayoutPage : BaseContentPage
 	{
 
-		public LayoutPage(IMediator mediator, IMapper mapper)
+		private readonly ICsvExporter _csvExporter;
+
+		public LayoutPage(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
+
+			_csvExporter = csvExporter;
 
 			lblProductHeader.Text = uiMessage.EXPENSE_TRACKER;
 
@@ -51,7 +56,7 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnHomeClicked(object sender, EventArgs e)
 		{
-			SetPage(new HomePage(_mediator, _mapper));
+			SetPage(new HomePage(_mediator, _mapper, _csvExporter));
 		}
 
 		private void OnExpensesClicked(object sender, EventArgs e)
@@ -61,7 +66,7 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnCategoriesClicked(object sender, EventArgs e)
 		{
-			SetPage(new CategoriesPage(_mediator, _mapper));
+			SetPage(new CategoriesPage(_mediator, _mapper, _csvExporter));
 		}
 
 		private void OnReportsClicked(object sender, EventArgs e)
@@ -71,7 +76,7 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnPreferencesClicked(object sender, EventArgs e)
 		{
-			SetPage(new SettingsPage(_mediator, _mapper));
+			SetPage(new SettingsPage(_mediator, _mapper, _csvExporter));
 		}
 
 		private void OnAboutClicked(object sender, EventArgs e)

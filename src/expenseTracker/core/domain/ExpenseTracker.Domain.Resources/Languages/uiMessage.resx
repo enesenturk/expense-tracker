@@ -339,4 +339,7 @@ Saves all your data as a CSV file.
 ▶ IMPORT
 Restores data from a CSV file. You can choose to delete existing data or merge the imported data with your current data.</value>
   </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
 </root>

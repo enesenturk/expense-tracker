@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Base.DataIO.Csv;
 using ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpenseThisMonthQuery.Dtos;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
@@ -15,10 +16,14 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Home
 
 		#region CTOR
 
-		public HomePage(IMediator mediator, IMapper mapper)
+		private readonly ICsvExporter _csvExporter;
+
+		public HomePage(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
+
+			_csvExporter = csvExporter;
 
 			gridMain.BackgroundColor = ColorConstants.SoftGrey;
 
@@ -40,7 +45,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Home
 		{
 			if (Microsoft.Maui.Controls.Application.Current.MainPage is LayoutPage layout)
 			{
-				layout.SetPage(new CreateExpensePage(_mediator, _mapper));
+				layout.SetPage(new CreateExpensePage(_mediator, _mapper, _csvExporter));
 			}
 		}
 

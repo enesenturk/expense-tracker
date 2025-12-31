@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Base.DataIO.Csv;
 using ExpenseTracker.Domain.Resources.Helpers;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages;
@@ -10,21 +11,24 @@ namespace ExpenseTracker.MobileApp
 {
 	public partial class App : Microsoft.Maui.Controls.Application
 	{
+
+		private readonly ICsvExporter _csvExporter;
 		private readonly IMediator _mediator;
 		private readonly IMapper _mapper;
 
-		public App(IMediator mediator, IMapper mapper)
+		public App(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
 		{
 			InitializeComponent();
 
+			_csvExporter = csvExporter;
 			_mediator = mediator;
 			_mapper = mapper;
 
 			SetDefaultLocalization();
 
-			var layout = new LayoutPage(_mediator, _mapper);
+			var layout = new LayoutPage(_mediator, _mapper, _csvExporter);
 			MainPage = layout;
-			layout.SetPage(new HomePage(_mediator, _mapper));
+			layout.SetPage(new HomePage(_mediator, _mapper, _csvExporter));
 		}
 
 		private void SetDefaultLocalization()

@@ -1,4 +1,5 @@
 ﻿using Base.Caching;
+using Base.DataIO;
 using ExpenseTracker.Application.UseCases;
 using ExpenseTracker.Infrastructure.Repositories;
 using Microcharts.Maui;
@@ -9,51 +10,45 @@ namespace ExpenseTracker.MobileApp
 	{
 		public static MauiApp CreateMauiApp()
 		{
-			try
-			{
-				var builder = MauiApp.CreateBuilder();
-				builder
-					.UseMauiApp<App>()
-					.UseMicrocharts()
-					.ConfigureFonts(fonts =>
-					{
-						fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-						fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-					});
-
-				string appDataDirectory = FileSystem.AppDataDirectory;
-
-				string[] seedFiles = { "categories.csv", "subcategories.csv" };
-
-				foreach (var file in seedFiles)
+			var builder = MauiApp.CreateBuilder();
+			builder
+				.UseMauiApp<App>()
+				.UseMicrocharts()
+				.ConfigureFonts(fonts =>
 				{
-					string destPath = Path.Combine(appDataDirectory, file);
+					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+				});
 
-					// File.Delete(destPath);
+			string appDataDirectory = FileSystem.AppDataDirectory;
 
-					if (!File.Exists(destPath))
+			string[] seedFiles = { "categories.csv", "subcategories.csv" };
+
+			foreach (var file in seedFiles)
+			{
+				string destPath = Path.Combine(appDataDirectory, file);
+
+				// File.Delete(destPath);
+
+				if (!File.Exists(destPath))
+				{
+					using (var stream = FileSystem.OpenAppPackageFileAsync(file).GetAwaiter().GetResult())
 					{
-						using (var stream = FileSystem.OpenAppPackageFileAsync(file).GetAwaiter().GetResult())
+						using (var reader = new StreamReader(stream))
 						{
-							using (var reader = new StreamReader(stream))
-							{
-								File.WriteAllText(destPath, reader.ReadToEnd());
-							}
+							File.WriteAllText(destPath, reader.ReadToEnd());
 						}
 					}
 				}
-
-				builder.Services.AddCacheServices();
-				builder.Services.AddMobileAppServices();
-				builder.Services.AddUseCaseCommonServices();
-				builder.Services.AddRepositoryServices(appDataDirectory);
-
-				return builder.Build();
 			}
-			catch (Exception e)
-			{
-				throw;
-			}
+
+			builder.Services.AddCacheServices();
+			builder.Services.AddDataIOServices();
+			builder.Services.AddMobileAppServices();
+			builder.Services.AddUseCaseCommonServices();
+			builder.Services.AddRepositoryServices(appDataDirectory);
+
+			return builder.Build();
 		}
 
 	}

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Base.DataIO.Csv;
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCategoryQuery.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListSubCategoryQuery.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Expense.Command.CreateExpenseCommand.Dtos;
@@ -19,12 +20,16 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 		#region CTOR
 
+		private readonly ICsvExporter _csvExporter;
+
 		private ObservableCollection<GetList_Category_SingleResponseModel> _categories;
 
-		public CreateExpensePage(IMediator mediator, IMapper mapper)
+		public CreateExpensePage(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
+
+			_csvExporter = csvExporter;
 
 			gridMain.BackgroundColor = ColorConstants.SoftGrey;
 
@@ -93,9 +98,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Successfully_added, uiMessage.OK);
 
-				var layout = new LayoutPage(_mediator, _mapper);
+				var layout = new LayoutPage(_mediator, _mapper, _csvExporter);
 				Microsoft.Maui.Controls.Application.Current.MainPage = layout;
-				layout.SetPage(new HomePage(_mediator, _mapper));
+				layout.SetPage(new HomePage(_mediator, _mapper, _csvExporter));
 			}
 		}
 
