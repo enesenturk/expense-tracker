@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExpenseTracker.Application.UseCases.Modules.Expense.Command.DeleteExpenseCommand.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpenseQuery.Dtos;
+using ExpenseTracker.Application.Utilities.Helpers;
 using ExpenseTracker.Domain.Resources.Languages;
 using ExpenseTracker.MobileApp.Base;
 using ExpenseTracker.MobileApp.Base.Models;
@@ -38,10 +39,12 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 			hdrIsNecessary.Text = uiMessage.NECESSARY;
 			hdrIsNecessary.TextColor = ColorConstants.Purple;
 
-			DateTime now = DateTime.Now;
+			int monthStartDay = SettingsHelper.GetMonthStartDay();
 
-			dpStartDate.Date = now.AddDays(-1 * now.Day + 1);
-			dpEndDate.Date = now;
+			var filters = DatePeriodHelper.GetThisMonth(monthStartDay);
+
+			dpStartDate.Date = filters.FilterStart;
+			dpEndDate.Date = filters.FilterEnd;
 
 			btnSearch.Text = uiMessage.SEARCH;
 		}

@@ -181,18 +181,10 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 					{
 						int monthStartDay = SettingsHelper.GetMonthStartDay();
 
-						int safeDayThisMonth = Math.Min(monthStartDay, DateTime.DaysInMonth(today.Year, today.Month));
+						var filters = DatePeriodHelper.GetThisYear(monthStartDay);
 
-						DateTime thisMonthStart = new DateTime(today.Year, today.Month, safeDayThisMonth);
-
-						DateTime startDate = today < thisMonthStart ?
-							thisMonthStart.AddYears(-1) :
-							thisMonthStart;
-
-						DateTime endDate = startDate.AddYears(1).AddDays(-1);
-
-						dpStartDate.Date = startDate;
-						dpEndDate.Date = endDate;
+						dpStartDate.Date = filters.FilterStart;
+						dpEndDate.Date = filters.FilterEnd;
 
 						break;
 					}
@@ -200,26 +192,10 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 					{
 						int monthStartDay = SettingsHelper.GetMonthStartDay();
 
-						int safeStartDay = Math.Min(monthStartDay, DateTime.DaysInMonth(today.Year, today.Month));
+						var filters = DatePeriodHelper.GetThisMonth(monthStartDay);
 
-						DateTime startDate = new DateTime(today.Year, today.Month, safeStartDay);
-
-						if (startDate > today)
-						{
-							var prevMonth = today.AddMonths(-1);
-
-							safeStartDay = Math.Min(
-								monthStartDay,
-								DateTime.DaysInMonth(prevMonth.Year, prevMonth.Month)
-							);
-
-							startDate = new DateTime(prevMonth.Year, prevMonth.Month, safeStartDay);
-						}
-
-						DateTime endDate = startDate.AddMonths(1).AddDays(-1);
-
-						dpStartDate.Date = startDate;
-						dpEndDate.Date = endDate;
+						dpStartDate.Date = filters.FilterStart;
+						dpEndDate.Date = filters.FilterEnd;
 
 						break;
 					}
@@ -227,13 +203,10 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Reports
 					{
 						int firstDayOfWeek = SettingsHelper.GetFirstDayOfWeek();
 
-						int todayDay = today.DayOfWeek == DayOfWeek.Sunday ? 7 : (int)today.DayOfWeek;
-						int diff = todayDay - firstDayOfWeek;
-						if (diff < 0)
-							diff += 7;
+						var filters = DatePeriodHelper.GetThisWeek(firstDayOfWeek);
 
-						dpStartDate.Date = today.AddDays(-diff);
-						dpEndDate.Date = dpStartDate.Date.AddDays(6);
+						dpStartDate.Date = filters.FilterStart;
+						dpEndDate.Date = filters.FilterEnd;
 
 						break;
 					}
