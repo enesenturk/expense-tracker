@@ -11,23 +11,23 @@ namespace ExpenseTracker.MobileApp
 	public partial class App : Microsoft.Maui.Controls.Application
 	{
 
-		private readonly ICsvExporter _csvExporter;
+		private readonly ICsvIO _csvIO;
 		private readonly IMediator _mediator;
 		private readonly IMapper _mapper;
 
-		public App(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
+		public App(IMediator mediator, IMapper mapper, ICsvIO csvIO)
 		{
 			InitializeComponent();
 
-			_csvExporter = csvExporter;
+			_csvIO = csvIO;
 			_mediator = mediator;
 			_mapper = mapper;
 
 			SetThreadCulture();
 
-			var layout = new LayoutPage(_mediator, _mapper, _csvExporter);
+			var layout = new LayoutPage(_mediator, _mapper, _csvIO);
 			MainPage = layout;
-			layout.SetPage(new HomePage(_mediator, _mapper, _csvExporter));
+			layout.SetPage(new HomePage(_mediator, _mapper, _csvIO));
 		}
 
 		private void SetThreadCulture()

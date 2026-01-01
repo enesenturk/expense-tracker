@@ -20,16 +20,16 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 		#region CTOR
 
-		private readonly ICsvExporter _csvExporter;
+		private readonly ICsvIO _csvIO;
 
 		private ObservableCollection<GetList_Category_SingleResponseModel> _categories;
 
-		public CreateExpensePage(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
+		public CreateExpensePage(IMediator mediator, IMapper mapper, ICsvIO csvIO)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
-			_csvExporter = csvExporter;
+			_csvIO = csvIO;
 
 			gridMain.BackgroundColor = ColorConstants.SoftGrey;
 
@@ -98,9 +98,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Expenses
 
 				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Successfully_added, uiMessage.OK);
 
-				var layout = new LayoutPage(_mediator, _mapper, _csvExporter);
+				var layout = new LayoutPage(_mediator, _mapper, _csvIO);
 				Microsoft.Maui.Controls.Application.Current.MainPage = layout;
-				layout.SetPage(new HomePage(_mediator, _mapper, _csvExporter));
+				layout.SetPage(new HomePage(_mediator, _mapper, _csvIO));
 			}
 		}
 

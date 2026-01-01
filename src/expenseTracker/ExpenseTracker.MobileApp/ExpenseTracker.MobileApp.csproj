@@ -14,6 +14,11 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <!--
+  <PropertyGroup>
     <TargetFramework>net8.0-android</TargetFramework>
     <OutputType>Exe</OutputType>
     <RootNamespace>ExpenseTracker.MobileApp</RootNamespace>
@@ -26,8 +31,8 @@
     <ApplicationVersion>1</ApplicationVersion>
     <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
   </PropertyGroup>
+  -->
 
-  <!--
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
     <DebugType>portable</DebugType>
@@ -66,7 +71,7 @@
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <TargetFrameworks>net8.0-android</TargetFrameworks>
   </PropertyGroup>
-  -->
+
 
   <ItemGroup>
     <!-- App Icon -->
@@ -113,6 +118,8 @@
     <ProjectReference Include="..\..\basePackages\Base.Caching\Base.Caching.csproj" />
     <ProjectReference Include="..\..\basePackages\Base.DataAccess\Base.DataAccess.csproj" />
     <ProjectReference Include="..\..\basePackages\Base.DataIO\Base.DataIO.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Dto\Base.Dto.csproj" />
+    <ProjectReference Include="..\..\basePackages\Base.Exceptions\Base.Exceptions.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.UseCases\ExpenseTracker.Application.UseCases.csproj" />
     <ProjectReference Include="..\core\application\ExpenseTracker.Application.Utilities\ExpenseTracker.Application.Utilities.csproj" />
     <ProjectReference Include="..\core\domain\ExpenseTracker.Domain.Enums\ExpenseTracker.Domain.Constants.csproj" />

@@ -7,7 +7,7 @@ namespace Base.DataIO
 	{
 		public static IServiceCollection AddDataIOServices(this IServiceCollection services)
 		{
-			services.AddScoped<ICsvExporter, CsvExporter>();
+			services.AddScoped<ICsvIO, CsvIO>();
 
 			return services;
 		}

@@ -1,9 +1,8 @@
 ﻿using Base.DataAccess.Entity;
 using Base.DataAccess.Repositories.Base.Abstract;
-using System.Globalization;
+using Base.DataIO.Csv;
+using Base.PrimitiveTypeHelpers._Type.Converters;
 using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
 
 namespace Base.DataAccess.Repositories.Base.Concrete
 {
@@ -12,12 +11,15 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		#region CTOR
 
-		private readonly CultureInfo _culture = CultureInfo.InvariantCulture;
 		private readonly string _filePath;
 
-		public CsvRepositoryBase(string filePath)
+		private readonly ICsvIO _csvIO;
+
+		public CsvRepositoryBase(string filePath, ICsvIO csvIO)
 		{
 			_filePath = filePath;
+
+			_csvIO = csvIO;
 
 			if (!File.Exists(_filePath))
 				File.WriteAllText(_filePath, string.Empty);
@@ -33,12 +35,20 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 				entity.id = Guid.NewGuid();
 
 			var props = typeof(T).GetProperties();
-			var values = props.Select(p => Serialize(p.GetValue(entity)));
+			var values = props.Select(p => TypeConverters.Serialize(p.GetValue(entity)));
 			var line = Environment.NewLine + string.Join(",", values);
 
 			await File.AppendAllTextAsync(_filePath, line);
 
 			return entity;
+		}
+
+		public async Task AddRangeAsync(List<T> entities)
+		{
+			foreach (var entity in entities)
+			{
+				await AddAsync(entity);
+			}
 		}
 
 		#endregion
@@ -58,27 +68,7 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy,
 			Expression<Func<T, bool>> predicate = null)
 		{
-			List<T> list = new List<T>();
-
-			string[] lines = await File.ReadAllLinesAsync(_filePath);
-
-			foreach (string line in lines)
-			{
-				if (string.IsNullOrWhiteSpace(line))
-					continue;
-
-				string[] values = line.Split(',');
-				T entity = new T();
-				PropertyInfo[] props = typeof(T).GetProperties();
-
-				for (int i = 0; i < props.Length && i < values.Length; i++)
-				{
-					object convertedValue = Deserialize(values[i], props[i].PropertyType);
-					props[i].SetValue(entity, convertedValue);
-				}
-
-				list.Add(entity);
-			}
+			List<T> list = await _csvIO.ReadCsv<T>(_filePath);
 
 			if (predicate != null)
 				list = list.Where(predicate.Compile()).ToList();
@@ -140,65 +130,9 @@ namespace Base.DataAccess.Repositories.Base.Concrete
 
 		private async Task WriteAllAsync(List<T> list)
 		{
-			var sb = new StringBuilder();
+			string sb = _csvIO.CreateCsv(list, isAddHeader: false);
 
-			foreach (var entity in list)
-			{
-				var values = typeof(T)
-					.GetProperties()
-					.Select(p => Serialize(p.GetValue(entity)));
-
-				sb.AppendLine(string.Join(",", values));
-			}
-
-			await File.WriteAllTextAsync(_filePath, sb.ToString());
-		}
-
-		private string Serialize(object value)
-		{
-			if (value == null)
-				return "";
-
-			return value switch
-			{
-				Guid g => g.ToString(),
-				DateTime dt => dt.ToString("yyyy-MM-dd HH:mm:ss", _culture),
-				decimal d => d.ToString(_culture),
-				double d => d.ToString(_culture),
-				float f => f.ToString(_culture),
-				bool b => b.ToString(),
-				_ => value.ToString()
-			};
-		}
-
-		private object Deserialize(string value, Type targetType)
-		{
-			if (string.IsNullOrWhiteSpace(value))
-				return null;
-
-			if (targetType == typeof(Guid))
-				return Guid.Parse(value);
-
-			if (targetType == typeof(DateTime))
-				return DateTime.ParseExact(
-					value,
-					"yyyy-MM-dd HH:mm:ss",
-					_culture
-				);
-
-			if (targetType == typeof(decimal))
-				return decimal.Parse(value, _culture);
-
-			if (targetType == typeof(double))
-				return double.Parse(value, _culture);
-
-			if (targetType == typeof(float))
-				return float.Parse(value, _culture);
-
-			if (targetType == typeof(bool))
-				return bool.Parse(value);
-
-			return Convert.ChangeType(value, targetType, _culture);
+			await File.WriteAllTextAsync(_filePath, sb);
 		}
 
 		#endregion

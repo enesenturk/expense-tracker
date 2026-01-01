@@ -17,14 +17,14 @@ namespace ExpenseTracker.MobileApp.Pages
 	public partial class LayoutPage : BaseContentPage
 	{
 
-		private readonly ICsvExporter _csvExporter;
+		private readonly ICsvIO _csvIO;
 
-		public LayoutPage(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
+		public LayoutPage(IMediator mediator, IMapper mapper, ICsvIO csvIO)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
-			_csvExporter = csvExporter;
+			_csvIO = csvIO;
 
 			lblProductHeader.Text = uiMessage.EXPENSE_TRACKER;
 
@@ -56,7 +56,7 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnHomeClicked(object sender, EventArgs e)
 		{
-			SetPage(new HomePage(_mediator, _mapper, _csvExporter));
+			SetPage(new HomePage(_mediator, _mapper, _csvIO));
 		}
 
 		private void OnExpensesClicked(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnCategoriesClicked(object sender, EventArgs e)
 		{
-			SetPage(new CategoriesPage(_mediator, _mapper, _csvExporter));
+			SetPage(new CategoriesPage(_mediator, _mapper, _csvIO));
 		}
 
 		private void OnReportsClicked(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace ExpenseTracker.MobileApp.Pages
 
 		private void OnPreferencesClicked(object sender, EventArgs e)
 		{
-			SetPage(new SettingsPage(_mediator, _mapper, _csvExporter));
+			SetPage(new SettingsPage(_mediator, _mapper, _csvIO));
 		}
 
 		private void OnAboutClicked(object sender, EventArgs e)

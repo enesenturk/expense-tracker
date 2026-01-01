@@ -9,4 +9,9 @@
     <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Base.DataIO\Base.DataIO.csproj" />
+    <ProjectReference Include="..\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj" />
+  </ItemGroup>
+
 </Project>

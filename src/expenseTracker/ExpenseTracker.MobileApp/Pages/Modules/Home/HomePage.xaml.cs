@@ -16,14 +16,14 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Home
 
 		#region CTOR
 
-		private readonly ICsvExporter _csvExporter;
+		private readonly ICsvIO _csvIO;
 
-		public HomePage(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
+		public HomePage(IMediator mediator, IMapper mapper, ICsvIO csvIO)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
-			_csvExporter = csvExporter;
+			_csvIO = csvIO;
 
 			gridMain.BackgroundColor = ColorConstants.SoftGrey;
 
@@ -45,7 +45,7 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Home
 		{
 			if (Microsoft.Maui.Controls.Application.Current.MainPage is LayoutPage layout)
 			{
-				layout.SetPage(new CreateExpensePage(_mediator, _mapper, _csvExporter));
+				layout.SetPage(new CreateExpensePage(_mediator, _mapper, _csvIO));
 			}
 		}
 

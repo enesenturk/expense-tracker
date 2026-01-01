@@ -151,6 +151,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to APPEND.
+        /// </summary>
+        public static string APPEND {
+            get {
+                return ResourceManager.GetString("APPEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure?.
         /// </summary>
         public static string Are_you_sure {
@@ -232,6 +241,24 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CSV has duplicated elements..
+        /// </summary>
+        public static string Csv_contains_duplicated_elements {
+            get {
+                return ResourceManager.GetString("Csv_contains_duplicated_elements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unsupported CSV format. Please import a CSV file that was exported from this application..
+        /// </summary>
+        public static string Csv_format_is_not_supported {
+            get {
+                return ResourceManager.GetString("Csv_format_is_not_supported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CURRENCY.
         /// </summary>
         public static string CURRENCY {
@@ -290,6 +317,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string DATE {
             get {
                 return ResourceManager.GetString("DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE ALL.
+        /// </summary>
+        public static string DELETE_ALL {
+            get {
+                return ResourceManager.GetString("DELETE_ALL", resourceCulture);
             }
         }
         
@@ -749,6 +785,15 @@ namespace ExpenseTracker.Domain.Resources.Languages {
         public static string Wednesday {
             get {
                 return ResourceManager.GetString("Wednesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How should your existing data be handled?.
+        /// </summary>
+        public static string What_to_do_existing_data {
+            get {
+                return ResourceManager.GetString("What_to_do_existing_data", resourceCulture);
             }
         }
         

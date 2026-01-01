@@ -342,4 +342,19 @@ CSV dosyasından verileri geri yükler. Mevcut verilerinizi silebilir veya mevcu
   <data name="ERROR" xml:space="preserve">
     <value>HATA</value>
   </data>
+  <data name="DELETE_ALL" xml:space="preserve">
+    <value>HEPSİNİ SİL</value>
+  </data>
+  <data name="APPEND" xml:space="preserve">
+    <value>EKLEME YAP</value>
+  </data>
+  <data name="What_to_do_existing_data" xml:space="preserve">
+    <value>Mevcut verileriniz için ne yapılsın?</value>
+  </data>
+  <data name="Csv_format_is_not_supported" xml:space="preserve">
+    <value>Desteklenmeyen CSV formatı. Lütfen bu uygulamadan dışa aktarılmış bir CSV dosyası içe aktarın.</value>
+  </data>
+  <data name="Csv_contains_duplicated_elements" xml:space="preserve">
+    <value>CSV içerisinde aynı element birden fazla kez tanımlanmış.</value>
+  </data>
 </root>

@@ -9,6 +9,7 @@ namespace Base.DataAccess.Repositories.Base.Abstract
 		#region Create
 
 		Task<T> AddAsync(T entity);
+		Task AddRangeAsync(List<T> entities);
 
 		#endregion
 

@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Base.DataIO.Csv;
 using Base.Dto;
+using ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateCategoryTableCommand.Dtos;
+using ExpenseTracker.Application.UseCases.Modules.Category.Command.CreateSubCategoryTableCommand.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListCategoryTableQuery.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Category.Query.GetListSubCategoryTableQuery.Dtos;
+using ExpenseTracker.Application.UseCases.Modules.Expense.Command.CreateExpenseTableCommand.Dtos;
 using ExpenseTracker.Application.UseCases.Modules.Expense.Query.GetListExpenseTableQuery.Dtos;
 using ExpenseTracker.Application.Utilities.Helpers;
 using ExpenseTracker.Domain.Resources.Helpers;
@@ -15,6 +18,7 @@ using ExpenseTracker.MobileApp.Pages.Modules.Home;
 using ExpenseTracker.MobileApp.Pages.Modules.Settings.Models.Response;
 using MediatR;
 using System.Globalization;
+using System.Text;
 
 namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 {
@@ -26,14 +30,14 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 		private readonly List<JSonDto> _days = DropDownHelper.GetDropDownFromEnum<DayOfWeek>(addSelectOption: false);
 		private readonly List<int> _dayIndexes = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28 };
 
-		private readonly ICsvExporter _csvExporter;
+		private readonly ICsvIO _csvIO;
 
-		public SettingsPage(IMediator mediator, IMapper mapper, ICsvExporter csvExporter)
+		public SettingsPage(IMediator mediator, IMapper mapper, ICsvIO csvIO)
 			: base(mediator, mapper)
 		{
 			InitializeComponent();
 
-			_csvExporter = csvExporter;
+			_csvIO = csvIO;
 
 			gridMain.BackgroundColor = ColorConstants.SoftGrey;
 
@@ -96,6 +100,8 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 			);
 		}
 
+		#region Export
+
 		private async void OnExportCsvTapped(object sender, EventArgs e)
 		{
 			try
@@ -117,11 +123,11 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 					await File.WriteAllBytesAsync(expensesPath, expenses);
 
 					List<ShareFile> shareFiles = new List<ShareFile>
-				{
-					new ShareFile(categoriesPath),
-					new ShareFile(subCategoriesPath),
-					new ShareFile(expensesPath)
-				};
+					{
+						new ShareFile(categoriesPath),
+						new ShareFile(subCategoriesPath),
+						new ShareFile(expensesPath)
+					};
 
 					await Share.RequestAsync(new ShareMultipleFilesRequest
 					{
@@ -134,11 +140,6 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 			{
 				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.ERROR, uiMessage.Error_occurred, uiMessage.OK);
 			}
-		}
-
-		private async void OnImportCsvTapped(object sender, EventArgs e)
-		{
-
 		}
 
 		#region Behind the Scenes
@@ -157,9 +158,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 
 			List<GetList_CategoryTable_SingleResponseModel> records = _mapper.Map<List<GetList_CategoryTable_SingleResponseModel>>(response.Response.Records);
 
-			byte[] csv = _csvExporter.CreateCvs(records, isAddHeader: false);
+			string csv = _csvIO.CreateCsv(records, isAddHeader: false);
 
-			return csv;
+			return Encoding.UTF8.GetBytes(csv);
 		}
 
 		private async Task<byte[]> GetSubCategories()
@@ -173,9 +174,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 
 			List<GetList_SubCategoryTable_SingleResponseModel> records = _mapper.Map<List<GetList_SubCategoryTable_SingleResponseModel>>(response.Response.Records);
 
-			byte[] csv = _csvExporter.CreateCvs(records, isAddHeader: false);
+			string csv = _csvIO.CreateCsv(records, isAddHeader: false);
 
-			return csv;
+			return Encoding.UTF8.GetBytes(csv);
 		}
 
 		private async Task<byte[]> GetExpenses()
@@ -189,10 +190,176 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 
 			List<GetList_ExpenseTable_SingleResponseModel> records = _mapper.Map<List<GetList_ExpenseTable_SingleResponseModel>>(response.Response.Records);
 
-			byte[] csv = _csvExporter.CreateCvs(records, isAddHeader: false);
+			string csv = _csvIO.CreateCsv(records, isAddHeader: false);
 
-			return csv;
+			return Encoding.UTF8.GetBytes(csv);
 		}
+
+		#endregion
+
+		#endregion
+
+		#region Import
+
+		private async void OnImportCsvTapped(object sender, EventArgs e)
+		{
+			string action = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayActionSheet(
+				uiMessage.IMPORT_DATA,
+				uiMessage.CANCEL,
+				null,
+				uiMessage.CATEGORY,
+				uiMessage.SUB_CATEGORY,
+				uiMessage.EXPENSES
+			);
+
+			if (action == null || action == uiMessage.CANCEL)
+				return;
+
+			string importMode = await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayActionSheet(
+				uiMessage.What_to_do_existing_data,
+				uiMessage.CANCEL,
+				null,
+				uiMessage.DELETE_ALL,
+				uiMessage.APPEND
+			);
+
+			if (importMode == null || importMode == uiMessage.CANCEL)
+				return;
+
+			bool isClearExistingData = importMode == uiMessage.DELETE_ALL;
+
+			PickOptions pickOptions = new PickOptions
+			{
+				PickerTitle = uiMessage.SELECT,
+				FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+				{
+					{ DevicePlatform.Android, new[] { "text/csv" } },
+					{ DevicePlatform.iOS, new[] { "public.comma-separated-values-text" } },
+					{ DevicePlatform.WinUI, new[] { ".csv" } }
+				})
+			};
+
+			var result = await FilePicker.Default.PickAsync(pickOptions);
+
+			if (result == null)
+				return;
+
+			if (action == uiMessage.CATEGORY)
+			{
+				bool isSuccessful = await ImportCategoryCsv(result, isClearExistingData);
+
+				if (isSuccessful)
+					await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Successfully_added, uiMessage.OK);
+			}
+			else if (action == uiMessage.SUB_CATEGORY)
+			{
+				bool isSuccessful = await ImportSubCategoryCsv(result, isClearExistingData);
+
+				if (isSuccessful)
+					await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Successfully_added, uiMessage.OK);
+			}
+			else if (action == uiMessage.EXPENSES)
+			{
+				bool isSuccessful = await ImportExpenseCsv(result, isClearExistingData);
+
+				if (isSuccessful)
+					await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Successfully_added, uiMessage.OK);
+			}
+		}
+
+		#region Behind the Scenes
+
+		public async Task<bool> ImportCategoryCsv(FileResult csvFile, bool isClearExistingData)
+		{
+			if (csvFile == null)
+				return false;
+
+			try
+			{
+				List<Create_CategoryTable_SingleCommandDto> importedCategories = await _csvIO.ReadCsv<Create_CategoryTable_SingleCommandDto>(csvFile.FullPath);
+
+				Create_CategoryTable_CommandDto command = new Create_CategoryTable_CommandDto
+				{
+					IsClearExistingData = isClearExistingData,
+					Records = importedCategories
+				};
+
+				BaseResponseModel<Unit> response = await ProxyCallerAsync<Create_CategoryTable_CommandDto, Unit>(command);
+
+				if (!string.IsNullOrEmpty(response.Message))
+					return false;
+
+				return true;
+			}
+			catch
+			{
+				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.ERROR, uiMessage.Csv_format_is_not_supported, uiMessage.OK);
+
+				return false;
+			}
+		}
+
+		public async Task<bool> ImportSubCategoryCsv(FileResult csvFile, bool isClearExistingData)
+		{
+			if (csvFile == null)
+				return false;
+
+			try
+			{
+				List<Create_SubCategoryTable_SingleCommandDto> importedSubCategories = await _csvIO.ReadCsv<Create_SubCategoryTable_SingleCommandDto>(csvFile.FullPath);
+
+				Create_SubCategoryTable_CommandDto command = new Create_SubCategoryTable_CommandDto
+				{
+					IsClearExistingData = isClearExistingData,
+					Records = importedSubCategories
+				};
+
+				BaseResponseModel<Unit> response = await ProxyCallerAsync<Create_SubCategoryTable_CommandDto, Unit>(command);
+
+				if (!string.IsNullOrEmpty(response.Message))
+					return false;
+
+				return true;
+			}
+			catch
+			{
+				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.ERROR, uiMessage.Csv_format_is_not_supported, uiMessage.OK);
+
+				return false;
+			}
+		}
+
+		public async Task<bool> ImportExpenseCsv(FileResult csvFile, bool isClearExistingData)
+		{
+			if (csvFile == null)
+				return false;
+
+			try
+			{
+				List<Create_ExpenseTable_SingleCommandDto> importedSubCategories = await _csvIO.ReadCsv<Create_ExpenseTable_SingleCommandDto>(csvFile.FullPath);
+
+				Create_ExpenseTable_CommandDto command = new Create_ExpenseTable_CommandDto
+				{
+					IsClearExistingData = isClearExistingData,
+					Records = importedSubCategories
+				};
+
+				BaseResponseModel<Unit> response = await ProxyCallerAsync<Create_ExpenseTable_CommandDto, Unit>(command);
+
+				if (!string.IsNullOrEmpty(response.Message))
+					return false;
+
+				return true;
+			}
+			catch
+			{
+				await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.ERROR, uiMessage.Csv_format_is_not_supported, uiMessage.OK);
+
+				return false;
+			}
+		}
+
+		#endregion
 
 		#endregion
 
@@ -217,9 +384,9 @@ namespace ExpenseTracker.MobileApp.Pages.Modules.Settings
 
 			await Microsoft.Maui.Controls.Application.Current.MainPage.DisplayAlert(uiMessage.SUCCESSFUL, uiMessage.Settings_saved, uiMessage.OK);
 
-			var layout = new LayoutPage(_mediator, _mapper, _csvExporter);
+			var layout = new LayoutPage(_mediator, _mapper, _csvIO);
 			Microsoft.Maui.Controls.Application.Current.MainPage = layout;
-			layout.SetPage(new HomePage(_mediator, _mapper, _csvExporter));
+			layout.SetPage(new HomePage(_mediator, _mapper, _csvIO));
 		}
 
 		#endregion

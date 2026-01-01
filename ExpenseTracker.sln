@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Caching", "src\basePac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.DataIO", "src\basePackages\Base.DataIO\Base.DataIO.csproj", "{DC609842-E72C-41A9-A92B-69A4F7B0A9D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.PrimitiveTypeHelpers", "src\basePackages\Base.PrimitiveTypeHelpers\Base.PrimitiveTypeHelpers.csproj", "{B91F93C8-DE4E-4966-A5ED-45E1A30368A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,10 @@ Global
 		{DC609842-E72C-41A9-A92B-69A4F7B0A9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC609842-E72C-41A9-A92B-69A4F7B0A9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC609842-E72C-41A9-A92B-69A4F7B0A9D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91F93C8-DE4E-4966-A5ED-45E1A30368A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91F93C8-DE4E-4966-A5ED-45E1A30368A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91F93C8-DE4E-4966-A5ED-45E1A30368A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91F93C8-DE4E-4966-A5ED-45E1A30368A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,5 +154,6 @@ Global
 		{B8A16271-4532-416C-B285-9F5D7E0BD412} = {685800FF-0356-4FB4-BACE-24736F5718B4}
 		{076A734A-9D3C-4F66-AB91-151B1E0A0732} = {685800FF-0356-4FB4-BACE-24736F5718B4}
 		{DC609842-E72C-41A9-A92B-69A4F7B0A9D3} = {685800FF-0356-4FB4-BACE-24736F5718B4}
+		{B91F93C8-DE4E-4966-A5ED-45E1A30368A9} = {685800FF-0356-4FB4-BACE-24736F5718B4}
 	EndGlobalSection
 EndGlobal

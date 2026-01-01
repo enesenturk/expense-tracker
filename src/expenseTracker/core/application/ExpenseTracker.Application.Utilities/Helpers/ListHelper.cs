@@ -25,5 +25,15 @@ namespace ExpenseTracker.Application.Utilities.Helpers
 			return destinations;
 		}
 
+		public static string GetUniqueName(List<string> names, string name)
+		{
+			while (names.Contains(name))
+			{
+				name = $"{name}_1";
+			}
+
+			return name;
+		}
+
 	}
 }
