@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Base.DataIO.Csv;
-using ExpenseTracker.Domain.Resources.Helpers;
 using ExpenseTracker.MobileApp.Helpers;
 using ExpenseTracker.MobileApp.Pages;
 using ExpenseTracker.MobileApp.Pages.Modules.Home;
@@ -24,19 +23,15 @@ namespace ExpenseTracker.MobileApp
 			_mediator = mediator;
 			_mapper = mapper;
 
-			SetDefaultLocalization();
+			SetThreadCulture();
 
 			var layout = new LayoutPage(_mediator, _mapper, _csvExporter);
 			MainPage = layout;
 			layout.SetPage(new HomePage(_mediator, _mapper, _csvExporter));
 		}
 
-		private void SetDefaultLocalization()
+		private void SetThreadCulture()
 		{
-			SettingsHelper.SetCurrency(LocalizationHelper.TurkishLira);
-			SettingsHelper.SetFirstDayOfWeek(LocalizationHelper.DefaultFirstDayOfWeek);
-			SettingsHelper.SetMonthStartDay(LocalizationHelper.DefaultMonthStartDay);
-
 			string cultureCode = SettingsHelper.GetCultureCode();
 
 			CultureInfo culture = new CultureInfo(cultureCode);
